@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { List, X } from "@phosphor-icons/react";
 
 const links = [
+  { href: "/", label: "HOME" },
   { href: "/experiences", label: "EXPERIENCES" },
   { href: "/about", label: "ABOUT" },
 ];
