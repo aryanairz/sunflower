@@ -119,6 +119,7 @@ export const services: Service[] = [
     priceMain: "$200",
     priceSub: "PER SESSION  ·  45 MIN",
     image: "/Images/recovery.png",
+    detailImage: "/Images/recovery2.png",
     headline: "After the work, the repair.",
     paragraphs: [
       "Magnesium, fluids, and amino support work together to ease muscle soreness, restore hydration, and accelerate recovery after training, racing, or a long day on your feet.",
@@ -143,6 +144,7 @@ export const services: Service[] = [
     priceMain: "$200",
     priceSub: "PER SESSION  ·  45 MIN",
     image: "/Images/beauty.png",
+    detailImage: "/Images/beauty2.png",
     headline: "Beauty from within.",
     paragraphs: [
       "The Beauty Drip combines glutathione, biotin, and Vitamin C — nutrients associated with skin clarity, hair strength, and nail health.",
@@ -167,6 +169,7 @@ export const services: Service[] = [
     priceMain: "Price varies",
     priceSub: "PER SHOT  ·  15 MIN",
     image: "/Images/hydrate.png",
+    detailImage: "/Images/wellness2.png",
     headline: "A quick lift.",
     paragraphs: [
       "Wellness Shots deliver concentrated vitamins like B12 in a 15-minute visit — the shortest path to a noticeable lift.",
