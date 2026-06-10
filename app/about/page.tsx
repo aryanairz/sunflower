@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "About — SereniDrip · IV Hydration",
+  title: "About · SereniDrip · IV Hydration",
   description:
     "SereniDrip is a locally owned IV hydration studio in McAllen, Texas. Licensed, considered, and never rushed.",
 };

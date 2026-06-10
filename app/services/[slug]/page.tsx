@@ -22,9 +22,9 @@ type PageProps = {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const s = getService(slug);
-  if (!s) return { title: "Service — SereniDrip · IV Hydration" };
+  if (!s) return { title: "Service · SereniDrip · IV Hydration" };
   return {
-    title: `${s.title} — SereniDrip · IV Hydration`,
+    title: `${s.title} · SereniDrip · IV Hydration`,
     description: s.cardDesc,
   };
 }
