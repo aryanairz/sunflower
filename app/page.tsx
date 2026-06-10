@@ -193,7 +193,7 @@ export default function HomePage() {
       {/* FEATURED SERVICE */}
       <section className="bg-ink-2">
         <div className="grid grid-cols-1 md:grid-cols-2 items-stretch">
-          <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[640px]">
+          <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[420px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/Images/myers2.png"
@@ -201,7 +201,7 @@ export default function HomePage() {
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
-          <div className="flex items-center px-6 sm:px-8 md:px-20 py-16 md:py-32">
+          <div className="flex items-center px-6 sm:px-8 md:px-20 py-12 md:py-16">
             <Reveal className="max-w-[520px]">
               <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
                 Featured Service
