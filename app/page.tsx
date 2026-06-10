@@ -180,9 +180,13 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-10 md:mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 md:mt-16">
             {featuredFour.map((s, i) => (
-              <Reveal key={s.slug} delay={i * 0.05}>
+              <Reveal
+                key={s.slug}
+                delay={i * 0.05}
+                className={i >= 2 ? "hidden sm:block" : undefined}
+              >
                 <ServiceCard service={s} />
               </Reveal>
             ))}
