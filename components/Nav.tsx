@@ -9,12 +9,12 @@ import { List, X } from "@phosphor-icons/react";
 
 const links = [
   { href: "/", label: "HOME" },
-  { href: "/experiences", label: "EXPERIENCES" },
+  { href: "/services", label: "SERVICES" },
   { href: "/about", label: "ABOUT" },
 ];
 
 function isActive(pathname: string, href: string) {
-  if (href === "/experiences") return pathname.startsWith("/experiences");
+  if (href === "/services") return pathname.startsWith("/services");
   return pathname === href;
 }
 
@@ -39,10 +39,10 @@ export function Nav() {
     <header className="sticky top-0 z-40 bg-ink border-b border-gold/15">
       <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 h-[72px] md:h-[84px] relative flex items-center justify-between gap-4 md:gap-8">
         {/* LEFT */}
-        <Link href="/" aria-label="Escape Spa & Salon — home" className="block md:mt-2">
+        <Link href="/" aria-label="SereniDrip · IV Hydration — home" className="block md:mt-2">
           <Image
-            src="/Images/escape-logo.png"
-            alt="Escape Spa & Salon"
+            src="/Images/SereniLogoNew.png"
+            alt="SereniDrip · IV Hydration"
             width={360}
             height={84}
             priority
@@ -74,7 +74,7 @@ export function Nav() {
         {/* RIGHT */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="tel:9562000860"
+            href="tel:9566550055"
             className="border border-gold text-gold uppercase tracking-[0.2em] text-[11px] px-5 py-3 hover:bg-gold hover:text-ink transition-colors"
           >
             BOOK
@@ -104,10 +104,10 @@ export function Nav() {
             className="fixed inset-0 z-50 bg-ink"
           >
             <div className="h-[72px] px-4 sm:px-6 flex items-center justify-between border-b border-gold/15">
-              <Link href="/" aria-label="Escape Spa & Salon" onClick={() => setOpen(false)}>
+              <Link href="/" aria-label="SereniDrip" onClick={() => setOpen(false)}>
                 <Image
-                  src="/Images/escape-logo.png"
-                  alt="Escape Spa & Salon"
+                  src="/Images/SereniLogoNew.png"
+                  alt="SereniDrip"
                   width={280}
                   height={64}
                   className="h-[48px] sm:h-[56px] w-auto object-contain"
@@ -165,7 +165,7 @@ export function Nav() {
                 className="pt-12"
               >
                 <a
-                  href="tel:9562000860"
+                  href="tel:9566550055"
                   className="block border border-gold text-gold uppercase tracking-[0.2em] text-xs px-6 py-4 text-center hover:bg-gold hover:text-ink transition-colors"
                 >
                   BOOK

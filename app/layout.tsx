@@ -11,14 +11,14 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Escape Spa & Salon",
+  title: "SereniDrip · IV Hydration · McAllen, TX",
   description:
-    "Massage, cupping, and skincare in the Rio Grande Valley. Women-owned since 2014. Open daily 8 AM – 9 PM.",
-  metadataBase: new URL("https://escapespasalon.com"),
+    "Licensed IV hydration in McAllen, Texas. Recharge. Restore. Revive. By appointment, Monday through Saturday.",
+  metadataBase: new URL("https://serenidrip.com"),
   openGraph: {
-    title: "Escape Spa & Salon",
+    title: "SereniDrip · IV Hydration",
     description:
-      "Editorial spa & salon in Pharr, Texas. Massage, cupping, skincare, salon — every day, 8 AM to 9 PM.",
+      "Editorial IV hydration studio in McAllen, Texas. Vitamin blends, recovery drips, and wellness shots by appointment.",
     type: "website",
   },
 };

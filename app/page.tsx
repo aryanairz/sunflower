@@ -10,8 +10,8 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { HeroZoom } from "@/components/HeroZoom";
 import { Reveal } from "@/components/Reveal";
-import { ExperienceCard } from "@/components/ExperienceCard";
-import { experiences } from "@/lib/experiences";
+import { ServiceCard } from "@/components/ServiceCard";
+import { services } from "@/lib/services";
 
 type ContactItem = {
   Icon: typeof MapPin;
@@ -24,43 +24,45 @@ const contactItems: ContactItem[] = [
   {
     Icon: MapPin,
     label: "LOCATION",
-    primary: "216 E. Expressway 83, Suite H",
-    secondary: "Pharr, TX 78577",
+    primary: "1105 Tamarack Ave",
+    secondary: "McAllen, TX 78501",
   },
-  { Icon: Phone, label: "PHONE", primary: "+1 956 200 0860" },
+  { Icon: Phone, label: "PHONE", primary: "+1 956 655 0055" },
   {
     Icon: EnvelopeSimple,
     label: "EMAIL",
-    primary: "escapespasalon08@gmail.com",
+    primary: "hello@serenidrip.com",
   },
   {
     Icon: Clock,
     label: "HOURS",
-    primary: "Open daily",
-    secondary: "8 AM – 9 PM",
+    primary: "Mon – Sat",
+    secondary: "9 AM – 6 PM · By appointment",
   },
 ];
 
+/* PLACEHOLDER testimonials — replace with real client reviews before publishing. */
 const testimonials = [
   {
     quote:
-      "I had an amazing full-body massage with cupping and it was one of the best experiences I've ever had. The atmosphere was incredibly relaxing, calm, and welcoming from start to finish. I left feeling refreshed, loosened up, and completely rejuvenated.",
-    name: "MATT HOCK",
+      "Calm, clean, professional from the moment I walked in. I left feeling sharper and lighter than I have in months.",
+    name: "[CLIENT NAME]",
   },
   {
     quote:
-      "Came in for a couples massage and Nelly and Gloria took care of us. They took their time and did a great job. I was having lots of pain and now I'm feeling much better. A very wonderful massage — thank you Nelly and Gloria.",
-    name: "TOMAS HERNANDEZ",
+      "The team took the time to talk through what I needed before anything began. Easy to recommend.",
+    name: "[CLIENT NAME]",
   },
   {
     quote:
-      "This was my first visit, and I was really impressed with the professional and clean environment. The staff was courteous and answered all of my questions. My therapist gave me exactly what I needed with the sports massage. I'll definitely be coming back.",
-    name: "EDWARDO DELGADO",
+      "Quiet, beautifully kept space. I came in tired from travel and walked out genuinely restored.",
+    name: "[CLIENT NAME]",
   },
 ];
 
 export default function HomePage() {
-  const featuredFour = experiences.slice(0, 4);
+  const featuredFour = services.slice(0, 4);
+  const featuredService = services.find((s) => s.slug === "myers-cocktail") ?? services[0];
 
   return (
     <main>
@@ -70,7 +72,7 @@ export default function HomePage() {
       <section className="relative min-h-[100dvh] overflow-hidden">
         <HeroZoom
           src="/Images/Alphonso.jpg"
-          alt="Inside Escape Spa & Salon"
+          alt="Inside SereniDrip · IV Hydration studio"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/30 to-ink/80" />
@@ -78,18 +80,18 @@ export default function HomePage() {
         <div className="relative min-h-[100dvh] flex items-center">
           <div className="w-full max-w-shell mx-auto px-4 sm:px-6 md:px-12">
             <div className="max-w-[720px] mx-auto text-center">
-              <h1 className="font-display font-light text-[44px] xs:text-5xl sm:text-6xl md:text-8xl leading-[0.95] tracking-[0.01em] text-cream">
-                THE PLEASURE{" "}
-                <span className="font-display italic font-light text-[36px] xs:text-4xl sm:text-5xl md:text-7xl">
-                  of
+              <h1 className="font-display font-light text-[44px] sm:text-6xl md:text-8xl leading-[0.95] tracking-[0.01em] text-cream">
+                A NEW{" "}
+                <span className="font-display italic font-light">
+                  YOU
                 </span>{" "}
-                [ESCAPE]
+                AWAITS
               </h1>
               <p className="mt-6 md:mt-8 max-w-[520px] mx-auto text-[11px] sm:text-[13px] md:text-sm uppercase tracking-[0.2em] text-cream-muted">
-                Enjoy a deeply restorative experience
+                Recharge · Restore · Revive
               </p>
               <Link
-                href="/experiences"
+                href="/services"
                 className="mt-8 md:mt-10 inline-block bg-gold text-ink uppercase tracking-[0.2em] text-[11px] px-10 sm:px-12 py-4 hover:bg-gold-hover transition-colors"
               >
                 DISCOVER
@@ -104,7 +106,7 @@ export default function HomePage() {
         <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-28">
           <Reveal>
             <h2 className="font-display font-light italic text-[32px] sm:text-4xl md:text-5xl text-gold leading-[1.05] tracking-[0.01em]">
-              A studio for slow hours.
+              A studio for steady restoration.
             </h2>
           </Reveal>
 
@@ -113,18 +115,18 @@ export default function HomePage() {
             <Reveal delay={0.05} className="md:col-span-7">
               <div className="max-w-[60ch] space-y-5 text-cream-muted text-base md:text-lg leading-relaxed">
                 <p>
-                  Set inside a quiet studio off Expressway 83, Escape has welcomed clients from across the Rio Grande Valley for over a decade. Therapists work in candlelit rooms with warm towels, organic oils, and a deep respect for the body&rsquo;s request to slow down.
+                  SereniDrip is a McAllen IV hydration studio built around one idea — that feeling restored shouldn&rsquo;t be complicated. Our licensed team delivers vitamins, fluids, and recovery blends directly to your bloodstream, where they work immediately.
                 </p>
                 <p>
-                  Founded by women, run by women. Open every day from 8am to 9pm. Walk-ins welcome, appointments encouraged.
+                  Every visit begins with a brief medical intake and ends with you feeling clearer, lighter, and more like yourself. By appointment, Monday through Saturday.
                 </p>
               </div>
 
               <Link
-                href="/experiences"
+                href="/services"
                 className="mt-8 inline-block border border-gold text-gold uppercase tracking-[0.2em] text-[11px] px-10 py-4 hover:bg-gold hover:text-ink transition-colors"
               >
-                EXPERIENCES
+                SERVICES
               </Link>
             </Reveal>
 
@@ -158,63 +160,63 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* EXPERIENCES PREVIEW */}
+      {/* SERVICES PREVIEW */}
       <section className="bg-ink">
         <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pb-12 md:pb-20">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-end">
             <Reveal className="md:col-span-5">
               <h2 className="font-display font-light text-4xl sm:text-5xl md:text-6xl text-gold leading-[0.95] tracking-[0.01em]">
-                EXPERIENCES{" "}
-                <span className="italic font-light">at</span> ESCAPE
+                SERVICES{" "}
+                <span className="italic font-light">at</span> SERENIDRIP
               </h2>
             </Reveal>
             <Reveal delay={0.1} className="md:col-span-7 md:text-right">
               <Link
-                href="/experiences"
+                href="/services"
                 className="inline-block text-[11px] uppercase tracking-[0.25em] text-gold hover:text-gold-hover transition-colors"
               >
-                SEE ALL EXPERIENCES →
+                SEE ALL SERVICES →
               </Link>
             </Reveal>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 md:mt-16">
-            {featuredFour.map((exp, i) => (
-              <Reveal key={exp.slug} delay={i * 0.05}>
-                <ExperienceCard experience={exp} />
+            {featuredFour.map((s, i) => (
+              <Reveal key={s.slug} delay={i * 0.05}>
+                <ServiceCard service={s} />
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FEATURED RITUAL */}
+      {/* FEATURED SERVICE */}
       <section className="bg-ink-2">
         <div className="grid grid-cols-1 md:grid-cols-2 items-stretch">
           <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[640px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/Images/CUPPING1.png"
-              alt="The Cupping Ritual"
+              src="/Images/myers2.png"
+              alt="The Myers' Cocktail"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
           <div className="flex items-center px-6 sm:px-8 md:px-20 py-16 md:py-32">
             <Reveal className="max-w-[520px]">
               <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
-                New Experience
+                Featured Service
               </p>
               <h3 className="mt-4 md:mt-6 font-display font-light text-4xl sm:text-5xl md:text-6xl text-cream leading-[0.95] tracking-[0.01em]">
-                The Cupping Ritual
+                The Myers&rsquo; Cocktail
               </h3>
               <p className="mt-4 md:mt-6 text-[11px] uppercase tracking-[0.25em] text-gold">
-                FROM $80
+                FROM $100
               </p>
               <p className="mt-6 md:mt-8 max-w-[40ch] text-base md:text-lg leading-relaxed text-cream-muted">
-                Free for new clients on their first visit. Combine with a Relaxing Package to feel the full effect — heat, pressure, release, and rest.
+                A classic blend of magnesium, B-Complex, and Vitamin C — designed to support immune health, energy, and stress recovery. A 45-minute session.
               </p>
               <Link
-                href="/experiences/cupping-therapy"
+                href={`/services/${featuredService.slug}`}
                 className="mt-8 md:mt-10 inline-block bg-gold text-ink uppercase tracking-[0.2em] text-[11px] px-10 py-4 hover:bg-gold-hover transition-colors"
               >
                 DISCOVER
@@ -233,10 +235,11 @@ export default function HomePage() {
             </h2>
           </Reveal>
 
+          {/* PLACEHOLDER testimonials — replace with real client reviews before publishing. */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 mt-10 md:mt-16 items-stretch">
             {testimonials.map((t, i) => (
               <Reveal
-                key={t.name}
+                key={i}
                 delay={i * 0.08}
                 className="h-full flex flex-col"
               >

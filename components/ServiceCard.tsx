@@ -1,26 +1,24 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Plus } from "@phosphor-icons/react/dist/ssr";
-import type { Experience } from "@/lib/experiences";
+import type { Service } from "@/lib/services";
 
 type Props = {
-  experience: Experience;
+  service: Service;
 };
 
-export function ExperienceCard({ experience }: Props) {
-  const { slug, title, cardDesc, priceMain, priceSub, image } = experience;
+export function ServiceCard({ service }: Props) {
+  const { slug, title, cardDesc, priceMain, priceSub, image } = service;
   return (
     <Link
-      href={`/experiences/${slug}`}
+      href={`/services/${slug}`}
       className="group block focus:outline-none focus-visible:ring-1 focus-visible:ring-gold/40"
     >
       <div className="relative aspect-[5/4] overflow-hidden bg-ink-2">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={image}
           alt={title}
-          fill
-          sizes="(min-width: 1024px) 26vw, (min-width: 768px) 40vw, 100vw"
-          className="object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
         />
       </div>
 

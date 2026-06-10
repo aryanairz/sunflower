@@ -4,26 +4,26 @@ import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "About — Escape Spa & Salon",
+  title: "About — SereniDrip · IV Hydration",
   description:
-    "Escape is a women-owned spa & salon in Pharr, Texas. Quiet, considered, and never rushed since 2014.",
+    "SereniDrip is a locally owned IV hydration studio in McAllen, Texas. Licensed, considered, and never rushed.",
 };
 
 const values: Array<{ numeral: string; title: string; body: string }> = [
   {
     numeral: "I",
-    title: "Time, given fully.",
-    body: "Every session runs its full scheduled length. Treatments are never shortened to fit additional clients into the day.",
+    title: "Care, given fully.",
+    body: "Every visit begins with a medical intake and a conversation. We take the time to match the right drip to how you actually feel that day.",
   },
   {
     numeral: "II",
-    title: "Hands, not products.",
-    body: "Our practice is built around skilled bodywork. Product upselling and add-ons are not part of how our therapists are trained or compensated.",
+    title: "Licensed, always.",
+    body: "Every treatment is administered by licensed professionals using sterile, single-use equipment. No shortcuts on safety.",
   },
   {
     numeral: "III",
-    title: "Open every day.",
-    body: "We are open Sunday through Saturday, including holidays and evenings. Care should be available when it is needed.",
+    title: "Local, by design.",
+    body: "We're a locally owned McAllen studio. Our guests are our neighbors — and we treat them that way.",
   },
 ];
 
@@ -37,7 +37,7 @@ export default function AboutPage() {
         <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pt-12 md:pt-20 pb-10 md:pb-16">
           <Reveal>
             <h1 className="font-display font-light text-[40px] sm:text-5xl md:text-7xl lg:text-8xl text-cream leading-[1] tracking-[0.01em] max-w-[18ch]">
-              A neighborhood escape, since 2014.
+              Recharge. Restore. Revive.
             </h1>
           </Reveal>
         </div>
@@ -49,21 +49,21 @@ export default function AboutPage() {
           <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[640px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/Images/facepaintrelaxing.jpg"
-              alt="Inside the Escape studio"
+              src="/Images/Alphonso.jpg"
+              alt="Inside the SereniDrip studio"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
           <div className="flex items-center px-6 sm:px-8 md:px-20 py-16 md:py-32">
             <Reveal className="max-w-[60ch] space-y-5 md:space-y-6 text-base md:text-lg leading-relaxed text-cream-muted">
               <p>
-                Escape was founded in 2014 by a small group of women who wanted to build the kind of spa they themselves would want to visit — quiet, considered, and never rushed.
+                SereniDrip was founded to bring honest, professional IV hydration to the Rio Grande Valley — no gimmicks, no pressure, just care.
               </p>
               <p>
-                Over the past decade, we&rsquo;ve grown from a single massage room into a full-service studio offering massage, cupping, skincare, waxing, and salon services. The team has expanded. The intent hasn&rsquo;t.
+                Our licensed team treats every guest individually, beginning with a brief medical intake and a conversation about how you&rsquo;re feeling and what your body needs. From there, the right blend of fluids, vitamins, or recovery support — delivered directly to your bloodstream for full absorption.
               </p>
               <p>
-                We&rsquo;re still women-owned. We&rsquo;re still in the same building on Expressway 83. Most of our therapists have been with us for years. And we&rsquo;re still open every day of the week, because relaxation shouldn&rsquo;t keep business hours.
+                We&rsquo;re a locally owned McAllen studio at 1105 Tamarack Ave, by appointment Monday through Saturday. We see our guests as neighbors, and we treat them that way.
               </p>
             </Reveal>
           </div>

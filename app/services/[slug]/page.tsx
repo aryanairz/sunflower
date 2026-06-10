@@ -5,12 +5,12 @@ import { Check } from "@phosphor-icons/react/dist/ssr";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
-import { ExperienceCard } from "@/components/ExperienceCard";
+import { ServiceCard } from "@/components/ServiceCard";
 import { HeroZoom } from "@/components/HeroZoom";
-import { experiences, getExperience, getRelatedExperiences } from "@/lib/experiences";
+import { services, getService, getRelatedServices } from "@/lib/services";
 
 export function generateStaticParams() {
-  return experiences.map((e) => ({ slug: e.slug }));
+  return services.map((s) => ({ slug: s.slug }));
 }
 
 export const dynamicParams = false;
@@ -21,20 +21,20 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const exp = getExperience(slug);
-  if (!exp) return { title: "Experience — Escape Spa & Salon" };
+  const s = getService(slug);
+  if (!s) return { title: "Service — SereniDrip · IV Hydration" };
   return {
-    title: `${exp.title} — Escape Spa & Salon`,
-    description: exp.cardDesc,
+    title: `${s.title} — SereniDrip · IV Hydration`,
+    description: s.cardDesc,
   };
 }
 
-export default async function ExperienceDetailPage({ params }: PageProps) {
+export default async function ServiceDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const exp = getExperience(slug);
-  if (!exp) notFound();
+  const s = getService(slug);
+  if (!s) notFound();
 
-  const related = getRelatedExperiences(slug, 3);
+  const related = getRelatedServices(slug, 3);
 
   return (
     <main>
@@ -43,8 +43,8 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
       {/* HEADER PHOTO */}
       <section className="relative min-h-[60dvh] overflow-hidden">
         <HeroZoom
-          src={exp.detailImage ?? exp.image}
-          alt={exp.title}
+          src={s.detailImage ?? s.image}
+          alt={s.title}
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/30 to-ink/80" />
@@ -53,10 +53,10 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
           <div className="w-full max-w-shell mx-auto px-4 sm:px-6 md:px-12 pb-10 md:pb-16">
             <div className="max-w-[800px]">
               <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-cream">
-                Experience  ·  {exp.category}
+                Service  ·  {s.category}
               </p>
               <h1 className="mt-4 sm:mt-6 font-display font-light text-[40px] sm:text-5xl md:text-7xl lg:text-8xl text-cream leading-[0.95] tracking-[0.01em]">
-                {exp.title}
+                {s.title}
               </h1>
             </div>
           </div>
@@ -71,14 +71,14 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
             <div className="md:col-span-7">
               <Reveal>
                 <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
-                  About this experience
+                  About this service
                 </p>
                 <h2 className="mt-6 md:mt-8 font-display font-light text-3xl sm:text-4xl md:text-5xl text-cream leading-[1] tracking-[0.01em] max-w-[20ch]">
-                  {exp.headline}
+                  {s.headline}
                 </h2>
                 <div className="mt-8 md:mt-10 max-w-[60ch] space-y-5 md:space-y-6 text-base md:text-lg leading-relaxed text-cream-muted">
-                  <p>{exp.paragraphs[0]}</p>
-                  <p>{exp.paragraphs[1]}</p>
+                  <p>{s.paragraphs[0]}</p>
+                  <p>{s.paragraphs[1]}</p>
                 </div>
               </Reveal>
 
@@ -87,7 +87,7 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
                   What&rsquo;s included
                 </p>
                 <ul className="mt-6 max-w-[55ch]">
-                  {exp.inclusions.map((inc) => (
+                  {s.inclusions.map((inc) => (
                     <li
                       key={inc}
                       className="grid grid-cols-[24px_1fr] gap-4 items-center py-3 border-t border-gold/15"
@@ -104,13 +104,13 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
             <aside className="md:col-span-5">
               <div className="md:sticky md:top-32 bg-ink-2 px-6 sm:px-8 md:px-10 py-10 md:py-12">
                 <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
-                  Book this experience
+                  Book this service
                 </p>
                 <p className="mt-5 md:mt-6 font-display font-normal text-4xl sm:text-5xl text-gold leading-none">
-                  {exp.priceMain}
+                  {s.priceMain}
                 </p>
                 <p className="mt-3 md:mt-4 text-[11px] uppercase tracking-[0.25em] text-cream-muted">
-                  {exp.priceSub}
+                  {s.priceSub}
                 </p>
 
                 <div className="h-px bg-gold/20 my-8 md:my-10" />
@@ -118,9 +118,9 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
                 <div>
                   {(
                     [
-                      ["DURATION", exp.duration],
-                      ["LOCATION", "Pharr, TX"],
-                      ["WALK-INS", "Welcome"],
+                      ["DURATION", s.duration],
+                      ["LOCATION", "McAllen, TX"],
+                      ["POLICY", "By appointment"],
                     ] as Array<[string, string]>
                   ).map(([label, value]) => (
                     <div
@@ -136,10 +136,10 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
                 </div>
 
                 <a
-                  href="tel:9562000860"
+                  href="tel:9566550055"
                   className="mt-10 md:mt-12 block bg-gold text-ink uppercase tracking-[0.2em] text-[10px] sm:text-[11px] py-4 text-center hover:bg-gold-hover transition-colors"
                 >
-                  CALL TO BOOK · 956 200 0860
+                  CALL TO BOOK · 956 655 0055
                 </a>
               </div>
             </aside>
@@ -155,24 +155,24 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
               Explore more
             </p>
             <h2 className="mt-5 md:mt-6 font-display font-light text-3xl sm:text-4xl md:text-5xl text-cream leading-[1] tracking-[0.01em] max-w-[20ch]">
-              Other experiences you might enjoy.
+              Other services you might enjoy.
             </h2>
           </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 md:gap-y-12 mt-10 md:mt-12">
             {related.map((r, i) => (
               <Reveal key={r.slug} delay={i * 0.05}>
-                <ExperienceCard experience={r} />
+                <ServiceCard service={r} />
               </Reveal>
             ))}
           </div>
 
           <Reveal delay={0.2} className="mt-10 text-center">
             <Link
-              href="/experiences"
+              href="/services"
               className="inline-block text-[11px] uppercase tracking-[0.25em] text-gold hover:text-gold-hover transition-colors"
             >
-              SEE ALL EXPERIENCES →
+              SEE ALL SERVICES →
             </Link>
           </Reveal>
         </div>
