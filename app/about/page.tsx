@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
+import { TeamShowcase } from "@/components/TeamShowcase";
 
 export const metadata: Metadata = {
   title: "About · SereniDrip · IV Hydration",
@@ -36,7 +37,10 @@ export default function AboutPage() {
       <section className="bg-ink">
         <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pt-12 md:pt-20 pb-10 md:pb-16">
           <Reveal>
-            <h1 className="font-display font-light text-[40px] sm:text-5xl md:text-7xl lg:text-8xl text-cream leading-[1] tracking-[0.01em] max-w-[18ch]">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
+              About SereniDrip
+            </p>
+            <h1 className="mt-5 md:mt-6 font-display font-light text-[40px] sm:text-5xl md:text-7xl lg:text-8xl text-cream leading-[1] tracking-[0.01em] max-w-[18ch]">
               Recharge. Restore. Revive.
             </h1>
           </Reveal>
@@ -96,6 +100,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* TEAM */}
+      <TeamShowcase />
 
       <Footer />
     </main>
