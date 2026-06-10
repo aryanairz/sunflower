@@ -22,9 +22,9 @@ type PageProps = {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const s = getService(slug);
-  if (!s) return { title: "Service · SereniDrip · IV Hydration" };
+  if (!s) return { title: "Services" };
   return {
-    title: `${s.title} · SereniDrip · IV Hydration`,
+    title: s.title,
     description: s.cardDesc,
   };
 }
@@ -35,13 +35,14 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   if (!s) notFound();
 
   const related = getRelatedServices(slug, 3);
+  const durationShort = s.duration.replace(/minutes?/i, "min");
 
   return (
     <main>
       <Nav />
 
       {/* HEADER PHOTO */}
-      <section className="relative min-h-[60dvh] overflow-hidden">
+      <section className="relative min-h-[22dvh] md:min-h-[30dvh] overflow-hidden">
         <HeroZoom
           src={s.detailImage ?? s.image}
           alt={s.title}
@@ -49,13 +50,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/30 to-ink/80" />
 
-        <div className="relative min-h-[60dvh] flex items-end">
-          <div className="w-full max-w-shell mx-auto px-4 sm:px-6 md:px-12 pb-10 md:pb-16">
+        <div className="relative min-h-[22dvh] md:min-h-[30dvh] flex items-end">
+          <div className="w-full max-w-shell mx-auto px-4 sm:px-6 md:px-12 pb-8 md:pb-12">
             <div className="max-w-[800px]">
-              <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-cream">
-                Service  ·  {s.category}
-              </p>
-              <h1 className="mt-4 sm:mt-6 font-display font-light text-[40px] sm:text-5xl md:text-7xl lg:text-8xl text-cream leading-[0.95] tracking-[0.01em]">
+              <h1 className="font-display font-light text-[40px] sm:text-5xl md:text-7xl lg:text-8xl text-cream leading-[0.95] tracking-[0.01em]">
                 {s.title}
               </h1>
             </div>
@@ -65,15 +63,12 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       {/* BODY */}
       <section className="bg-ink">
-        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-32">
+        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pt-8 md:pt-12 pb-16 md:pb-28">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
             {/* LEFT */}
             <div className="md:col-span-7">
               <Reveal>
-                <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
-                  About this service
-                </p>
-                <h2 className="mt-6 md:mt-8 font-display font-light text-3xl sm:text-4xl md:text-5xl text-cream leading-[1] tracking-[0.01em] max-w-[20ch]">
+                <h2 className="font-display font-light text-3xl sm:text-4xl md:text-5xl text-cream leading-[1] tracking-[0.01em] max-w-[20ch]">
                   {s.headline}
                 </h2>
                 <div className="mt-8 md:mt-10 max-w-[60ch] space-y-5 md:space-y-6 text-base md:text-lg leading-relaxed text-cream-muted">
@@ -102,42 +97,20 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
             {/* RIGHT booking panel */}
             <aside className="md:col-span-5">
-              <div className="md:sticky md:top-32 bg-ink-2 px-6 sm:px-8 md:px-10 py-10 md:py-12">
+              <div className="md:sticky md:top-32 bg-ink-2 px-6 sm:px-8 md:px-10 py-8 md:py-9">
                 <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
                   Book this service
                 </p>
-                <p className="mt-5 md:mt-6 font-display font-normal text-4xl sm:text-5xl text-gold leading-none">
+                <p className="mt-4 font-display font-normal text-4xl sm:text-5xl text-gold leading-none">
                   {s.priceMain}
                 </p>
-                <p className="mt-3 md:mt-4 text-[11px] uppercase tracking-[0.25em] text-cream-muted">
-                  {s.priceSub}
+                <p className="mt-3 text-[11px] uppercase tracking-[0.25em] text-cream-muted">
+                  Duration · {durationShort}
                 </p>
-
-                <div className="h-px bg-gold/20 my-8 md:my-10" />
-
-                <div>
-                  {(
-                    [
-                      ["DURATION", s.duration],
-                      ["LOCATION", "McAllen, TX"],
-                      ["POLICY", "By appointment"],
-                    ] as Array<[string, string]>
-                  ).map(([label, value]) => (
-                    <div
-                      key={label}
-                      className="grid grid-cols-[88px_1fr] py-3 border-t border-gold/15 first:border-t-0 items-baseline gap-4 md:gap-6"
-                    >
-                      <span className="text-[10px] uppercase tracking-[0.25em] text-gold">
-                        {label}
-                      </span>
-                      <span className="text-cream text-sm">{value}</span>
-                    </div>
-                  ))}
-                </div>
 
                 <a
                   href="tel:9566550055"
-                  className="mt-10 md:mt-12 block bg-gold text-ink uppercase tracking-[0.2em] text-[10px] sm:text-[11px] py-4 text-center hover:bg-gold-hover transition-colors"
+                  className="mt-7 block bg-gold text-ink uppercase tracking-[0.2em] text-[10px] sm:text-[11px] py-4 text-center hover:bg-gold-hover transition-colors"
                 >
                   CALL TO BOOK · 956 655 0055
                 </a>

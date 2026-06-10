@@ -5,7 +5,7 @@ import { ServicesShell } from "@/components/ServicesShell";
 import { getService } from "@/lib/services";
 
 export const metadata: Metadata = {
-  title: "Services · SereniDrip · IV Hydration",
+  title: "Services",
   description:
     "Every IV drip and wellness shot at SereniDrip — hydration, immunity, recovery, beauty, and more — in one place.",
 };

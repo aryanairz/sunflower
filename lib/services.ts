@@ -47,7 +47,7 @@ export const services: Service[] = [
     detailImage: "/Images/myers2.png",
     headline: "The original wellness blend.",
     paragraphs: [
-      "First formulated by Dr. John Myers in the 1960s, the Myers' Cocktail combines magnesium, B-Complex, and Vitamin C — a blend that has supported immune health, energy, and stress recovery for decades.",
+      "First formulated by Dr. John Myers in the 1960s, the Myers' Cocktail combines magnesium, B-Complex, and Vitamin C, a blend that has supported immune health, energy, and stress recovery for decades.",
       "A 45-minute session that pairs well with travel recovery, midweek burnout, or simply needing a reset. Administered by our licensed team after a brief medical intake.",
     ],
     inclusions: [
@@ -72,7 +72,7 @@ export const services: Service[] = [
     detailImage: "/Images/basic2.png",
     headline: "Hydration, restored.",
     paragraphs: [
-      "Our Basic Drip delivers IV fluids and essential electrolytes directly to your bloodstream — fast, complete hydration that bypasses the slow path of drinking water.",
+      "Our Basic Drip delivers IV fluids and essential electrolytes directly to your bloodstream for fast, complete hydration that bypasses the slow path of drinking water.",
       "Ideal after travel, training, illness, or a long week. A clean baseline of hydration in 45 minutes.",
     ],
     inclusions: [
@@ -97,7 +97,7 @@ export const services: Service[] = [
     detailImage: "/Images/immunity2.png",
     headline: "A defense against the everyday.",
     paragraphs: [
-      "The Immunity Drip blends Vitamin C, Zinc, and B-Complex to support your body's immune wellness — especially helpful in seasons of stress, travel, or general fatigue.",
+      "The Immunity Drip blends Vitamin C, Zinc, and B-Complex to support your body's immune wellness, especially helpful in seasons of stress, travel, or general fatigue.",
       "Delivered intravenously for full absorption in a single 45-minute session, after a brief medical intake.",
     ],
     inclusions: [
@@ -147,7 +147,7 @@ export const services: Service[] = [
     detailImage: "/Images/beauty2.png",
     headline: "Beauty from within.",
     paragraphs: [
-      "The Beauty Drip combines glutathione, biotin, and Vitamin C — nutrients associated with skin clarity, hair strength, and nail health.",
+      "The Beauty Drip combines glutathione, biotin, and Vitamin C, nutrients associated with skin clarity, hair strength, and nail health.",
       "A 45-minute session that supports the body's natural appearance, from the inside out.",
     ],
     inclusions: [
@@ -172,7 +172,7 @@ export const services: Service[] = [
     detailImage: "/Images/wellness2.png",
     headline: "A quick lift.",
     paragraphs: [
-      "Wellness Shots deliver concentrated vitamins like B12 in a 15-minute visit — the shortest path to a noticeable lift.",
+      "Wellness Shots deliver concentrated vitamins like B12 in a 15-minute visit, the shortest path to a noticeable lift.",
       "Ask our team about the current shot menu and which option fits how you're feeling that day.",
     ],
     inclusions: [

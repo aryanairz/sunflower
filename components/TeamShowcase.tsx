@@ -63,8 +63,8 @@ const card = {
 };
 
 export function TeamShowcase({
-  eyebrow = "Our Team",
-  title = "The hands behind every drip.",
+  eyebrow,
+  title = "Our Team",
   description = "Licensed professionals who treat every guest like a neighbor — because here, you are one.",
   members = defaultMembers,
 }: Props) {
@@ -73,10 +73,16 @@ export function TeamShowcase({
       <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-28">
         {/* HEADER */}
         <div className="max-w-[640px]">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
-            {eyebrow}
-          </p>
-          <h2 className="mt-5 font-display font-light text-4xl sm:text-5xl md:text-6xl text-cream leading-[0.95] tracking-[0.01em]">
+          {eyebrow ? (
+            <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
+              {eyebrow}
+            </p>
+          ) : null}
+          <h2
+            className={`${
+              eyebrow ? "mt-5 " : ""
+            }font-display font-light text-4xl sm:text-5xl md:text-6xl text-cream leading-[0.95] tracking-[0.01em]`}
+          >
             {title}
           </h2>
           <p className="mt-6 max-w-[52ch] text-base md:text-lg leading-relaxed text-cream-muted">

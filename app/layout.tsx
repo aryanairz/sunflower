@@ -11,7 +11,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "SereniDrip · IV Hydration · McAllen, TX",
+  title: "SereniDrip",
   description:
     "Licensed IV hydration in McAllen, Texas. Recharge. Restore. Revive. By appointment, Monday through Saturday.",
   metadataBase: new URL("https://serenidrip.com"),

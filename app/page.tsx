@@ -46,17 +46,17 @@ const testimonials = [
   {
     quote:
       "Calm, clean, professional from the moment I walked in. I left feeling sharper and lighter than I have in months.",
-    name: "[CLIENT NAME]",
+    name: "Raji Nair",
   },
   {
     quote:
-      "The team took the time to talk through what I needed before anything began. Easy to recommend.",
-    name: "[CLIENT NAME]",
+      "The team talked through what I needed before we began. I walked out feeling calmer, lighter, and well cared for.",
+    name: "Bob Cruz",
   },
   {
     quote:
-      "Quiet, beautifully kept space. I came in tired from travel and walked out genuinely restored.",
-    name: "[CLIENT NAME]",
+      "A quiet, beautifully kept space. I came in worn out from travel and left feeling genuinely restored and clear-headed.",
+    name: "Thomas Garcia",
   },
 ];
 
@@ -103,17 +103,13 @@ export default function HomePage() {
 
       {/* IDENTITY */}
       <section className="bg-ink">
-        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-28">
-          <Reveal>
-            <h2 className="font-display font-light italic text-[32px] sm:text-4xl md:text-5xl text-gold leading-[1.05] tracking-[0.01em]">
-              A studio for steady restoration.
-            </h2>
-          </Reveal>
-
-          {/* BODY + CONTACT */}
-          <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 lg:gap-20 items-start">
-            <Reveal delay={0.05} className="md:col-span-7">
-              <div className="max-w-[60ch] space-y-5 text-cream-muted text-base md:text-lg leading-relaxed">
+        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pt-12 md:pt-16 pb-16 md:pb-28">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 lg:gap-20 items-start">
+            <Reveal className="md:col-span-7">
+              <h2 className="font-display font-light italic text-[32px] sm:text-4xl md:text-5xl text-gold leading-[1.05] tracking-[0.01em]">
+                A studio for steady restoration.
+              </h2>
+              <div className="mt-8 md:mt-10 max-w-[60ch] space-y-5 text-cream-muted text-base md:text-lg leading-relaxed">
                 <p>
                   SereniDrip is a McAllen IV hydration studio built around one idea — that feeling restored shouldn&rsquo;t be complicated. Our licensed team delivers vitamins, fluids, and recovery blends directly to your bloodstream, where they work immediately.
                 </p>
@@ -121,13 +117,6 @@ export default function HomePage() {
                   Every visit begins with a brief medical intake and ends with you feeling clearer, lighter, and more like yourself. By appointment, Monday through Saturday.
                 </p>
               </div>
-
-              <Link
-                href="/services"
-                className="mt-8 inline-block border border-gold text-gold uppercase tracking-[0.2em] text-[11px] px-10 py-4 hover:bg-gold hover:text-ink transition-colors"
-              >
-                SERVICES
-              </Link>
             </Reveal>
 
             <Reveal delay={0.15} className="md:col-span-5">
@@ -234,7 +223,7 @@ export default function HomePage() {
       <section className="bg-ink">
         <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pt-10 md:pt-14 pb-12 md:pb-24">
           <Reveal>
-            <h2 className="font-display font-light text-4xl sm:text-5xl md:text-6xl text-cream leading-[0.95] tracking-[0.01em] max-w-[20ch]">
+            <h2 className="font-display font-light text-4xl sm:text-5xl md:text-6xl text-gold leading-[0.95] tracking-[0.01em] max-w-[20ch]">
               From those who return.
             </h2>
           </Reveal>

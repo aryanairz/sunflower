@@ -26,12 +26,12 @@ export function ServicesShell({ featured }: Props) {
             <div className="absolute inset-0 bg-gradient-to-r from-ink/10 via-ink/50 to-ink/80" />
 
             <div className="absolute inset-0 flex items-center justify-end px-5 sm:px-8 md:px-16">
-              <div className="max-w-[260px] sm:max-w-[320px] md:max-w-[360px] text-right">
+              <div className="max-w-[260px] sm:max-w-[320px] md:max-w-[360px] text-left">
                 <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-cream">
                   Featured Service
                 </p>
                 <h2 className="mt-3 sm:mt-4 font-display font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-cream leading-[0.95] tracking-[0.01em]">
-                  <span className="italic">Myers&rsquo;</span>
+                  <span className="italic">MYERS&rsquo;</span>
                   <br />
                   COCKTAIL
                 </h2>

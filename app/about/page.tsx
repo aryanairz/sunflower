@@ -5,26 +5,31 @@ import { Reveal } from "@/components/Reveal";
 import { TeamShowcase } from "@/components/TeamShowcase";
 
 export const metadata: Metadata = {
-  title: "About · SereniDrip · IV Hydration",
+  title: "About",
   description:
     "SereniDrip is a locally owned IV hydration studio in McAllen, Texas. Licensed, considered, and never rushed.",
 };
 
-const values: Array<{ numeral: string; title: string; body: string }> = [
+const steps: Array<{ number: string; title: string; body: string }> = [
   {
-    numeral: "I",
-    title: "Care, given fully.",
-    body: "Every visit begins with a medical intake and a conversation. We take the time to match the right drip to how you actually feel that day.",
+    number: "01",
+    title: "Consultation",
+    body: "Your visit begins with a brief medical intake. A licensed professional reviews your health history and discusses your needs for that day.",
   },
   {
-    numeral: "II",
-    title: "Licensed, always.",
-    body: "Every treatment is administered by licensed professionals using sterile, single-use equipment. No shortcuts on safety.",
+    number: "02",
+    title: "Your blend",
+    body: "Based on your consultation, we recommend the appropriate treatment, whether hydration, immune support, recovery, or a vitamin supplement.",
   },
   {
-    numeral: "III",
-    title: "Local, by design.",
-    body: "We're a locally owned McAllen studio. Our guests are our neighbors — and we treat them that way.",
+    number: "03",
+    title: "The session",
+    body: "Your drip is administered while you relax in a private treatment chair. Most sessions are completed within 30 to 60 minutes.",
+  },
+  {
+    number: "04",
+    title: "Afterward",
+    body: "Nutrients are delivered directly to the bloodstream for complete absorption. Many guests notice the effects the same day.",
   },
 ];
 
@@ -34,16 +39,26 @@ export default function AboutPage() {
       <Nav />
 
       {/* HERO */}
-      <section className="bg-ink">
-        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pt-12 md:pt-20 pb-10 md:pb-16">
-          <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
-              About SereniDrip
-            </p>
-            <h1 className="mt-5 md:mt-6 font-display font-light text-[40px] sm:text-5xl md:text-7xl lg:text-8xl text-cream leading-[1] tracking-[0.01em] max-w-[18ch]">
-              Recharge. Restore. Revive.
-            </h1>
-          </Reveal>
+      <section className="relative min-h-[70dvh] overflow-hidden">
+        {/* Replace with warm IV studio / lifestyle photo, not nature stock */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://picsum.photos/seed/serenidrip-about-hero/1800/1200"
+          alt="SereniDrip studio"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/30 to-ink/80" />
+        <div className="absolute inset-0 flex items-end">
+          <div className="w-full max-w-shell mx-auto px-4 sm:px-6 md:px-12 pb-12 md:pb-16">
+            <Reveal className="max-w-[800px]">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-cream">
+                About SereniDrip
+              </p>
+              <h1 className="mt-4 font-display font-light text-6xl md:text-8xl text-cream leading-[0.95] tracking-[0.01em]">
+                Recharge. Restore. Revive.
+              </h1>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -51,9 +66,10 @@ export default function AboutPage() {
       <section className="bg-ink">
         <div className="grid grid-cols-1 md:grid-cols-2 items-stretch">
           <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[640px]">
+            {/* Replace with warm IV studio interior photo, not nature stock */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/Images/Alphonso.jpg"
+              src="https://picsum.photos/seed/serenidrip-studio-interior/1000/1200"
               alt="Inside the SereniDrip studio"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -61,39 +77,43 @@ export default function AboutPage() {
           <div className="flex items-center px-6 sm:px-8 md:px-20 py-16 md:py-32">
             <Reveal className="max-w-[60ch] space-y-5 md:space-y-6 text-base md:text-lg leading-relaxed text-cream-muted">
               <p>
-                SereniDrip was founded to bring honest, professional IV hydration to the Rio Grande Valley — no gimmicks, no pressure, just care.
+                SereniDrip provides professional IV hydration therapy to the Rio Grande Valley. Our focus is straightforward: licensed care, quality ingredients, and treatments tailored to each guest.
               </p>
               <p>
-                Our licensed team treats every guest individually, beginning with a brief medical intake and a conversation about how you&rsquo;re feeling and what your body needs. From there, the right blend of fluids, vitamins, or recovery support — delivered directly to your bloodstream for full absorption.
+                Every appointment begins with a medical intake conducted by a licensed professional. Based on your health history and how you are feeling that day, we recommend the appropriate blend of fluids, vitamins, or recovery support, administered intravenously for complete absorption.
               </p>
               <p>
-                We&rsquo;re a locally owned McAllen studio at 1105 Tamarack Ave, by appointment Monday through Saturday. We see our guests as neighbors, and we treat them that way.
+                SereniDrip is locally owned and operated at 1105 Tamarack Ave in McAllen. We serve guests by appointment, Monday through Saturday.
               </p>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* VALUES */}
-      <section className="bg-ink">
-        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-28">
-          <Reveal>
-            <h2 className="font-display font-light text-4xl sm:text-5xl md:text-6xl text-cream leading-[0.95] tracking-[0.01em]">
-              Three things we hold to.
+      {/* HOW A VISIT WORKS */}
+      <section className="bg-ink-2">
+        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-20 md:py-24">
+          <Reveal className="text-center">
+            <h2 className="font-display font-light text-5xl md:text-6xl text-cream leading-[0.95] tracking-[0.01em]">
+              How a visit works.
             </h2>
+            <p className="mt-6 max-w-[50ch] mx-auto text-lg leading-relaxed text-cream-muted">
+              Each step of your visit is conducted by licensed professionals.
+            </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 mt-10 md:mt-16">
-            {values.map((v, i) => (
-              <Reveal key={v.numeral} delay={i * 0.08}>
-                <p className="font-display font-light text-5xl md:text-6xl text-gold leading-none">
-                  {v.numeral}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mt-14 md:mt-16">
+            {steps.map((step, i) => (
+              <Reveal key={step.number} delay={i * 0.08}>
+                <p className="font-display font-light text-4xl text-gold leading-none">
+                  {step.number}
                 </p>
-                <h3 className="mt-5 md:mt-6 font-display font-normal text-2xl text-cream leading-[1.1]">
-                  {v.title}
+                <div className="h-px w-10 bg-gold/30 mt-4 mb-5" />
+                <h3 className="font-display font-normal text-xl text-cream leading-[1.1]">
+                  {step.title}
                 </h3>
-                <p className="mt-4 text-cream-muted leading-relaxed max-w-[40ch]">
-                  {v.body}
+                <p className="mt-3 text-cream-muted text-base leading-relaxed">
+                  {step.body}
                 </p>
               </Reveal>
             ))}
@@ -102,7 +122,7 @@ export default function AboutPage() {
       </section>
 
       {/* TEAM */}
-      <TeamShowcase />
+      <TeamShowcase description="Every treatment at SereniDrip is administered by licensed & experienced professionals." />
 
       <Footer />
     </main>
