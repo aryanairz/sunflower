@@ -69,8 +69,8 @@ export function TeamShowcase({
   members = defaultMembers,
 }: Props) {
   return (
-    <section className="bg-ink">
-      <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-28">
+    <section className="bg-ink-2">
+      <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-24">
         {/* HEADER */}
         <div className="max-w-[640px]">
           {eyebrow ? (
