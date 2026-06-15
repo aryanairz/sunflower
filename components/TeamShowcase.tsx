@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export type TeamMember = {
   name: string;
-  role: string;
+  role?: string;
   imageSrc: string;
 };
 
@@ -15,33 +15,20 @@ type Props = {
   members?: TeamMember[];
 };
 
-// Placeholder portraits — swap the imageSrc values for real staff photos
-// dropped in /public/Images (e.g. "/Images/team-elena.jpg"). Portrait crop,
-// roughly 600×800, face centered.
+// Real staff portraits in /public/Images. Roles intentionally omitted for now
+// — add a `role` to any member and the gold label renders automatically.
 const defaultMembers: TeamMember[] = [
   {
-    name: "Dr. Elena Reyes",
-    role: "Medical Director",
-    imageSrc:
-      "https://www.thiings.co/_next/image?url=https%3A%2F%2Flftz25oez4aqbxpq.public.blob.vercel-storage.com%2Fimage-WATlBiOtoeOqYDWnDEPanriLAznjm1.png&w=320&q=75",
+    name: "Kat Into",
+    imageSrc: "/Images/kat.jpeg",
   },
   {
-    name: "Marcus Hale",
-    role: "Registered Nurse",
-    imageSrc:
-      "https://www.thiings.co/_next/image?url=https%3A%2F%2Flftz25oez4aqbxpq.public.blob.vercel-storage.com%2Fimage-it2XL5AezhxG7WN3p4H9RCEHeT9QmS.png&w=320&q=75",
+    name: "Oralia Diaz",
+    imageSrc: "/Images/oralia.jpeg",
   },
   {
-    name: "Sofia Delgado",
-    role: "IV Specialist",
-    imageSrc:
-      "https://www.thiings.co/_next/image?url=https%3A%2F%2Flftz25oez4aqbxpq.public.blob.vercel-storage.com%2Fimage-LLs9Xsn1aI6Y3OrY1OM6jwrLzoHfgU.png&w=320&q=75",
-  },
-  {
-    name: "Aaron Cole",
-    role: "Wellness Concierge",
-    imageSrc:
-      "https://www.thiings.co/_next/image?url=https%3A%2F%2Flftz25oez4aqbxpq.public.blob.vercel-storage.com%2Fimage-wFE3oMCekBz2QDqsYZJoHqW80K9ruu.png&w=320&q=75",
+    name: "Cori Tobias",
+    imageSrc: "/Images/cori.jpeg",
   },
 ];
 
@@ -92,7 +79,7 @@ export function TeamShowcase({
 
         {/* TEAM GRID — arch-top cards */}
         <motion.div
-          className="mt-12 md:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8"
+          className="mt-12 md:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-8"
           variants={container}
           initial="hidden"
           whileInView="visible"
@@ -117,9 +104,11 @@ export function TeamShowcase({
                   <h3 className="font-display font-normal text-xl md:text-2xl text-cream leading-tight">
                     {m.name}
                   </h3>
-                  <p className="mt-1.5 text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-gold">
-                    {m.role}
-                  </p>
+                  {m.role ? (
+                    <p className="mt-1.5 text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-gold">
+                      {m.role}
+                    </p>
+                  ) : null}
                 </div>
               </div>
             </motion.div>
