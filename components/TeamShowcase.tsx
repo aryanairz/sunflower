@@ -6,6 +6,9 @@ export type TeamMember = {
   name: string;
   role?: string;
   imageSrc: string;
+  // CSS object-position; defaults to "center". e.g. "center 30%" nudges the
+  // visible crop down (reveals more of the top of the photo).
+  objectPosition?: string;
 };
 
 type Props = {
@@ -21,6 +24,7 @@ const defaultMembers: TeamMember[] = [
   {
     name: "Kat Into",
     imageSrc: "/Images/kat.jpeg",
+    objectPosition: "center 30%",
   },
   {
     name: "Oralia Diaz",
@@ -97,7 +101,8 @@ export function TeamShowcase({
                 <img
                   src={m.imageSrc}
                   alt={m.name}
-                  className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[600ms] ease-out group-hover:scale-[1.04]"
+                  style={{ objectPosition: m.objectPosition ?? "center" }}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink via-ink/55 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-5 text-center">
