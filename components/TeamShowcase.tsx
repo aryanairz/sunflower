@@ -92,7 +92,7 @@ export function TeamShowcase({
               whileHover={{ y: -10 }}
               className="group"
             >
-              <div className="relative h-[300px] md:h-[380px] overflow-hidden rounded-t-[120px] border border-gold/15 bg-ink-2">
+              <div className="relative h-[400px] md:h-[520px] overflow-hidden rounded-t-[120px] border border-gold/15 bg-ink-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={m.imageSrc}
