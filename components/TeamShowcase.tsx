@@ -24,11 +24,12 @@ const defaultMembers: TeamMember[] = [
   {
     name: "Kat Into",
     imageSrc: "/Images/kat.jpeg",
-    objectPosition: "center 30%",
+    objectPosition: "center 5%",
   },
   {
     name: "Oralia Diaz",
     imageSrc: "/Images/oralia.jpeg",
+    objectPosition: "center 42%",
   },
   {
     name: "Cori Tobias",
