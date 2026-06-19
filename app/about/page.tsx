@@ -33,7 +33,7 @@ export default function AboutPage() {
       </section>
 
       {/* SECTION 2 — OUR TEAM */}
-      <TeamShowcase description="Every treatment at SereniDrip is administered by licensed & experienced professionals." />
+      <TeamShowcase description="Every treatment at SereniDrip is administered by licensed and experienced professionals." />
 
       {/* SECTION 3 — CLOSING CTA */}
       <section className="bg-ink">

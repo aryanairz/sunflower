@@ -1,125 +1,70 @@
-"use client";
-
-import { motion } from "framer-motion";
-
-export type TeamMember = {
-  name: string;
-  role?: string;
-  imageSrc: string;
-  // CSS object-position; defaults to "center". e.g. "center 30%" nudges the
-  // visible crop down (reveals more of the top of the photo).
-  objectPosition?: string;
-};
+import Link from "next/link";
+import { Reveal } from "@/components/Reveal";
+import { team as defaultMembers, type TeamMember } from "@/lib/team";
 
 type Props = {
-  eyebrow?: string;
   title?: string;
   description?: string;
   members?: TeamMember[];
 };
 
-// Real staff portraits in /public/Images. Roles intentionally omitted for now
-// — add a `role` to any member and the gold label renders automatically.
-const defaultMembers: TeamMember[] = [
-  {
-    name: "Kat Into",
-    imageSrc: "/Images/kat.jpeg",
-    objectPosition: "center 5%",
-  },
-  {
-    name: "Oralia Diaz",
-    imageSrc: "/Images/oralia.jpeg",
-    objectPosition: "center 42%",
-  },
-  {
-    name: "Cori Tobias",
-    imageSrc: "/Images/cori.jpeg",
-  },
-];
-
-const container = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12 },
-  },
-};
-
-const card = {
-  hidden: { y: 24, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { type: "spring", stiffness: 100, damping: 14 },
-  },
-};
-
 export function TeamShowcase({
-  eyebrow,
   title = "Our Team",
-  description = "Licensed professionals who treat every guest like a neighbor — because here, you are one.",
+  description = "Every treatment at SereniDrip is administered by licensed and experienced professionals.",
   members = defaultMembers,
 }: Props) {
   return (
     <section className="bg-ink-2">
       <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-24">
-        {/* HEADER */}
-        <div className="max-w-[640px]">
-          {eyebrow ? (
-            <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
-              {eyebrow}
+        <div className="max-w-[1300px] mx-auto">
+          {/* HEADER */}
+          <div className="max-w-[640px]">
+            <h2 className="font-display font-light text-4xl sm:text-5xl md:text-6xl text-cream leading-[0.95] tracking-[0.01em]">
+              {title}
+            </h2>
+            <p className="mt-6 max-w-[52ch] text-base md:text-lg leading-relaxed text-cream-muted">
+              {description}
             </p>
-          ) : null}
-          <h2
-            className={`${
-              eyebrow ? "mt-5 " : ""
-            }font-display font-light text-4xl sm:text-5xl md:text-6xl text-cream leading-[0.95] tracking-[0.01em]`}
-          >
-            {title}
-          </h2>
-          <p className="mt-6 max-w-[52ch] text-base md:text-lg leading-relaxed text-cream-muted">
-            {description}
-          </p>
-        </div>
+          </div>
 
-        {/* TEAM GRID — arch-top cards */}
-        <motion.div
-          className="mt-12 md:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-8"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {members.map((m) => (
-            <motion.div
-              key={m.name}
-              variants={card}
-              whileHover={{ y: -10 }}
-              className="group"
-            >
-              <div className="relative h-[400px] md:h-[520px] overflow-hidden rounded-t-[120px] border border-gold/15 bg-ink-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={m.imageSrc}
-                  alt={m.name}
-                  style={{ objectPosition: m.objectPosition ?? "center" }}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.04]"
-                />
-                <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink via-ink/55 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-5 text-center">
-                  <h3 className="font-display font-normal text-xl md:text-2xl text-cream leading-tight">
-                    {m.name}
-                  </h3>
-                  {m.role ? (
-                    <p className="mt-1.5 text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-gold">
+          {/* TEAM GRID — clickable cards, hover reveals "About <name>" */}
+          <div className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 lg:gap-10 max-w-[1150px] mx-auto">
+            {members.map((m, i) => (
+              <Reveal key={m.id} delay={i * 0.08}>
+                <Link href={`/team/${m.id}`} className="group block">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gold/10 bg-ink-3">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={m.image}
+                      alt={m.name}
+                      style={{ objectPosition: m.objectPosition ?? "center" }}
+                      className="h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.04]"
+                    />
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-ink/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <span className="font-display font-light text-2xl md:text-3xl text-cream">
+                        About {m.firstName}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Name + role + credential */}
+                  <div className="mt-5 text-center">
+                    <h3 className="font-display font-normal text-2xl text-cream leading-tight transition-colors duration-300 group-hover:text-gold-hover">
+                      {m.name}
+                    </h3>
+                    <p className="mt-2 text-[11px] uppercase tracking-[0.25em] text-gold">
                       {m.role}
                     </p>
-                  ) : null}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+                    <p className="mt-1.5 text-[11px] uppercase tracking-[0.2em] text-cream-muted">
+                      {m.credential}
+                    </p>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

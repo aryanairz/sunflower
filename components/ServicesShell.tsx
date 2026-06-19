@@ -36,7 +36,7 @@ export function ServicesShell({ featured }: Props) {
                   COCKTAIL
                 </h2>
                 <p className="mt-4 sm:mt-6 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-cream-muted">
-                  FROM $100
+                  FROM $169
                 </p>
                 <span className="mt-5 sm:mt-8 inline-block bg-gold text-ink uppercase tracking-[0.2em] text-[10px] sm:text-[11px] px-6 sm:px-10 py-3 sm:py-4 group-hover:bg-gold-hover transition-colors">
                   DISCOVER

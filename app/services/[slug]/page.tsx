@@ -35,7 +35,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   if (!s) notFound();
 
   const related = getRelatedServices(slug, 3);
-  const durationShort = s.duration.replace(/minutes?/i, "min");
 
   return (
     <main>
@@ -92,6 +91,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     </li>
                   ))}
                 </ul>
+                <p className="mt-5 max-w-[55ch] text-xs text-cream-muted">
+                  Every treatment includes a brief medical intake and is
+                  administered by a licensed professional.
+                </p>
               </Reveal>
             </div>
 
@@ -103,9 +106,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 </p>
                 <p className="mt-4 font-display font-normal text-4xl sm:text-5xl text-gold leading-none">
                   {s.priceMain}
-                </p>
-                <p className="mt-3 text-[11px] uppercase tracking-[0.25em] text-cream-muted">
-                  Duration · {durationShort}
                 </p>
 
                 <a
@@ -124,11 +124,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <section className="bg-ink">
         <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pb-16 md:pb-28">
           <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
+            <h2 className="font-display font-light text-3xl sm:text-4xl md:text-5xl text-cream leading-[1] tracking-[0.01em] max-w-[20ch]">
               Explore more
-            </p>
-            <h2 className="mt-5 md:mt-6 font-display font-light text-3xl sm:text-4xl md:text-5xl text-cream leading-[1] tracking-[0.01em] max-w-[20ch]">
-              Other services you might enjoy.
             </h2>
           </Reveal>
 
