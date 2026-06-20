@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { List, X } from "@phosphor-icons/react";
 
@@ -21,6 +22,11 @@ function isActive(pathname: string, href: string) {
 export function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -82,17 +88,21 @@ export function Nav() {
         </button>
       </div>
 
-      {/* MOBILE OVERLAY */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            key="mobile-nav"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 z-50 bg-bone"
-          >
+      {/* MOBILE OVERLAY — portaled to <body> so it escapes the header's
+          sticky/backdrop-filter stacking + containing block and reliably
+          covers the viewport. */}
+      {mounted &&
+        createPortal(
+          <AnimatePresence>
+            {open && (
+              <motion.div
+                key="mobile-nav"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="fixed inset-0 z-50 bg-bone"
+              >
             <div className="h-[72px] px-4 sm:px-6 flex items-center justify-between border-b border-ink/10">
               <Link href="/" aria-label="SereniDrip" onClick={() => setOpen(false)}>
                 <Image
@@ -148,8 +158,10 @@ export function Nav() {
 
             </motion.nav>
           </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body,
         )}
-      </AnimatePresence>
     </header>
   );
 }

@@ -24,7 +24,7 @@ const contactItems: ContactItem[] = [
   {
     Icon: MapPin,
     label: "LOCATION",
-    primary: "2001 W Trenton Rd Spc 101 Unit 22",
+    primary: "2001 W Trenton Rd, Spc 101 Unit 22",
     secondary: "Edinburg, TX 78539",
   },
   { Icon: Phone, label: "PHONE", primary: "+1 956 655 0055" },
