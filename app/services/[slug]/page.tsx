@@ -47,7 +47,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/20" />
 
           <div className="absolute inset-0 flex items-end">
-            <div className="w-full max-w-[1150px] mx-auto px-4 sm:px-6 md:px-12 pb-6 md:pb-8">
+            <div className="w-full max-w-shell mx-auto px-4 sm:px-6 md:px-12 pb-6 md:pb-8">
               <h1 className="font-display font-light text-4xl sm:text-5xl md:text-6xl text-cream leading-[0.95] tracking-[0.01em]">
                 {s.title}
               </h1>
@@ -58,17 +58,18 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       {/* INFO ROW — image left, details right */}
       <section className="bg-ink">
-        <div className="max-w-[1150px] mx-auto px-4 sm:px-6 md:px-12 pt-10 md:pt-14 pb-16 md:pb-24">
+        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pt-10 md:pt-14 pb-16 md:pb-24">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
             {/* LEFT — image, stays put on scroll */}
-            <div className="md:col-span-6">
+            <div className="md:col-span-5">
               <div className="md:sticky md:top-28">
                 <Reveal>
-                  <div className="max-w-[520px] aspect-square overflow-hidden rounded-2xl bg-ink-2">
+                  <div className="w-full max-w-[560px] aspect-square overflow-hidden rounded-2xl bg-ink-2">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={s.image}
                       alt={s.title}
+                      loading="eager"
                       className="h-full w-full object-contain"
                     />
                   </div>
@@ -77,7 +78,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             </div>
 
             {/* RIGHT — tagline, price, description, included, BOOK */}
-            <div className="md:col-span-6">
+            <div className="md:col-span-7">
               <Reveal>
                 <h2 className="font-display font-light text-3xl sm:text-4xl text-cream leading-[1.05] tracking-[0.01em]">
                   {s.headline}
