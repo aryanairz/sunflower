@@ -60,8 +60,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <section className="bg-ink">
         <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pt-10 md:pt-14 pb-16 md:pb-24">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
-            {/* LEFT — image, stays put on scroll */}
-            <div className="md:col-span-5">
+            {/* LEFT — image, stays put on scroll (hidden below md) */}
+            <div className="hidden md:block md:col-span-5">
               <div className="md:sticky md:top-28">
                 <Reveal>
                   <div className="w-full max-w-[560px] aspect-square overflow-hidden rounded-2xl bg-ink-2">
@@ -95,7 +95,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
               <Reveal delay={0.1}>
                 <p className="mt-8 text-[11px] uppercase tracking-[0.25em] text-gold">
-                  What&rsquo;s included
+                  Benefits may include:
                 </p>
                 <ul className="mt-5">
                   {s.inclusions.map((inc) => (

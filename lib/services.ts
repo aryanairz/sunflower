@@ -50,10 +50,10 @@ export const services: Service[] = [
       "A go-to for anyone feeling run down, depleted, or in need of a reliable reset.",
     ],
     inclusions: [
-      "B-complex vitamins",
-      "Vitamin C",
-      "Magnesium",
-      "Calcium",
+      "Supports immune health",
+      "Supports energy",
+      "Helps with stress recovery",
+      "Replenishes essential nutrients",
     ],
   },
   {
@@ -73,10 +73,10 @@ export const services: Service[] = [
       "Ideal after travel, training, illness, or a long week.",
     ],
     inclusions: [
-      "IV fluids",
-      "Vitamin C",
-      "B vitamins",
-      "Essential minerals",
+      "Rapid hydration support",
+      "Replenishes vitamins and minerals",
+      "Supports energy",
+      "Helps recovery after travel or exercise",
     ],
   },
   {
@@ -96,10 +96,10 @@ export const services: Service[] = [
       "A reliable reset after travel, dehydration, or overindulgence.",
     ],
     inclusions: [
-      "IV fluids",
-      "B vitamins",
-      "Minerals",
-      "Anti-nausea support",
+      "Rehydration support",
+      "Helps ease nausea and discomfort",
+      "Supports energy",
+      "Promotes overall recovery",
     ],
   },
   {
@@ -119,8 +119,10 @@ export const services: Service[] = [
       "This therapy supports mental clarity, healthy aging, and recovery from physical and mental fatigue. A premium option for those focused on long-term vitality.",
     ],
     inclusions: [
-      "NAD+ coenzyme",
-      "IV fluids",
+      "Supports cellular energy",
+      "Mental clarity and focus support",
+      "Healthy aging support",
+      "Supports recovery from fatigue",
     ],
   },
   {
@@ -140,10 +142,10 @@ export const services: Service[] = [
       "For a healthy, luminous complexion that starts beneath the surface.",
     ],
     inclusions: [
-      "Vitamin C",
-      "Glutathione",
-      "Alpha Lipoic Acid",
-      "IV fluids",
+      "Antioxidant support",
+      "Supports radiant, healthy skin",
+      "Supports detox pathways",
+      "Helps combat oxidative stress",
     ],
   },
   {
@@ -163,9 +165,10 @@ export const services: Service[] = [
       "For when you need to shake off fatigue and get moving.",
     ],
     inclusions: [
-      "High-potency Vitamin C",
-      "Amino acids",
-      "IV fluids",
+      "Supports energy and alertness",
+      "Helps with muscle recovery",
+      "Antioxidant support",
+      "Supports mental clarity and focus",
     ],
   },
   {
@@ -185,9 +188,10 @@ export const services: Service[] = [
       "A smart choice during high-stress stretches, travel, or seasonal changes.",
     ],
     inclusions: [
-      "High-dose Vitamin C",
-      "Zinc",
-      "IV fluids",
+      "Immune system support",
+      "Antioxidant protection",
+      "Helps combat oxidative stress",
+      "Supports recovery and resilience",
     ],
   },
 ];
