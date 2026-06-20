@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SereniDrip · IV Hydration
 
-## Getting Started
+Marketing site for **SereniDrip**, a licensed IV hydration studio in Edinburg, Texas. Built with Next.js (App Router), Tailwind CSS, and Framer Motion.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Scripts:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the dev server (`next dev --webpack`) |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build |
 
-## Learn More
+## Booking
 
-To learn more about Next.js, take a look at the following resources:
+Every **"Book now"** CTA links to the on-site `/book` page ([app/book/page.tsx](app/book/page.tsx)), which embeds the **Vagaro** booking widget in an iframe.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The widget URL is configured in [lib/site.ts](lib/site.ts) as `BOOKING_WIDGET_URL`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+https://www.vagaro.com/Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVAiD4iDwBzH2Navn8m7MBH0JOwc5fiOAet3SVA66YW+Og3fmuJIh4iNf2O1azmtGlMLU6er31IXxT7euxIgKZyJTAxI2JWmUaf6xl6cDGXbj7Z+YW5amrlyvIbATyXyInAyDtRUeT6cv4DyaGZ85rLOD2gpvaZxy994gy37LKkOJt+poPcWS0OZXXFak65wWNOn9464gJO1RCPXnNhOchglClX4Fal+ns/aKyx43RNXS0lq/JUvNkz/io+ob65rIlxjveJKhLH79W00Qyi4mAhcd58PI4Ubq30kHwxxSaOhAHxasvLMvcL1gE+mSLDCY6+O6JiVrSS2ks1FvNQWYpHCrKj+/suV8MAvmThCknBjEOXtu6HuAiX8bn/iOxcO9X/K39DR+Ea5hb0Qn2lTSOlSrgn5yTTPigZ9qd24OhvZMc5fW/oOsY1mWvBdwjpy2HA==
+```
 
-## Deploy on Vercel
+To swap in a new Vagaro widget, replace `BOOKING_WIDGET_URL` in `lib/site.ts`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Editing site content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Contact details** (address, phone, email, hours) — `contactItems` in [app/page.tsx](app/page.tsx).
+- **Phone constant** — `PHONE` / `PHONE_HREF` in [lib/site.ts](lib/site.ts).
+- **Services** — [lib/services.ts](lib/services.ts); each service has a detail page at `/services/[slug]`.
+- **Team** — [lib/team.ts](lib/team.ts); each member has a bio page at `/team/[slug]`.
+- **SEO metadata** — per-page `metadata` exports; site defaults in [app/layout.tsx](app/layout.tsx).
+
+## Tech
+
+- [Next.js 16](https://nextjs.org) — App Router
+- [Tailwind CSS](https://tailwindcss.com)
+- [Framer Motion](https://www.framer.com/motion/) — reveal/transition animations
+- [Phosphor Icons](https://phosphoricons.com)
+
+> Note: this project pins a customized build of Next.js. Check `node_modules/next/dist/docs/` before relying on conventions from upstream Next.js docs.
