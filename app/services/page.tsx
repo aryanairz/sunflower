@@ -16,8 +16,8 @@ export default function ServicesIndexPage() {
   return (
     <main>
       <Nav />
-      <section className="bg-ink">
-        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-6 md:py-12">
+      <section className="bg-bone">
+        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-8 md:py-14">
           <ServicesShell featured={featured} />
         </div>
       </section>

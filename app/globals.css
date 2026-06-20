@@ -5,23 +5,23 @@
 @tailwind utilities;
 
 :root {
-  --ink: #0F0B08;
-  --ink-2: #1A1410;
-  --ink-3: #241B14;
-  --gold: #C5A675;
-  --gold-hover: #D4B889;
-  --cream: #E8DCC4;
-  --cream-muted: #A89B82;
+  --bone: #F6F4EF;
+  --bone-2: #FFFFFF;
+  --bone-3: #ECE7DD;
+  --ink: #23211D;
+  --ink-muted: #6E685E;
+  --sage: #4F6F59;
+  --sage-hover: #3F5B49;
 }
 
 html {
   scroll-behavior: smooth;
-  background: var(--ink);
+  background: var(--bone);
 }
 
 body {
-  background: var(--ink);
-  color: var(--cream);
+  background: var(--bone);
+  color: var(--ink);
   font-family: 'Cabinet Grotesk', system-ui, sans-serif;
   font-feature-settings: 'ss01';
   -webkit-font-smoothing: antialiased;
@@ -29,12 +29,18 @@ body {
 }
 
 ::selection {
-  background: var(--gold);
-  color: var(--ink);
+  background: var(--sage);
+  color: var(--bone-2);
 }
 
-/* Display utility — Cormorant Garamond is delivered via next/font as --font-cormorant */
+/* Display utility — Outfit is delivered via next/font as --font-display */
 .font-display {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
-  font-feature-settings: 'liga', 'dlig';
+  font-family: var(--font-display), 'Outfit', system-ui, sans-serif;
+  font-feature-settings: 'ss01';
+}
+
+/* Recolor the gold brand wordmark to charcoal so it reads on light surfaces */
+.logo-ink {
+  filter: brightness(0) saturate(100%);
+  opacity: 0.88;
 }

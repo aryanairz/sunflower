@@ -12,6 +12,7 @@ import { HeroZoom } from "@/components/HeroZoom";
 import { Reveal } from "@/components/Reveal";
 import { ServiceCard } from "@/components/ServiceCard";
 import { services } from "@/lib/services";
+import { BOOKING_URL } from "@/lib/site";
 
 type ContactItem = {
   Icon: typeof MapPin;
@@ -68,48 +69,65 @@ export default function HomePage() {
     <main>
       <Nav />
 
-      {/* HERO */}
-      <section className="relative min-h-[100dvh] overflow-hidden">
-        <HeroZoom
-          src="/Images/Alphonso.jpg"
-          alt="Inside SereniDrip · IV Hydration studio"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/30 to-ink/80" />
-
-        <div className="relative min-h-[100dvh] flex items-center">
-          <div className="w-full max-w-shell mx-auto px-4 sm:px-6 md:px-12">
-            <div className="max-w-[720px] mx-auto text-center">
-              <h1 className="font-display font-light text-[44px] sm:text-6xl md:text-8xl leading-[0.95] tracking-[0.01em] text-cream">
-                A NEW{" "}
-                <span className="font-display italic font-light">
-                  YOU
-                </span>{" "}
-                AWAITS
+      {/* HERO — bright split: text left, photo right */}
+      <section className="relative overflow-hidden border-b border-ink/10">
+        <div className="max-w-shell mx-auto grid lg:grid-cols-[1.05fr_1fr]">
+          {/* TEXT */}
+          <div className="order-2 lg:order-1 flex items-center px-5 sm:px-6 md:px-12 pt-9 pb-14 sm:py-20 lg:py-28">
+            <div className="max-w-[560px]">
+              <h1 className="font-display font-light text-[40px] sm:text-6xl md:text-7xl leading-[1] sm:leading-[0.98] tracking-[-0.02em] text-ink text-balance">
+                A new <span className="italic text-sage pr-[0.06em]">you</span> awaits
               </h1>
-              <p className="mt-6 md:mt-8 max-w-[520px] mx-auto text-[11px] sm:text-[13px] md:text-sm uppercase tracking-[0.2em] text-cream-muted">
-                Recharge · Restore · Revive
+              <p className="mt-5 sm:mt-6 max-w-[46ch] text-[15px] sm:text-lg leading-relaxed text-ink-muted text-pretty">
+                Vitamins, fluids, and recovery blends delivered straight to your
+                bloodstream — so you feel clearer, lighter, and more like
+                yourself. Recharge, restore, revive.
               </p>
-              <Link
-                href="/services"
-                className="mt-8 md:mt-10 inline-block bg-gold text-ink uppercase tracking-[0.2em] text-[11px] px-10 sm:px-12 py-4 hover:bg-gold-hover transition-colors"
-              >
-                DISCOVER
-              </Link>
+
+              <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-x-7">
+                <Link
+                  href="/services"
+                  className="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-sage px-9 py-4 text-[11px] uppercase tracking-button text-bone-2 transition-colors hover:bg-sage-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
+                >
+                  Explore drips
+                </Link>
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="self-center text-[11px] uppercase tracking-button text-ink underline underline-offset-[6px] decoration-ink/25 transition-colors hover:text-sage hover:decoration-sage/50"
+                >
+                  Book now
+                </a>
+              </div>
+
             </div>
+          </div>
+
+          {/* PHOTO */}
+          <div className="order-1 lg:order-2 relative min-h-[42vh] sm:min-h-[52vh] lg:min-h-[88vh] overflow-hidden">
+            <HeroZoom
+              src="/Images/Alphonso.jpg"
+              alt="Inside the SereniDrip IV hydration studio"
+              priority
+            />
+            {/* desktop: fade into the left text panel */}
+            <div className="absolute inset-0 hidden lg:block bg-gradient-to-r from-bone via-transparent to-transparent" />
+            {/* mobile: soft fade into the bone panel below */}
+            <div className="absolute inset-x-0 bottom-0 h-20 lg:hidden bg-gradient-to-b from-transparent to-bone" />
           </div>
         </div>
       </section>
 
       {/* IDENTITY */}
-      <section className="bg-ink">
-        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pt-12 md:pt-16 pb-16 md:pb-28">
+      <section className="bg-bone">
+        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pt-16 md:pt-24 pb-16 md:pb-28">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 lg:gap-20 items-start">
             <Reveal className="md:col-span-7">
-              <h2 className="font-display font-light italic text-[32px] sm:text-4xl md:text-5xl text-gold leading-[1.05] tracking-[0.01em]">
+              <h2 className="font-display font-light text-[32px] sm:text-4xl md:text-5xl text-ink leading-[1.05] tracking-[-0.015em] text-balance">
                 A studio for steady restoration.
               </h2>
-              <div className="mt-8 md:mt-10 max-w-[60ch] space-y-5 text-cream-muted text-base md:text-lg leading-relaxed">
+              <div className="mt-8 md:mt-10 max-w-[60ch] space-y-5 text-ink-muted text-base md:text-lg leading-relaxed">
                 <p>
                   SereniDrip is a McAllen IV hydration studio built around one idea — that feeling restored shouldn&rsquo;t be complicated. Our licensed team delivers vitamins, fluids, and recovery blends directly to your bloodstream, where they work immediately.
                 </p>
@@ -120,23 +138,23 @@ export default function HomePage() {
             </Reveal>
 
             <Reveal delay={0.15} className="md:col-span-5">
-              <div className="space-y-5">
+              <div className="rounded-2xl border border-ink/[0.08] bg-bone-2 shadow-soft p-6 sm:p-8 space-y-6">
                 {contactItems.map(({ Icon, label, primary, secondary }) => (
                   <div key={label} className="flex gap-4">
                     <Icon
-                      size={24}
-                      weight="thin"
-                      className="text-gold shrink-0 mt-[2px]"
+                      size={22}
+                      weight="regular"
+                      className="text-sage shrink-0 mt-[2px]"
                     />
                     <div>
-                      <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
+                      <p className="text-[11px] uppercase tracking-[0.22em] text-sage">
                         {label}
                       </p>
-                      <p className="mt-1 text-cream text-base leading-[1.35]">
+                      <p className="mt-1 text-ink text-base leading-[1.35]">
                         {primary}
                       </p>
                       {secondary ? (
-                        <p className="text-cream text-base leading-[1.35]">
+                        <p className="text-ink-muted text-base leading-[1.35]">
                           {secondary}
                         </p>
                       ) : null}
@@ -150,21 +168,20 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES PREVIEW */}
-      <section className="bg-ink">
-        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pb-12 md:pb-20">
+      <section className="bg-bone-3">
+        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-24">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-end">
-            <Reveal className="md:col-span-5">
-              <h2 className="font-display font-light text-4xl sm:text-5xl md:text-6xl text-gold leading-[0.95] tracking-[0.01em]">
-                SERVICES{" "}
-                <span className="italic font-light">at</span> SERENIDRIP
+            <Reveal className="md:col-span-7">
+              <h2 className="font-display font-light text-4xl sm:text-5xl md:text-6xl text-ink leading-[1] tracking-[-0.02em]">
+                Services at SereniDrip
               </h2>
             </Reveal>
-            <Reveal delay={0.1} className="md:col-span-7 md:text-right">
+            <Reveal delay={0.1} className="md:col-span-5 md:text-right">
               <Link
                 href="/services"
-                className="inline-block text-[11px] uppercase tracking-[0.25em] text-gold hover:text-gold-hover transition-colors"
+                className="inline-block text-[11px] uppercase tracking-[0.22em] text-sage hover:text-sage-hover transition-colors"
               >
-                SEE ALL SERVICES →
+                See all services →
               </Link>
             </Reveal>
           </div>
@@ -184,35 +201,35 @@ export default function HomePage() {
       </section>
 
       {/* FEATURED SERVICE */}
-      <section className="bg-ink-2">
+      <section className="bg-bone">
         <div className="grid grid-cols-1 md:grid-cols-2 items-stretch">
-          <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[420px]">
+          <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[460px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/Images/myers2.png"
-              alt="The Myers' Cocktail"
+              alt="The Myers' Cocktail IV blend"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
-          <div className="flex items-center px-6 sm:px-8 md:px-20 py-12 md:py-16">
+          <div className="flex items-center px-6 sm:px-8 md:px-20 py-14 md:py-20">
             <Reveal className="max-w-[520px]">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
-                Featured Service
+              <p className="text-[11px] uppercase tracking-eyebrow text-sage">
+                Featured service
               </p>
-              <h3 className="mt-4 md:mt-6 font-display font-light text-4xl sm:text-5xl md:text-6xl text-cream leading-[0.95] tracking-[0.01em]">
+              <h3 className="mt-4 md:mt-6 font-display font-light text-4xl sm:text-5xl md:text-6xl text-ink leading-[1] tracking-[-0.02em]">
                 The Myers&rsquo; Cocktail
               </h3>
-              <p className="mt-4 md:mt-6 text-[11px] uppercase tracking-[0.25em] text-gold">
-                FROM $100
+              <p className="mt-4 md:mt-6 text-[11px] uppercase tracking-[0.22em] text-sage">
+                From $100
               </p>
-              <p className="mt-6 md:mt-8 max-w-[40ch] text-base md:text-lg leading-relaxed text-cream-muted">
+              <p className="mt-6 md:mt-8 max-w-[40ch] text-base md:text-lg leading-relaxed text-ink-muted">
                 A classic blend of magnesium, B-Complex, and Vitamin C — designed to support immune health, energy, and stress recovery. A 45-minute session.
               </p>
               <Link
                 href={`/services/${featuredService.slug}`}
-                className="mt-8 md:mt-10 inline-block bg-gold text-ink uppercase tracking-[0.2em] text-[11px] px-10 py-4 hover:bg-gold-hover transition-colors"
+                className="mt-8 md:mt-10 inline-flex items-center justify-center rounded-full bg-sage px-9 py-4 text-[11px] uppercase tracking-button text-bone-2 transition-colors hover:bg-sage-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
               >
-                DISCOVER
+                Discover
               </Link>
             </Reveal>
           </div>
@@ -220,41 +237,43 @@ export default function HomePage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="bg-ink">
-        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pt-10 md:pt-14 pb-12 md:pb-24">
+      <section className="bg-bone-3">
+        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-24">
           <Reveal>
-            <h2 className="font-display font-light text-4xl sm:text-5xl md:text-6xl text-gold leading-[0.95] tracking-[0.01em] max-w-[20ch]">
+            <h2 className="font-display font-light text-4xl sm:text-5xl md:text-6xl text-ink leading-[1] tracking-[-0.02em] max-w-[20ch]">
               From those who return.
             </h2>
           </Reveal>
 
           {/* PLACEHOLDER testimonials — replace with real client reviews before publishing. */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 mt-10 md:mt-16 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-16 items-stretch">
             {testimonials.map((t, i) => (
               <Reveal
                 key={i}
                 delay={i * 0.08}
-                className="h-full flex flex-col"
+                className="h-full"
               >
-                <div className="flex gap-1">
-                  {[0, 1, 2, 3, 4].map((s) => (
-                    <Star
-                      key={s}
-                      size={12}
-                      weight="fill"
-                      className="text-gold"
-                    />
-                  ))}
-                </div>
-                <blockquote className="mt-6 font-display italic font-normal text-xl md:text-2xl text-cream leading-relaxed">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-                <div className="mt-auto pt-8">
-                  <div className="h-px w-12 bg-gold/40" />
-                  <p className="mt-6 text-[11px] uppercase tracking-[0.25em] text-cream-muted">
-                    {t.name}
-                  </p>
-                </div>
+                <figure className="h-full flex flex-col rounded-2xl border border-ink/[0.08] bg-bone-2 shadow-soft px-6 py-6 md:px-7 md:py-7">
+                  <div className="flex gap-1">
+                    {[0, 1, 2, 3, 4].map((s) => (
+                      <Star
+                        key={s}
+                        size={13}
+                        weight="fill"
+                        className="text-sage"
+                      />
+                    ))}
+                  </div>
+                  <blockquote className="mt-4 font-display font-light text-lg md:text-xl text-ink leading-snug">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+                  <figcaption className="mt-auto pt-5">
+                    <div className="h-px w-12 bg-sage/40" />
+                    <p className="mt-4 text-[11px] uppercase tracking-[0.22em] text-ink-muted">
+                      {t.name}
+                    </p>
+                  </figcaption>
+                </figure>
               </Reveal>
             ))}
           </div>

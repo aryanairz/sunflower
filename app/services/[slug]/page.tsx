@@ -8,6 +8,7 @@ import { Reveal } from "@/components/Reveal";
 import { ServiceCard } from "@/components/ServiceCard";
 import { HeroZoom } from "@/components/HeroZoom";
 import { services, getService, getRelatedServices } from "@/lib/services";
+import { BOOKING_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -44,11 +45,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <section className="relative w-full overflow-hidden">
         <div className="relative h-[200px] sm:h-[220px]">
           <HeroZoom src={s.detailImage ?? s.image} alt={s.title} priority />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/45 to-ink/15" />
 
           <div className="absolute inset-0 flex items-end">
             <div className="w-full max-w-shell mx-auto px-4 sm:px-6 md:px-12 pb-6 md:pb-8">
-              <h1 className="font-display font-light text-4xl sm:text-5xl md:text-6xl text-cream leading-[0.95] tracking-[0.01em]">
+              <h1 className="font-display font-light text-4xl sm:text-5xl md:text-6xl text-bone-2 leading-[1] tracking-[-0.01em]">
                 {s.title}
               </h1>
             </div>
@@ -57,14 +58,14 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       {/* INFO ROW — image left, details right */}
-      <section className="bg-ink">
+      <section className="bg-bone">
         <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pt-10 md:pt-14 pb-16 md:pb-24">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
             {/* LEFT — image, stays put on scroll (hidden below md) */}
             <div className="hidden md:block md:col-span-5">
               <div className="md:sticky md:top-28">
                 <Reveal>
-                  <div className="w-full max-w-[560px] aspect-square overflow-hidden rounded-2xl bg-ink-2">
+                  <div className="w-full max-w-[560px] aspect-square overflow-hidden rounded-2xl bg-bone-3 shadow-soft">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={s.image}
@@ -80,45 +81,47 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             {/* RIGHT — tagline, price, description, included, BOOK */}
             <div className="md:col-span-7">
               <Reveal>
-                <h2 className="font-display font-light text-3xl sm:text-4xl text-cream leading-[1.05] tracking-[0.01em]">
+                <h2 className="font-display font-light text-3xl sm:text-4xl text-ink leading-[1.05] tracking-[-0.015em]">
                   {s.headline}
                 </h2>
-                <p className="mt-3 font-display font-normal text-2xl sm:text-3xl text-gold leading-none">
+                <p className="mt-3 font-display font-medium text-2xl sm:text-3xl text-sage leading-none">
                   {s.priceMain}
                 </p>
 
-                <div className="mt-6 space-y-4 text-base md:text-lg leading-relaxed text-cream-muted">
+                <div className="mt-6 space-y-4 text-base md:text-lg leading-relaxed text-ink-muted">
                   <p>{s.paragraphs[0]}</p>
                   <p>{s.paragraphs[1]}</p>
                 </div>
               </Reveal>
 
               <Reveal delay={0.1}>
-                <p className="mt-8 text-[11px] uppercase tracking-[0.25em] text-gold">
+                <p className="mt-8 text-[11px] uppercase tracking-[0.22em] text-sage">
                   Benefits may include:
                 </p>
                 <ul className="mt-5">
                   {s.inclusions.map((inc) => (
                     <li
                       key={inc}
-                      className="grid grid-cols-[24px_1fr] gap-4 items-center py-3 border-t border-gold/15"
+                      className="grid grid-cols-[24px_1fr] gap-4 items-center py-3 border-t border-ink/10"
                     >
-                      <Check size={20} weight="thin" className="text-gold" />
-                      <span className="text-cream text-base">{inc}</span>
+                      <Check size={20} weight="regular" className="text-sage" />
+                      <span className="text-ink text-base">{inc}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-4 text-xs text-cream-muted">
+                <p className="mt-4 text-xs text-ink-muted">
                   Every treatment includes a brief medical intake and is
                   administered by a licensed professional.
                 </p>
 
-                <button
-                  type="button"
-                  className="mt-8 w-full bg-gold text-ink uppercase tracking-[0.2em] text-[11px] py-4 hover:bg-gold-hover transition-colors"
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 flex w-full items-center justify-center rounded-full bg-sage text-bone-2 uppercase tracking-button text-[11px] py-4 transition-colors hover:bg-sage-hover active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
                 >
-                  BOOK NOW
-                </button>
+                  Book now
+                </a>
               </Reveal>
             </div>
           </div>
@@ -126,10 +129,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       {/* RELATED */}
-      <section className="bg-ink">
-        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pb-16 md:pb-28">
+      <section className="bg-bone-3">
+        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-24">
           <Reveal>
-            <h2 className="font-display font-light text-3xl sm:text-4xl md:text-5xl text-cream leading-[1] tracking-[0.01em] max-w-[20ch]">
+            <h2 className="font-display font-light text-3xl sm:text-4xl md:text-5xl text-ink leading-[1] tracking-[-0.02em] max-w-[20ch]">
               Explore more
             </h2>
           </Reveal>
@@ -145,9 +148,9 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <Reveal delay={0.2} className="mt-10 text-center">
             <Link
               href="/services"
-              className="inline-block text-[11px] uppercase tracking-[0.25em] text-gold hover:text-gold-hover transition-colors"
+              className="inline-block text-[11px] uppercase tracking-[0.22em] text-sage hover:text-sage-hover transition-colors"
             >
-              SEE ALL SERVICES →
+              See all services →
             </Link>
           </Reveal>
         </div>

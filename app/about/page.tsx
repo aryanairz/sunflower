@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { TeamShowcase } from "@/components/TeamShowcase";
+import { BOOKING_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -17,13 +17,14 @@ export default function AboutPage() {
       <Nav />
 
       {/* SECTION 1 — COMPACT HERO */}
-      <section className="bg-ink">
+      <section className="bg-bone">
         <div className="max-w-[1500px] mx-auto px-6 md:px-12 py-20 md:py-28">
           <Reveal className="text-center">
-            <h1 className="font-display font-light text-5xl md:text-7xl text-cream leading-[0.95] tracking-[0.01em]">
+            <p className="text-[11px] uppercase tracking-eyebrow text-sage">About SereniDrip</p>
+            <h1 className="mt-5 font-display font-light text-5xl md:text-7xl text-ink leading-[1] tracking-[-0.025em] text-balance">
               Recharge. Restore. Revive.
             </h1>
-            <p className="mt-8 mx-auto max-w-[58ch] text-cream-muted text-lg leading-relaxed">
+            <p className="mt-8 mx-auto max-w-[58ch] text-ink-muted text-lg leading-relaxed text-pretty">
               SereniDrip is a locally owned IV hydration studio in McAllen,
               Texas. Every treatment is administered by licensed professionals,
               by appointment, Monday through Saturday.
@@ -36,21 +37,20 @@ export default function AboutPage() {
       <TeamShowcase description="Every treatment at SereniDrip is administered by licensed and experienced professionals." />
 
       {/* SECTION 3 — CLOSING CTA */}
-      <section className="bg-ink">
-        <div className="max-w-[600px] mx-auto px-6 md:px-12 py-24 text-center">
+      <section className="bg-bone">
+        <div className="max-w-[600px] mx-auto px-6 md:px-12 py-14 md:py-16 text-center">
           <Reveal>
-            <h2 className="font-display font-light text-4xl md:text-5xl text-cream leading-[0.95] tracking-[0.01em]">
+            <h2 className="font-display font-light text-4xl md:text-5xl text-ink leading-[1] tracking-[-0.02em]">
               Come feel the difference.
             </h2>
-            <p className="mt-4 text-cream-muted">
-              1105 Tamarack Ave, McAllen. By appointment.
-            </p>
-            <Link
-              href="tel:9566550055"
-              className="mt-8 inline-block bg-gold text-ink uppercase tracking-[0.2em] text-[11px] px-10 py-4 hover:bg-gold-hover transition-colors"
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center justify-center rounded-full bg-sage text-bone-2 uppercase tracking-button text-[11px] px-10 py-4 transition-colors hover:bg-sage-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
             >
-              CALL TO BOOK
-            </Link>
+              Book now
+            </a>
           </Reveal>
         </div>
       </section>

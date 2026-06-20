@@ -14,7 +14,7 @@ export function ServicesShell({ featured }: Props) {
       <Reveal>
         <Link
           href={`/services/${featured.slug}`}
-          className="group block relative overflow-hidden bg-ink-2"
+          className="group block relative overflow-hidden rounded-3xl bg-bone-3 shadow-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-sage/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
         >
           <div className="relative aspect-[3/2] sm:aspect-[16/6] md:aspect-[16/5] lg:aspect-[16/4]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -23,23 +23,23 @@ export function ServicesShell({ featured }: Props) {
               alt={featured.title}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-[1.02]"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-ink/10 via-ink/50 to-ink/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink/10 via-ink/45 to-ink/85" />
 
             <div className="absolute inset-0 flex items-center justify-end px-5 sm:px-8 md:px-16">
               <div className="max-w-[260px] sm:max-w-[320px] md:max-w-[360px] text-left">
-                <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-cream">
-                  Featured Service
+                <p className="text-[10px] sm:text-[11px] uppercase tracking-eyebrow text-bone-2/90">
+                  Featured service
                 </p>
-                <h2 className="mt-3 sm:mt-4 font-display font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-cream leading-[0.95] tracking-[0.01em]">
-                  <span className="italic">MYERS&rsquo;</span>
+                <h2 className="mt-3 sm:mt-4 font-display font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-bone-2 leading-[0.98] tracking-[-0.01em]">
+                  <span className="italic">Myers&rsquo;</span>
                   <br />
-                  COCKTAIL
+                  Cocktail
                 </h2>
-                <p className="mt-4 sm:mt-6 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-cream-muted">
-                  FROM $169
+                <p className="mt-4 sm:mt-6 text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-bone-2/80">
+                  From $169
                 </p>
-                <span className="mt-5 sm:mt-8 inline-block bg-gold text-ink uppercase tracking-[0.2em] text-[10px] sm:text-[11px] px-6 sm:px-10 py-3 sm:py-4 group-hover:bg-gold-hover transition-colors">
-                  DISCOVER
+                <span className="mt-5 sm:mt-8 inline-flex items-center justify-center rounded-full bg-bone-2 text-ink uppercase tracking-button text-[10px] sm:text-[11px] px-7 sm:px-9 py-3 sm:py-4 transition-colors group-hover:bg-sage group-hover:text-bone-2">
+                  Discover
                 </span>
               </div>
             </div>

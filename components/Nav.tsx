@@ -36,7 +36,7 @@ export function Nav() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 bg-ink border-b border-gold/15">
+    <header className="sticky top-0 z-40 bg-bone/85 backdrop-blur-md border-b border-ink/10">
       <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 h-[72px] md:h-[84px] relative flex items-center justify-between gap-4 md:gap-8">
         {/* LEFT */}
         <Link href="/" aria-label="SereniDrip · IV Hydration — home" className="block md:mt-2">
@@ -46,7 +46,7 @@ export function Nav() {
             width={360}
             height={84}
             priority
-            className="h-[48px] sm:h-[56px] md:h-[80px] w-auto object-contain"
+            className="logo-ink h-[48px] sm:h-[56px] md:h-[80px] w-auto object-contain"
           />
         </Link>
 
@@ -61,8 +61,8 @@ export function Nav() {
                 className={[
                   "text-base md:text-lg uppercase tracking-[0.22em] transition-colors",
                   active
-                    ? "text-gold underline underline-offset-[8px] decoration-gold/60"
-                    : "text-cream-muted hover:text-gold",
+                    ? "text-sage underline underline-offset-[8px] decoration-sage/50"
+                    : "text-ink-muted hover:text-sage",
                 ].join(" ")}
               >
                 {l.label}
@@ -76,7 +76,7 @@ export function Nav() {
           type="button"
           aria-label="Open menu"
           onClick={() => setOpen(true)}
-          className="lg:hidden text-gold p-2 -mr-2"
+          className="lg:hidden text-ink p-2 -mr-2 transition-colors hover:text-sage"
         >
           <List size={28} weight="thin" />
         </button>
@@ -91,23 +91,23 @@ export function Nav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 z-50 bg-ink"
+            className="fixed inset-0 z-50 bg-bone"
           >
-            <div className="h-[72px] px-4 sm:px-6 flex items-center justify-between border-b border-gold/15">
+            <div className="h-[72px] px-4 sm:px-6 flex items-center justify-between border-b border-ink/10">
               <Link href="/" aria-label="SereniDrip" onClick={() => setOpen(false)}>
                 <Image
                   src="/Images/SereniLogoNew.png"
                   alt="SereniDrip"
                   width={280}
                   height={64}
-                  className="h-[48px] sm:h-[56px] w-auto object-contain"
+                  className="logo-ink h-[48px] sm:h-[56px] w-auto object-contain"
                 />
               </Link>
               <button
                 type="button"
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
-                className="text-gold p-2 -mr-2"
+                className="text-ink p-2 -mr-2 transition-colors hover:text-sage"
               >
                 <X size={28} weight="thin" />
               </button>
@@ -137,7 +137,7 @@ export function Nav() {
                       href={l.href}
                       className={[
                         "block font-display text-4xl tracking-tight",
-                        active ? "text-gold" : "text-cream",
+                        active ? "text-sage" : "text-ink",
                       ].join(" ")}
                     >
                       {l.label}
