@@ -12,7 +12,6 @@ import { HeroZoom } from "@/components/HeroZoom";
 import { Reveal } from "@/components/Reveal";
 import { ServiceCard } from "@/components/ServiceCard";
 import { services } from "@/lib/services";
-import { BOOKING_URL } from "@/lib/site";
 
 type ContactItem = {
   Icon: typeof MapPin;
@@ -91,14 +90,6 @@ export default function HomePage() {
                 >
                   Explore drips
                 </Link>
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="self-center text-[11px] uppercase tracking-button text-ink underline underline-offset-[6px] decoration-ink/25 transition-colors hover:text-sage hover:decoration-sage/50"
-                >
-                  Book now
-                </a>
               </div>
 
             </div>
