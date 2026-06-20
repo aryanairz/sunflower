@@ -71,22 +71,12 @@ export function Nav() {
           })}
         </nav>
 
-        {/* RIGHT */}
-        <div className="hidden md:flex items-center gap-3">
-          <a
-            href="tel:9566550055"
-            className="border border-gold text-gold uppercase tracking-[0.2em] text-[11px] px-5 py-3 hover:bg-gold hover:text-ink transition-colors"
-          >
-            BOOK
-          </a>
-        </div>
-
         {/* MOBILE hamburger */}
         <button
           type="button"
           aria-label="Open menu"
           onClick={() => setOpen(true)}
-          className="md:hidden text-gold p-2 -mr-2"
+          className="lg:hidden text-gold p-2 -mr-2"
         >
           <List size={28} weight="thin" />
         </button>
@@ -156,21 +146,6 @@ export function Nav() {
                 );
               })}
 
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 8 },
-                  show: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="pt-12"
-              >
-                <a
-                  href="tel:9566550055"
-                  className="block border border-gold text-gold uppercase tracking-[0.2em] text-xs px-6 py-4 text-center hover:bg-gold hover:text-ink transition-colors"
-                >
-                  BOOK
-                </a>
-              </motion.div>
             </motion.nav>
           </motion.div>
         )}
