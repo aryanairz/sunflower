@@ -1,9 +1,12 @@
 // Site-wide constants.
 
-// Booking — every "Book now" CTA links here.
-// TODO: replace with your live Vagaro booking URL,
-// e.g. "https://www.vagaro.com/serenidrip/book"
-export const BOOKING_URL = "https://www.vagaro.com/";
+// Booking — every "Book now" CTA links to the on-site booking page,
+// which embeds the Vagaro widget below.
+export const BOOKING_URL = "/book";
+
+// Vagaro embeddable booking widget (BusinessWidget.aspx) — embedded on /book.
+export const BOOKING_WIDGET_URL =
+  "https://www.vagaro.com/Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVAiD4iDwBzH2Navn8m7MBH0JOwc5fiOAet3SVA66YW+Og3fmuJIh4iNf2O1azmtGlMLU6er31IXxT7euxIgKZyJTAxI2JWmUaf6xl6cDGXbj7Z+YW5amrlyvIbATyXyInAyDtRUeT6cv4DyaGZ85rLOD2gpvaZxy994gy37LKkOJt+poPcWS0OZXXFak65wWNOn9464gJO1RCPXnNhOchglClX4Fal+ns/aKyx43RNXS0lq/JUvNkz/io+ob65rIlxjveJKhLH79W00Qyi4mAhcd58PI4Ubq30kHwxxSaOhAHxasvLMvcL1gE+mSLDCY6+O6JiVrSS2ks1FvNQWYpHCrKj+/suV8MAvmThCknBjEOXtu6HuAiX8bn/iOxcO9X/K39DR+Ea5hb0Qn2lTSOlSrgn5yTTPigZ9qd24OhvZMc5fW/oOsY1mWvBdwjpy2HA==";
 
 // Phone for contact display (not a booking CTA).
 export const PHONE = "+1 956 655 0055";
