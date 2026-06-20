@@ -24,14 +24,14 @@ const contactItems: ContactItem[] = [
   {
     Icon: MapPin,
     label: "LOCATION",
-    primary: "1105 Tamarack Ave",
-    secondary: "McAllen, TX 78501",
+    primary: "2001 W Trenton Rd Spc 101 Unit 22",
+    secondary: "Edinburg, TX 78539",
   },
   { Icon: Phone, label: "PHONE", primary: "+1 956 655 0055" },
   {
     Icon: EnvelopeSimple,
     label: "EMAIL",
-    primary: "hello@serenidrip.com",
+    primary: "serenidripivhydration@gmail.com",
   },
   {
     Icon: Clock,
@@ -120,7 +120,7 @@ export default function HomePage() {
               </h2>
               <div className="mt-8 md:mt-10 max-w-[60ch] space-y-5 text-ink-muted text-base md:text-lg leading-relaxed">
                 <p>
-                  SereniDrip is a McAllen IV hydration studio built around one idea — that feeling restored shouldn&rsquo;t be complicated. Our licensed team delivers vitamins, fluids, and recovery blends directly to your bloodstream, where they work immediately.
+                  SereniDrip is an Edinburg IV hydration studio built around one idea — that feeling restored shouldn&rsquo;t be complicated. Our licensed team delivers vitamins, fluids, and recovery blends directly to your bloodstream, where they work immediately.
                 </p>
                 <p>
                   Every visit begins with a brief medical intake and ends with you feeling clearer, lighter, and more like yourself. By appointment, Monday through Saturday.

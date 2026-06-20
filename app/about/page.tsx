@@ -9,7 +9,7 @@ import { BOOKING_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "SereniDrip is a locally owned IV hydration studio in McAllen, Texas. Licensed, considered, and never rushed.",
+    "SereniDrip is a locally owned IV hydration studio in Edinburg, Texas. Licensed, considered, and never rushed.",
 };
 
 export default function AboutPage() {
@@ -26,7 +26,7 @@ export default function AboutPage() {
               Recharge. Restore. Revive.
             </h1>
             <p className="mt-8 mx-auto max-w-[58ch] text-ink-muted text-lg leading-relaxed text-pretty">
-              SereniDrip is a locally owned IV hydration studio in McAllen,
+              SereniDrip is a locally owned IV hydration studio in Edinburg,
               Texas. Every treatment is administered by licensed professionals,
               by appointment, Monday through Saturday.
             </p>

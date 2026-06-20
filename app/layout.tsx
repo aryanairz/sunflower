@@ -12,12 +12,12 @@ const display = Outfit({
 export const metadata: Metadata = {
   title: "SereniDrip",
   description:
-    "Licensed IV hydration in McAllen, Texas. Recharge. Restore. Revive. By appointment, Monday through Saturday.",
+    "Licensed IV hydration in Edinburg, Texas. Recharge. Restore. Revive. By appointment, Monday through Saturday.",
   metadataBase: new URL("https://serenidrip.com"),
   openGraph: {
     title: "SereniDrip · IV Hydration",
     description:
-      "Editorial IV hydration studio in McAllen, Texas. Vitamin blends, recovery drips, and wellness shots by appointment.",
+      "Editorial IV hydration studio in Edinburg, Texas. Vitamin blends, recovery drips, and wellness shots by appointment.",
     type: "website",
   },
 };

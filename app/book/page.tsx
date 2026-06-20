@@ -7,7 +7,7 @@ import { BOOKING_WIDGET_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Book",
   description:
-    "Book your IV hydration appointment at SereniDrip in McAllen, Texas. Choose a time that suits you and reserve in minutes.",
+    "Book your IV hydration appointment at SereniDrip in Edinburg, Texas. Choose a time that suits you and reserve in minutes.",
 };
 
 export default function BookPage() {
