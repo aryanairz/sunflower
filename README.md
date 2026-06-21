@@ -21,15 +21,15 @@ Scripts:
 
 ## Booking
 
-Every **"Book now"** CTA links to the on-site `/book` page ([app/book/page.tsx](app/book/page.tsx)), which embeds the **Vagaro** booking widget in an iframe.
+Every **"Book now"** CTA links straight to the studio's **Vagaro** booking page (opens in a new tab).
 
-The widget URL is configured in [lib/site.ts](lib/site.ts) as `BOOKING_WIDGET_URL`:
+The booking URL is configured in [lib/site.ts](lib/site.ts) as `BOOKING_URL`:
 
 ```
 https://www.vagaro.com/Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVAiD4iDwBzH2Navn8m7MBH0JOwc5fiOAet3SVA66YW+Og3fmuJIh4iNf2O1azmtGlMLU6er31IXxT7euxIgKZyJTAxI2JWmUaf6xl6cDGXbj7Z+YW5amrlyvIbATyXyInAyDtRUeT6cv4DyaGZ85rLOD2gpvaZxy994gy37LKkOJt+poPcWS0OZXXFak65wWNOn9464gJO1RCPXnNhOchglClX4Fal+ns/aKyx43RNXS0lq/JUvNkz/io+ob65rIlxjveJKhLH79W00Qyi4mAhcd58PI4Ubq30kHwxxSaOhAHxasvLMvcL1gE+mSLDCY6+O6JiVrSS2ks1FvNQWYpHCrKj+/suV8MAvmThCknBjEOXtu6HuAiX8bn/iOxcO9X/K39DR+Ea5hb0Qn2lTSOlSrgn5yTTPigZ9qd24OhvZMc5fW/oOsY1mWvBdwjpy2HA==
 ```
 
-To swap in a new Vagaro widget, replace `BOOKING_WIDGET_URL` in `lib/site.ts`.
+To swap in a new Vagaro link, replace `BOOKING_URL` in `lib/site.ts`.
 
 ## Editing site content
 

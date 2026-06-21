@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
@@ -44,12 +43,14 @@ export default function AboutPage() {
             <h2 className="font-display font-light text-4xl md:text-5xl text-ink leading-[1] tracking-[-0.02em]">
               Come feel the difference.
             </h2>
-            <Link
+            <a
               href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-8 inline-flex items-center justify-center rounded-full bg-sage text-bone-2 uppercase tracking-button text-[11px] px-10 py-4 transition-colors hover:bg-sage-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
             >
               Book now
-            </Link>
+            </a>
           </Reveal>
         </div>
       </section>

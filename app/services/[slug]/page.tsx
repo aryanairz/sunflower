@@ -114,12 +114,14 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   administered by a licensed professional.
                 </p>
 
-                <Link
+                <a
                   href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-8 flex w-full items-center justify-center rounded-full bg-sage text-bone-2 uppercase tracking-button text-[11px] py-4 transition-colors hover:bg-sage-hover active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
                 >
                   Book now
-                </Link>
+                </a>
               </Reveal>
             </div>
           </div>
