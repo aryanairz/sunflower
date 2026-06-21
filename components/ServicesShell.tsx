@@ -31,12 +31,10 @@ export function ServicesShell({ featured }: Props) {
                   Featured service
                 </p>
                 <h2 className="mt-3 sm:mt-4 font-display font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-bone-2 leading-[0.98] tracking-[-0.01em]">
-                  <span className="italic">Myers&rsquo;</span>
-                  <br />
-                  Cocktail
+                  {featured.title}
                 </h2>
                 <p className="mt-4 sm:mt-6 text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-bone-2/80">
-                  From $169
+                  From {featured.priceMain}
                 </p>
                 <span className="mt-5 sm:mt-8 inline-flex items-center justify-center rounded-full bg-bone-2 text-ink uppercase tracking-button text-[10px] sm:text-[11px] px-7 sm:px-9 py-3 sm:py-4 transition-colors group-hover:bg-sage group-hover:text-bone-2">
                   Discover

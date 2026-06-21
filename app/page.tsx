@@ -65,7 +65,7 @@ const testimonials = [
 
 export default function HomePage() {
   const featuredFour = services.slice(0, 4);
-  const featuredService = services.find((s) => s.slug === "myers-cocktail") ?? services[0];
+  const featuredService = services.find((s) => s.slug === "serenivital") ?? services[0];
 
   return (
     <main>
@@ -79,7 +79,7 @@ export default function HomePage() {
           <div className="order-2 lg:order-1 flex items-center px-5 sm:px-6 md:px-12 pt-9 pb-14 sm:py-20 lg:py-28">
             <div className="max-w-[560px]">
               <h1 className="font-display font-light text-[40px] sm:text-6xl md:text-7xl leading-[1] sm:leading-[0.98] tracking-[-0.02em] text-ink text-balance">
-                A new <span className="italic text-sage pr-[0.06em]">you</span> awaits
+                Where Hydration Meets <span className="italic text-sage pr-[0.06em]">Serenity</span>.
               </h1>
               <p className="mt-5 sm:mt-6 max-w-[46ch] text-[15px] sm:text-lg leading-relaxed text-ink-muted text-pretty">
                 Vitamins, fluids, and recovery blends delivered straight to your
@@ -230,7 +230,7 @@ export default function HomePage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/Images/myers2.png"
-              alt="Myers' Cocktail IV drip with B vitamins, vitamin C, and magnesium at SereniDrip IV Hydration, Edinburg TX"
+              alt="SereniVital IV drip with B vitamins, vitamin C, and magnesium at SereniDrip IV Hydration, Edinburg TX"
               loading="lazy"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -241,10 +241,10 @@ export default function HomePage() {
                 Featured service
               </p>
               <h3 className="mt-4 md:mt-6 font-display font-light text-4xl sm:text-5xl md:text-6xl text-ink leading-[1] tracking-[-0.02em]">
-                The Myers&rsquo; Cocktail
+                {featuredService.title}
               </h3>
               <p className="mt-4 md:mt-6 text-[11px] uppercase tracking-[0.22em] text-sage">
-                From $100
+                From {featuredService.priceMain}
               </p>
               <p className="mt-6 md:mt-8 max-w-[40ch] text-base md:text-lg leading-relaxed text-ink-muted">
                 A classic blend of magnesium, B-Complex, and Vitamin C — designed to support immune health, energy, and stress recovery. A 45-minute session.

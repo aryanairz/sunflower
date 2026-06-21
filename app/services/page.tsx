@@ -13,7 +13,7 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function ServicesIndexPage() {
-  const featured = getService("myers-cocktail")!;
+  const featured = getService("serenivital")!;
 
   return (
     <main>

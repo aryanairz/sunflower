@@ -34,8 +34,8 @@ export function filterByLabel(label: FilterLabel): Service[] {
 
 export const services: Service[] = [
   {
-    slug: "myers-cocktail",
-    title: "Myers' Cocktail",
+    slug: "serenivital",
+    title: "SereniVital",
     category: "WELLNESS",
     tags: ["WELLNESS", "FAVORITES"],
     cardDesc:
@@ -57,8 +57,8 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "quench-iv",
-    title: "Quench IV",
+    slug: "serenihydrate",
+    title: "SereniHydrate",
     category: "HYDRATION",
     tags: ["HYDRATION"],
     cardDesc:
@@ -80,8 +80,8 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "reboot-iv",
-    title: "Reboot IV",
+    slug: "serenirevive",
+    title: "SereniRevive",
     category: "RECOVERY",
     tags: ["RECOVERY"],
     cardDesc:
@@ -103,14 +103,14 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "nad-therapy",
-    title: "NAD+ Therapy",
+    slug: "sereniyouth",
+    title: "SereniYouth",
     category: "WELLNESS",
     tags: ["WELLNESS"],
     cardDesc:
       "A cellular wellness therapy supporting energy production, mental clarity, and healthy aging.",
-    priceMain: "Price varies",
-    priceSub: "PER SESSION",
+    priceMain: "$250",
+    priceSub: "STARTING PRICE",
     image: "/Images/nadplus.png",
     detailImage: "/Images/nadplus2.png",
     headline: "Energy at the cellular level",
@@ -126,8 +126,8 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "snow-bright-iv",
-    title: "Snow Bright IV",
+    slug: "sereniglow",
+    title: "SereniGlow",
     category: "BEAUTY",
     tags: ["BEAUTY"],
     cardDesc:
@@ -149,8 +149,8 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "get-up-and-go-iv",
-    title: "Get-Up-and-Go IV",
+    slug: "sereniboost",
+    title: "SereniBoost",
     category: "ENERGY",
     tags: ["ENERGY"],
     cardDesc:
@@ -172,8 +172,8 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "immunity-iv",
-    title: "Immunity IV",
+    slug: "serenishield",
+    title: "SereniShield",
     category: "IMMUNITY",
     tags: ["IMMUNITY"],
     cardDesc:

@@ -8,7 +8,9 @@
       "Read(//c/c/dev/escape-spa-tmp - Copy/**)",
       "PowerShell(npx tsc --noEmit 2>&1)",
       "Bash(node -e \"console.log\\(require\\('next/package.json'\\).version\\)\")",
-      "Bash(cd \"/c/dev/escape-spa-tmp - Copy\" && ls -la public/Images/serenifavicon.png app/icon.png && cp public/Images/serenifavicon.png app/icon.png && echo \"--- after copy ---\" && ls -la app/icon.png && cmp public/Images/serenifavicon.png app/icon.png && echo \"identical: icon.png now == serenifavicon.png\")"
+      "Bash(cd \"/c/dev/escape-spa-tmp - Copy\" && ls -la public/Images/serenifavicon.png app/icon.png && cp public/Images/serenifavicon.png app/icon.png && echo \"--- after copy ---\" && ls -la app/icon.png && cmp public/Images/serenifavicon.png app/icon.png && echo \"identical: icon.png now == serenifavicon.png\")",
+      "PowerShell(npm run build 2>&1)",
+      "Bash(node -e \"const m=require\\('./.next/routes-manifest.json'\\); console.log\\(m.redirects.filter\\(r=>r.source.startsWith\\('/services/'\\)\\).map\\(r=>r.source+' -> '+r.destination+' ['+r.statusCode+']'\\).join\\('\\\\n'\\)\\)\")"
     ],
     "additionalDirectories": [
       "c:\\c\\dev\\escape-spa-tmp - Copy\\public\\Images"
