@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { SITE_URL, pageMetadata } from "@/lib/seo";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const display = Outfit({
   variable: "--font-display",
@@ -29,6 +30,7 @@ export default function RootLayout({
     <html lang="en" className={display.variable}>
       <body className="min-h-[100dvh] bg-bone text-ink antialiased">
         {children}
+        <CookieConsent />
       </body>
     </html>
   );
