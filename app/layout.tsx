@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import { SITE_URL, pageMetadata } from "@/lib/seo";
 
 const display = Outfit({
   variable: "--font-display",
@@ -10,16 +11,13 @@ const display = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "SereniDrip",
-  description:
-    "Licensed IV hydration in Edinburg, Texas. Recharge. Restore. Revive. By appointment, Monday through Saturday.",
-  metadataBase: new URL("https://serenidrip.com"),
-  openGraph: {
-    title: "SereniDrip · IV Hydration",
+  metadataBase: new URL(SITE_URL),
+  ...pageMetadata({
+    title: "SereniDrip IV Hydration | IV Therapy in Edinburg, TX",
     description:
-      "Editorial IV hydration studio in Edinburg, Texas. Vitamin blends, recovery drips, and wellness shots by appointment.",
-    type: "website",
-  },
+      "IV hydration and vitamin therapy in Edinburg, TX, administered by licensed professionals. Book your drip today.",
+    path: "/",
+  }),
 };
 
 export default function RootLayout({

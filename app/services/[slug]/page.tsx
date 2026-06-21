@@ -7,8 +7,10 @@ import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { ServiceCard } from "@/components/ServiceCard";
 import { HeroZoom } from "@/components/HeroZoom";
+import { JsonLd } from "@/components/JsonLd";
 import { services, getService, getRelatedServices } from "@/lib/services";
 import { BOOKING_URL } from "@/lib/site";
+import { pageMetadata, serviceJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -23,11 +25,13 @@ type PageProps = {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const s = getService(slug);
-  if (!s) return { title: "Services" };
-  return {
-    title: s.title,
+  if (!s) return { title: "Service Not Found" };
+  return pageMetadata({
+    title: `${s.title} | SereniDrip IV Hydration Edinburg, TX`,
     description: s.cardDesc,
-  };
+    path: `/services/${s.slug}`,
+    image: s.detailImage ?? s.image,
+  });
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {
@@ -39,12 +43,17 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
   return (
     <main>
+      <JsonLd data={serviceJsonLd(s)} />
       <Nav />
 
       {/* SLIM HERO BANNER — name only */}
       <section className="relative w-full overflow-hidden">
         <div className="relative h-[200px] sm:h-[220px]">
-          <HeroZoom src={s.detailImage ?? s.image} alt={s.title} priority />
+          <HeroZoom
+            src={s.detailImage ?? s.image}
+            alt={`${s.title} IV drip at SereniDrip IV Hydration, Edinburg TX`}
+            priority
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/45 to-ink/15" />
 
           <div className="absolute inset-0 flex items-end">
@@ -69,7 +78,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={s.image}
-                      alt={s.title}
+                      alt={`${s.title} IV bag, SereniDrip IV Hydration Edinburg TX`}
                       loading="eager"
                       className="h-full w-full object-contain"
                     />

@@ -17,7 +17,8 @@ export function ServiceCard({ service }: Props) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={image}
-          alt={title}
+          alt={`${title} IV drip, SereniDrip IV Hydration Edinburg TX`}
+          loading="lazy"
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
         />
       </div>

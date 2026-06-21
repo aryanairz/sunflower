@@ -20,7 +20,7 @@ export function ServicesShell({ featured }: Props) {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={featured.detailImage ?? featured.image}
-              alt={featured.title}
+              alt={`${featured.title} IV drip, SereniDrip IV Hydration Edinburg TX`}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-[1.02]"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-ink/10 via-ink/45 to-ink/85" />

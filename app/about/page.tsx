@@ -4,12 +4,14 @@ import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { TeamShowcase } from "@/components/TeamShowcase";
 import { BOOKING_URL } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata: Metadata = pageMetadata({
+  title: "About SereniDrip | Licensed IV Hydration in Edinburg, TX",
   description:
-    "SereniDrip is a locally owned IV hydration studio in Edinburg, Texas. Licensed, considered, and never rushed.",
-};
+    "SereniDrip is a locally owned IV hydration studio in Edinburg, TX, serving the Rio Grande Valley. Licensed nurses, considered care, never rushed.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

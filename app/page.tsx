@@ -12,8 +12,10 @@ import { HeroZoom } from "@/components/HeroZoom";
 import { Reveal } from "@/components/Reveal";
 import { ServiceCard } from "@/components/ServiceCard";
 import { MapLink } from "@/components/MapLink";
+import { JsonLd } from "@/components/JsonLd";
 import { services } from "@/lib/services";
 import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF } from "@/lib/site";
+import { localBusinessJsonLd } from "@/lib/seo";
 
 type ContactItem = {
   Icon: typeof MapPin;
@@ -67,6 +69,7 @@ export default function HomePage() {
 
   return (
     <main>
+      <JsonLd data={localBusinessJsonLd()} />
       <Nav />
 
       {/* HERO — bright split: text left, photo right */}
@@ -121,7 +124,10 @@ export default function HomePage() {
               </h2>
               <div className="mt-8 md:mt-10 max-w-[60ch] space-y-5 text-ink-muted text-base md:text-lg leading-relaxed">
                 <p>
-                  SereniDrip is an Edinburg IV hydration studio built around one idea — that feeling restored shouldn&rsquo;t be complicated. Our licensed team delivers vitamins, fluids, and recovery blends directly to your bloodstream, where they work immediately.
+                  SereniDrip is an IV hydration and vitamin therapy studio in
+                  Edinburg, serving the wider Rio Grande Valley. Our licensed team
+                  delivers vitamins, fluids, and recovery blends directly to your
+                  bloodstream, where they go to work right away.
                 </p>
                 <p>
                   Every visit begins with a brief medical intake and ends with you feeling clearer, lighter, and more like yourself. By appointment, Monday through Saturday.
@@ -224,7 +230,8 @@ export default function HomePage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/Images/myers2.png"
-              alt="The Myers' Cocktail IV blend"
+              alt="Myers' Cocktail IV drip with B vitamins, vitamin C, and magnesium at SereniDrip IV Hydration, Edinburg TX"
+              loading="lazy"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>

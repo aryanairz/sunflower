@@ -6,7 +6,8 @@
       "Read(//c/c/dev/escape-spa-tmp - Copy/app/**)",
       "Bash(cd \"/c/dev/escape-spa-tmp - Copy\" && echo \"=== PHONE refs \\(excluding definition\\) ===\" && grep -rnE \"PHONE\" app components lib | grep -v \"lib/site.ts\")",
       "Read(//c/c/dev/escape-spa-tmp - Copy/**)",
-      "PowerShell(npx tsc --noEmit 2>&1)"
+      "PowerShell(npx tsc --noEmit 2>&1)",
+      "Bash(node -e \"console.log\\(require\\('next/package.json'\\).version\\)\")"
     ]
   }
 }
