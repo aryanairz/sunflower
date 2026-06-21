@@ -11,13 +11,17 @@ import { Footer } from "@/components/Footer";
 import { HeroZoom } from "@/components/HeroZoom";
 import { Reveal } from "@/components/Reveal";
 import { ServiceCard } from "@/components/ServiceCard";
+import { MapLink } from "@/components/MapLink";
 import { services } from "@/lib/services";
+import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF } from "@/lib/site";
 
 type ContactItem = {
   Icon: typeof MapPin;
   label: string;
   primary: string;
   secondary?: string;
+  href?: string; // tel:/mailto: link for the value
+  map?: boolean; // render value as a native maps link
 };
 
 const contactItems: ContactItem[] = [
@@ -26,13 +30,10 @@ const contactItems: ContactItem[] = [
     label: "LOCATION",
     primary: "2001 W Trenton Rd, Spc 101 Unit 22",
     secondary: "Edinburg, TX 78539",
+    map: true,
   },
-  { Icon: Phone, label: "PHONE", primary: "+1 956 655 0055" },
-  {
-    Icon: EnvelopeSimple,
-    label: "EMAIL",
-    primary: "serenidripivhydration@gmail.com",
-  },
+  { Icon: Phone, label: "PHONE", primary: PHONE, href: PHONE_HREF },
+  { Icon: EnvelopeSimple, label: "EMAIL", primary: EMAIL, href: EMAIL_HREF },
   {
     Icon: Clock,
     label: "HOURS",
@@ -130,7 +131,7 @@ export default function HomePage() {
 
             <Reveal delay={0.15} className="md:col-span-5">
               <div className="rounded-2xl border border-ink/[0.08] bg-bone-2 shadow-soft p-6 sm:p-8 space-y-6">
-                {contactItems.map(({ Icon, label, primary, secondary }) => (
+                {contactItems.map(({ Icon, label, primary, secondary, href, map }) => (
                   <div key={label} className="flex gap-4">
                     <Icon
                       size={22}
@@ -141,14 +142,39 @@ export default function HomePage() {
                       <p className="text-[11px] uppercase tracking-[0.22em] text-sage">
                         {label}
                       </p>
-                      <p className="mt-1 text-ink text-base leading-[1.35]">
-                        {primary}
-                      </p>
-                      {secondary ? (
-                        <p className="text-ink-muted text-base leading-[1.35]">
-                          {secondary}
-                        </p>
-                      ) : null}
+                      {map ? (
+                        <MapLink
+                          query={[primary, secondary].filter(Boolean).join(", ")}
+                          className="group mt-1 block"
+                        >
+                          <span className="block text-ink text-base leading-[1.35] transition-colors group-hover:text-sage">
+                            {primary}
+                          </span>
+                          {secondary ? (
+                            <span className="block text-ink-muted text-base leading-[1.35] transition-colors group-hover:text-sage">
+                              {secondary}
+                            </span>
+                          ) : null}
+                        </MapLink>
+                      ) : href ? (
+                        <a
+                          href={href}
+                          className="mt-1 block text-ink text-base leading-[1.35] transition-colors hover:text-sage"
+                        >
+                          {primary}
+                        </a>
+                      ) : (
+                        <>
+                          <p className="mt-1 text-ink text-base leading-[1.35]">
+                            {primary}
+                          </p>
+                          {secondary ? (
+                            <p className="text-ink-muted text-base leading-[1.35]">
+                              {secondary}
+                            </p>
+                          ) : null}
+                        </>
+                      )}
                     </div>
                   </div>
                 ))}

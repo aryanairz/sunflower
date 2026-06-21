@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx tsc --noEmit *)"
+      "Bash(npx tsc --noEmit *)",
+      "Bash(cd \"/c/dev/escape-spa-tmp - Copy\" && grep -nE \"contactItems|\\\\.map|mailto|tel:|primary|secondary|href\" app/page.tsx | head -40)",
+      "Read(//c/c/dev/escape-spa-tmp - Copy/app/**)",
+      "Bash(cd \"/c/dev/escape-spa-tmp - Copy\" && echo \"=== PHONE refs \\(excluding definition\\) ===\" && grep -rnE \"PHONE\" app components lib | grep -v \"lib/site.ts\")",
+      "Read(//c/c/dev/escape-spa-tmp - Copy/**)",
+      "PowerShell(npx tsc --noEmit 2>&1)"
     ]
   }
 }

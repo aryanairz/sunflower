@@ -7,3 +7,7 @@ export const BOOKING_URL =
 // Phone for contact display (not a booking CTA).
 export const PHONE = "+1 956 655 0055";
 export const PHONE_HREF = "tel:9566550055";
+
+// Email for contact display.
+export const EMAIL = "serenidripivhydration@gmail.com";
+export const EMAIL_HREF = "mailto:serenidripivhydration@gmail.com";
