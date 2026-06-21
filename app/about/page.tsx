@@ -20,17 +20,35 @@ export default function AboutPage() {
 
       {/* SECTION 1 — COMPACT HERO */}
       <section className="bg-bone">
-        <div className="max-w-[1500px] mx-auto px-6 md:px-12 py-20 md:py-28">
+        <div className="max-w-[1500px] mx-auto px-6 md:px-12 py-14 md:py-20">
           <Reveal className="text-center">
-            <p className="text-[11px] uppercase tracking-eyebrow text-sage">About SereniDrip</p>
-            <h1 className="mt-5 font-display font-light text-5xl md:text-7xl text-ink leading-[1] tracking-[-0.025em] text-balance">
+            <h1 className="font-display font-light text-4xl md:text-6xl text-ink leading-[1] tracking-[-0.025em] text-balance">
               Recharge. Restore. Revive.
             </h1>
-            <p className="mt-8 mx-auto max-w-[58ch] text-ink-muted text-lg leading-relaxed text-pretty">
-              SereniDrip is a locally owned IV hydration studio in Edinburg,
-              Texas. Every treatment is administered by licensed professionals,
-              by appointment, Monday through Saturday.
-            </p>
+            <div className="mt-8 md:mt-10 mx-auto max-w-[760px] space-y-5 text-center text-ink-muted text-base md:text-lg leading-relaxed text-pretty">
+              <p>
+                Welcome to SereniDrip IV Hydration, where wellness meets
+                convenience. Whether you&rsquo;re looking to boost energy, recover
+                faster, improve hydration, support immunity, or simply feel your
+                best, our customized IV hydration therapies are designed with your
+                health and wellness goals in mind.
+              </p>
+              <p>
+                Our team of experienced medical professionals provides safe,
+                personalized treatments in a relaxing environment, bringing
+                premium hydration and wellness solutions directly to you.
+              </p>
+              <p>
+                At SereniDrip, we believe feeling your best shouldn&rsquo;t be
+                complicated. Let us help you restore balance, replenish essential
+                nutrients, and leave feeling refreshed, energized, and ready for
+                whatever comes next.
+              </p>
+              <p>
+                Your journey to better wellness starts with a drip. Book your
+                appointment today and experience the SereniDrip difference.
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>

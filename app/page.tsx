@@ -82,9 +82,9 @@ export default function HomePage() {
                 Where Hydration Meets <span className="italic text-sage pr-[0.06em]">Serenity</span>.
               </h1>
               <p className="mt-5 sm:mt-6 max-w-[46ch] text-[15px] sm:text-lg leading-relaxed text-ink-muted text-pretty">
-                Vitamins, fluids, and recovery blends delivered straight to your
-                bloodstream — so you feel clearer, lighter, and more like
-                yourself. Recharge, restore, revive.
+                Customized IV hydration therapies to boost energy, speed
+                recovery, and support immunity. Premium wellness from experienced
+                professionals, in a calm, relaxing space.
               </p>
 
               <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-x-7">
