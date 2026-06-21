@@ -7,7 +7,11 @@
       "Bash(cd \"/c/dev/escape-spa-tmp - Copy\" && echo \"=== PHONE refs \\(excluding definition\\) ===\" && grep -rnE \"PHONE\" app components lib | grep -v \"lib/site.ts\")",
       "Read(//c/c/dev/escape-spa-tmp - Copy/**)",
       "PowerShell(npx tsc --noEmit 2>&1)",
-      "Bash(node -e \"console.log\\(require\\('next/package.json'\\).version\\)\")"
+      "Bash(node -e \"console.log\\(require\\('next/package.json'\\).version\\)\")",
+      "Bash(cd \"/c/dev/escape-spa-tmp - Copy\" && ls -la public/Images/serenifavicon.png app/icon.png && cp public/Images/serenifavicon.png app/icon.png && echo \"--- after copy ---\" && ls -la app/icon.png && cmp public/Images/serenifavicon.png app/icon.png && echo \"identical: icon.png now == serenifavicon.png\")"
+    ],
+    "additionalDirectories": [
+      "c:\\c\\dev\\escape-spa-tmp - Copy\\public\\Images"
     ]
   }
 }
