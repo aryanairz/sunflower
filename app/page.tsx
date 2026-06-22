@@ -39,8 +39,8 @@ const contactItems: ContactItem[] = [
   {
     Icon: Clock,
     label: "HOURS",
-    primary: "Mon – Sat",
-    secondary: "9 AM – 6 PM · By appointment",
+    primary: "Mon – Sat: 9 AM – 6 PM",
+    secondary: "Sun: 12 – 5 PM · By appointment",
   },
 ];
 
@@ -130,7 +130,7 @@ export default function HomePage() {
                   bloodstream, where they go to work right away.
                 </p>
                 <p>
-                  Every visit begins with a brief medical intake and ends with you feeling clearer, lighter, and more like yourself. By appointment, Monday through Saturday.
+                  Every visit begins with a brief medical intake and ends with you feeling clearer, lighter, and more like yourself. By appointment, seven days a week.
                 </p>
               </div>
             </Reveal>

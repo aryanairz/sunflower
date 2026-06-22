@@ -62,13 +62,21 @@ export function pageMetadata({
   };
 }
 
-// Mon–Sat 9:00–18:00, by appointment.
-const OPENING_HOURS = {
-  "@type": "OpeningHoursSpecification",
-  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-  opens: "09:00",
-  closes: "18:00",
-} as const;
+// Open 7 days a week, by appointment: Mon–Sat 9:00–18:00, Sun 12:00–17:00.
+const OPENING_HOURS = [
+  {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "09:00",
+    closes: "18:00",
+  },
+  {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Sunday"],
+    opens: "12:00",
+    closes: "17:00",
+  },
+] as const;
 
 /** LocalBusiness schema for the homepage. */
 export function localBusinessJsonLd() {
@@ -90,7 +98,7 @@ export function localBusinessJsonLd() {
       addressCountry: BUSINESS.addressCountry,
     },
     areaServed: BUSINESS.areaServed.map((name) => ({ "@type": "Place", name })),
-    openingHoursSpecification: [OPENING_HOURS],
+    openingHoursSpecification: OPENING_HOURS,
   };
 }
 
@@ -159,7 +167,7 @@ export const FAQ_ITEMS: { question: string; answer: string }[] = [
   {
     question: "Do I need an appointment?",
     answer:
-      "Yes. SereniDrip is by appointment, Monday through Saturday. Booking ahead lets us prepare your drip and keep your visit calm and unhurried.",
+      "Yes. SereniDrip is by appointment, seven days a week: Monday through Saturday from 9 AM to 6 PM, and Sunday from 12 to 5 PM. Booking ahead lets us prepare your drip and keep your visit calm and unhurried.",
   },
   {
     question: "How much do IV drips cost?",

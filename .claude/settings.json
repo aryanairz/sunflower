@@ -14,7 +14,11 @@
       "Skill(fewer-permission-prompts)",
       "Skill(fewer-permission-prompts:*)",
       "Bash(ls -dt ~/.claude/projects/*/ 2>/dev/null | head; echo \"=== current project dir guess ===\"; ls -d ~/.claude/projects/*escape* 2>/dev/null)",
-      "Read(//c/Users/aryan/.claude/projects/**)"
+      "Read(//c/Users/aryan/.claude/projects/**)",
+      "Bash(node -e \"const s=require\\('sharp'\\); console.log\\('sharp OK', s.versions ? '' : ''\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"const s=require\\('sharp'\\); s\\('app/icon.png'\\).metadata\\(\\).then\\(m=>console.log\\('icon.png', m.width+'x'+m.height\\)\\)\")",
+      "Bash(grep -oE 'rel\\\\\\\\?\":\\\\\\\\?\"\\(icon|shortcut icon|apple-touch-icon\\)\\\\\\\\?\"[^}]*href\\\\\\\\?\":\\\\\\\\?\"[^\"\\\\\\\\]*' .next/server/app/index.html)"
     ],
     "additionalDirectories": [
       "c:\\c\\dev\\escape-spa-tmp - Copy\\public\\Images"
