@@ -54,7 +54,7 @@ export default function AboutPage() {
       </section>
 
       {/* SECTION 2 — OUR TEAM */}
-      <TeamShowcase description="Every treatment at SereniDrip is administered by licensed and experienced professionals." />
+      <TeamShowcase description="SereniDrip IV Hydration operates under the medical supervision of our Medical Director, Dr. Emily Farias, MD (Texas Medical License W1781), in accordance with Texas Medical Board regulations. Every treatment at SereniDrip is administered by licensed and experienced professionals." />
 
       {/* SECTION 3 — CLOSING CTA */}
       <section className="bg-bone">

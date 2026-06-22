@@ -11,7 +11,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function NoticeOfPrivacyPracticesPage() {
   return (
-    <LegalPage title="Notice of Privacy Practices" lastUpdated="June 21, 2026">
+    <LegalPage title="Notice of Privacy Practices" lastUpdated="June 2026">
       <p className="font-medium text-ink">
         THIS NOTICE DESCRIBES HOW MEDICAL INFORMATION ABOUT YOU MAY BE USED AND
         DISCLOSED AND HOW YOU CAN ACCESS THIS INFORMATION. PLEASE REVIEW IT
@@ -42,67 +42,39 @@ export default function NoticeOfPrivacyPracticesPage() {
       </ul>
 
       <h2>How We May Use and Disclose Your Health Information</h2>
-
-      <h3>For Treatment</h3>
       <p>
-        We may use and share your health information to provide, coordinate, or
-        manage your healthcare services. Examples:
+        <strong>For Treatment.</strong> We may use and share your health
+        information to provide, coordinate, or manage your healthcare services.
+        Examples: reviewing your medical history before treatment; consulting with
+        physicians, nurse practitioners, or other healthcare providers involved in
+        your care; and determining whether IV hydration therapy is appropriate for
+        you.
       </p>
-      <ul>
-        <li>Reviewing your medical history before treatment.</li>
-        <li>
-          Consulting with physicians, nurse practitioners, or other healthcare
-          providers involved in your care.
-        </li>
-        <li>Determining whether IV hydration therapy is appropriate for you.</li>
-      </ul>
-
-      <h3>For Payment</h3>
       <p>
-        We may use and disclose your information to obtain payment for services
-        rendered. Examples:
+        <strong>For Payment.</strong> We may use and disclose your information to
+        obtain payment for services rendered. Examples: processing payments,
+        verifying transactions, and providing receipts and invoices.
       </p>
-      <ul>
-        <li>Processing payments.</li>
-        <li>Verifying transactions.</li>
-        <li>Providing receipts and invoices.</li>
-      </ul>
-
-      <h3>For Healthcare Operations</h3>
       <p>
-        We may use and disclose information for operational purposes, including:
+        <strong>For Healthcare Operations.</strong> We may use and disclose
+        information for operational purposes, including quality improvement
+        activities, staff training and education, compliance reviews, and business
+        management and administrative activities.
       </p>
-      <ul>
-        <li>Quality improvement activities.</li>
-        <li>Staff training and education.</li>
-        <li>Compliance reviews.</li>
-        <li>Business management and administrative activities.</li>
-      </ul>
-
-      <h3>Appointment Reminders and Service Communications</h3>
-      <p>We may contact you by phone, text message, or email for:</p>
-      <ul>
-        <li>Appointment reminders</li>
-        <li>Follow-up care instructions</li>
-        <li>Service-related updates</li>
-      </ul>
-
-      <h3>As Required by Law</h3>
       <p>
-        We may disclose information when required by federal, state, or local law.
-        Examples include:
+        <strong>Appointment Reminders and Service Communications.</strong> We may
+        contact you by phone, text message, or email for appointment reminders,
+        follow-up care instructions, and service-related updates.
       </p>
-      <ul>
-        <li>Public health reporting</li>
-        <li>Court orders</li>
-        <li>Law enforcement requests</li>
-        <li>Government audits and investigations</li>
-      </ul>
-
-      <h3>To Prevent Serious Threats</h3>
       <p>
-        We may disclose information when necessary to help prevent a serious
-        threat to health or safety.
+        <strong>As Required by Law.</strong> We may disclose information when
+        required by federal, state, or local law, including public health
+        reporting, court orders, law enforcement requests, and government audits
+        and investigations.
+      </p>
+      <p>
+        <strong>To Prevent Serious Threats.</strong> We may disclose information
+        when necessary to help prevent a serious threat to health or safety.
       </p>
 
       <h2>Uses and Disclosures Requiring Your Authorization</h2>
@@ -114,41 +86,34 @@ export default function NoticeOfPrivacyPracticesPage() {
       </p>
 
       <h2>Your Rights Regarding Your Health Information</h2>
-
-      <h3>Right to Access Your Records</h3>
       <p>
-        You have the right to inspect and obtain a copy of your health records,
-        subject to certain legal exceptions.
+        <strong>Right to Access Your Records.</strong> You have the right to
+        inspect and obtain a copy of your health records, subject to certain legal
+        exceptions.
       </p>
-
-      <h3>Right to Request Corrections</h3>
       <p>
-        If you believe information in your record is inaccurate or incomplete, you
-        may request an amendment.
+        <strong>Right to Request Corrections.</strong> If you believe information
+        in your record is inaccurate or incomplete, you may request an amendment.
       </p>
-
-      <h3>Right to Request Restrictions</h3>
       <p>
-        You may request restrictions on certain uses or disclosures of your health
-        information. While we will consider your request, we may not always be
-        able to agree to it.
+        <strong>Right to Request Restrictions.</strong> You may request
+        restrictions on certain uses or disclosures of your health information.
+        While we will consider your request, we may not always be able to agree to
+        it.
       </p>
-
-      <h3>Right to Confidential Communications</h3>
       <p>
-        You may request that we communicate with you through alternative methods
-        or at alternative locations, such as calling only a specific phone number
-        or sending correspondence to a different address.
+        <strong>Right to Confidential Communications.</strong> You may request that
+        we communicate with you through alternative methods or at alternative
+        locations (for example, calling only a specific phone number, or sending
+        correspondence to a different address).
       </p>
-
-      <h3>Right to Receive a Copy of This Notice</h3>
       <p>
-        You may request a paper or electronic copy of this Notice at any time.
+        <strong>Right to Receive a Copy of This Notice.</strong> You may request a
+        paper or electronic copy of this Notice at any time.
       </p>
-
-      <h3>Right to Receive an Accounting of Disclosures</h3>
       <p>
-        You may request a list of certain disclosures we have made of your health
+        <strong>Right to Receive an Accounting of Disclosures.</strong> You may
+        request a list of certain disclosures we have made of your health
         information.
       </p>
 
@@ -192,11 +157,29 @@ export default function NoticeOfPrivacyPracticesPage() {
         <a href="mailto:serenidripivhydration@gmail.com">
           serenidripivhydration@gmail.com
         </a>
+        <br />
+        Website:{" "}
+        <a
+          href="https://serenidripivhydration.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          serenidripivhydration.com
+        </a>
       </p>
       <p>
-        To request a paper copy of this Notice or to exercise any of the rights
-        described above, please contact our Privacy Officer using the information
-        above.
+        <strong>Privacy Officer</strong>
+        <br />
+        Kat Into
+        <br />
+        SereniDrip IV Hydration
+        <br />
+        Phone: <a href="tel:9566550055">(956) 655-0055</a>
+        <br />
+        Email:{" "}
+        <a href="mailto:serenidripivhydration@gmail.com">
+          serenidripivhydration@gmail.com
+        </a>
       </p>
     </LegalPage>
   );

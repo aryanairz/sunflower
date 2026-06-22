@@ -4,6 +4,7 @@ import Link from "next/link";
 const legalLinks = [
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
+  { href: "/notice-of-privacy-practices", label: "Notice of Privacy Practices" },
 ];
 
 export function Footer() {
@@ -19,20 +20,20 @@ export function Footer() {
             className="logo-ink h-[30px] sm:h-[36px] md:h-[40px] w-auto object-contain"
           />
 
-          <div className="flex flex-row items-center gap-3 sm:gap-5">
-            <nav className="flex items-center gap-4 sm:gap-6">
+          <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-1.5 sm:gap-x-5">
+            <nav className="flex flex-wrap items-center justify-end gap-x-4 gap-y-1.5 sm:gap-x-6">
               {legalLinks.map((l) => (
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="text-[10px] sm:text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] leading-none text-ink-muted transition-colors hover:text-sage"
+                  className="whitespace-nowrap text-[10px] sm:text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] leading-none text-ink-muted transition-colors hover:text-sage"
                 >
                   {l.label}
                 </Link>
               ))}
             </nav>
 
-            <div className="h-3.5 w-px bg-ink/15" />
+            <div className="hidden sm:block h-3.5 w-px bg-ink/15" />
 
             <p className="whitespace-nowrap text-[10px] sm:text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] leading-none text-ink-muted">
               © 2026 SereniDrip
