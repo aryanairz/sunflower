@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ServicesShell } from "@/components/ServicesShell";
+import { SereniShots } from "@/components/SereniShots";
 import { getService } from "@/lib/services";
 import { pageMetadata } from "@/lib/seo";
 
@@ -23,6 +24,7 @@ export default function ServicesIndexPage() {
           <ServicesShell featured={featured} />
         </div>
       </section>
+      <SereniShots />
       <Footer />
     </main>
   );

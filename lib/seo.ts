@@ -3,6 +3,7 @@
 
 import type { Metadata } from "next";
 import type { Service } from "@/lib/services";
+import type { Shot } from "@/lib/shots";
 
 export const SITE_URL = "https://serenidripivhydration.com";
 export const SITE_NAME = "SereniDrip IV Hydration";
@@ -116,6 +117,28 @@ export function serviceJsonLd(service: Service) {
         postalCode: BUSINESS.postalCode,
         addressCountry: BUSINESS.addressCountry,
       },
+    },
+    areaServed: BUSINESS.areaServed.map((name) => ({ "@type": "Place", name })),
+  };
+}
+
+/** Service schema for a single SereniShot's detail page. */
+export function shotJsonLd(shot: Shot) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${shot.name} Booster Shot`,
+    description: shot.description,
+    url: `${SITE_URL}/shots/${shot.slug}`,
+    ...(shot.detailImage || shot.image
+      ? { image: `${SITE_URL}${shot.detailImage ?? shot.image}` }
+      : {}),
+    serviceType: "Vitamin and wellness booster injection",
+    provider: {
+      "@type": "LocalBusiness",
+      "@id": `${SITE_URL}/#business`,
+      name: BUSINESS.name,
+      telephone: BUSINESS.telephone,
     },
     areaServed: BUSINESS.areaServed.map((name) => ({ "@type": "Place", name })),
   };

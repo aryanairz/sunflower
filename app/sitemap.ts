@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 import { services } from "@/lib/services";
+import { shots } from "@/lib/shots";
 import { team } from "@/lib/team";
 
 // Fixed build-time date keeps the sitemap static (no request-time API).
@@ -24,6 +25,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const shotRoutes: MetadataRoute.Sitemap = shots.map((s) => ({
+    url: `${SITE_URL}/shots/${s.slug}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
   const teamRoutes: MetadataRoute.Sitemap = team.map((m) => ({
     url: `${SITE_URL}/team/${m.id}`,
     lastModified,
@@ -31,5 +39,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.4,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...teamRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...shotRoutes, ...teamRoutes];
 }
