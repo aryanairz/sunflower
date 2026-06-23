@@ -22,6 +22,7 @@ type ContactItem = {
   label: string;
   primary: string;
   secondary?: string;
+  note?: string; // small qualifier shown below (e.g. "By appointment")
   href?: string; // tel:/mailto: link for the value
   map?: boolean; // render value as a native maps link
 };
@@ -40,7 +41,8 @@ const contactItems: ContactItem[] = [
     Icon: Clock,
     label: "HOURS",
     primary: "Mon – Sat: 9 AM – 6 PM",
-    secondary: "Sun: 12 – 5 PM · By appointment",
+    secondary: "Sun: 12 – 5 PM",
+    note: "By appointment",
   },
 ];
 
@@ -137,7 +139,7 @@ export default function HomePage() {
 
             <Reveal delay={0.15} className="md:col-span-5">
               <div className="rounded-2xl border border-ink/[0.08] bg-bone-2 shadow-soft p-6 sm:p-8 space-y-6">
-                {contactItems.map(({ Icon, label, primary, secondary, href, map }) => (
+                {contactItems.map(({ Icon, label, primary, secondary, note, href, map }) => (
                   <div key={label} className="flex gap-4">
                     <Icon
                       size={22}
@@ -177,6 +179,11 @@ export default function HomePage() {
                           {secondary ? (
                             <p className="text-ink-muted text-base leading-[1.35]">
                               {secondary}
+                            </p>
+                          ) : null}
+                          {note ? (
+                            <p className="mt-1.5 text-sm text-ink-muted/80">
+                              {note}
                             </p>
                           ) : null}
                         </>

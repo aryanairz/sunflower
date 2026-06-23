@@ -18,7 +18,8 @@
       "Bash(node -e \"const s=require\\('sharp'\\); console.log\\('sharp OK', s.versions ? '' : ''\\)\")",
       "Bash(node -e ' *)",
       "Bash(node -e \"const s=require\\('sharp'\\); s\\('app/icon.png'\\).metadata\\(\\).then\\(m=>console.log\\('icon.png', m.width+'x'+m.height\\)\\)\")",
-      "Bash(grep -oE 'rel\\\\\\\\?\":\\\\\\\\?\"\\(icon|shortcut icon|apple-touch-icon\\)\\\\\\\\?\"[^}]*href\\\\\\\\?\":\\\\\\\\?\"[^\"\\\\\\\\]*' .next/server/app/index.html)"
+      "Bash(grep -oE 'rel\\\\\\\\?\":\\\\\\\\?\"\\(icon|shortcut icon|apple-touch-icon\\)\\\\\\\\?\"[^}]*href\\\\\\\\?\":\\\\\\\\?\"[^\"\\\\\\\\]*' .next/server/app/index.html)",
+      "PowerShell(git remote set-url origin https://github.com/aryanairz/serenidrip.git)"
     ],
     "additionalDirectories": [
       "c:\\c\\dev\\escape-spa-tmp - Copy\\public\\Images"
