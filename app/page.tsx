@@ -42,7 +42,7 @@ const contactItems: ContactItem[] = [
     label: "HOURS",
     primary: "Mon – Sat: 9 AM – 6 PM",
     secondary: "Sun: 12 – 5 PM",
-    note: "By appointment",
+    note: "By appointment only",
   },
 ];
 
