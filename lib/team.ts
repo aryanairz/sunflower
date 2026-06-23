@@ -22,7 +22,7 @@ export const team: TeamMember[] = [
     image: "/Images/cori.jpeg",
     bio: [
       "Cori has been a registered nurse since 2008 and a board-certified Family Nurse Practitioner since 2022, with nearly two decades in healthcare. She is passionate about wellness, prevention, and helping clients feel their best through personalized IV hydration and vitamin therapy.",
-      "Outside the clinic, Cori spends time with her family and her French Bulldog. She brings that same warmth and attention to detail into every appointment, creating a welcoming experience at SereniDrip.",
+      "Outside the clinic, Cori spends time with her family and her fur babies. She brings that same warmth and attention to detail into every appointment, creating a welcoming experience at SereniDrip.",
     ],
   },
   {
