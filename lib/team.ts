@@ -21,7 +21,7 @@ export const team: TeamMember[] = [
     role: "Nurse Practitioner",
     image: "/Images/cori.jpeg",
     bio: [
-      "Cori has been a registered nurse since 2008 and a board-certified Family Nurse Practitioner since 2022, with nearly two decades in healthcare. She is passionate about wellness, prevention, and helping clients feel their best through personalized IV hydration and vitamin therapy.",
+      "Cori is a co-founder of SereniDrip and has been a registered nurse since 2008 and a board-certified Family Nurse Practitioner since 2022, with nearly two decades in healthcare. She is passionate about wellness, prevention, and helping clients feel their best through personalized IV hydration and vitamin therapy.",
       "Outside the clinic, Cori spends time with her family and her fur babies. She brings that same warmth and attention to detail into every appointment, creating a welcoming experience at SereniDrip.",
     ],
   },
@@ -34,7 +34,7 @@ export const team: TeamMember[] = [
     image: "/Images/kat.jpeg",
     objectPosition: "center 20%",
     bio: [
-      "Kat has been a labor and delivery nurse for over 15 years, and caring for others has always been at the heart of her work. Supporting patients through some of life's most important moments has deepened her commitment to helping people feel their best.",
+      "Kat is a co-founder of SereniDrip and has been a labor and delivery nurse for over 15 years, and caring for others has always been at the heart of her work. Supporting patients through some of life's most important moments has deepened her commitment to helping people feel their best.",
       "When she is not at the clinic, Kat is a wife and mother of two, plus two dogs, and loves to travel with her family. At SereniDrip, she combines her years of bedside experience with a personalized, wellness-focused approach to client care.",
     ],
   },
