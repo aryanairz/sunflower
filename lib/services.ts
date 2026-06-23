@@ -57,6 +57,29 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "sereniflow",
+    title: "SereniFlow",
+    category: "HYDRATION",
+    tags: ["HYDRATION", "FAVORITES"],
+    cardDesc:
+      "Our foundational hydration drip to replenish fluids, support energy, and help you feel refreshed.",
+    priceMain: "$149",
+    priceSub: "PER SESSION",
+    image: "/Images/raspberry.png",
+    detailImage: "/Images/raspberry2.png",
+    headline: "Everyday hydration, restored",
+    paragraphs: [
+      "Our foundational hydration drip is designed to replenish fluids, support energy, and help you feel refreshed from the inside out. A balanced blend for everyday wellness.",
+      "Perfect for recovery from travel or exercise, or simply staying hydrated and feeling your best.",
+    ],
+    inclusions: [
+      "Replenishes fluids and hydration",
+      "Supports energy",
+      "Helps you feel refreshed",
+      "Ideal for recovery after travel or exercise",
+    ],
+  },
+  {
     slug: "serenihydrate",
     title: "SereniHydrate",
     category: "HYDRATION",
