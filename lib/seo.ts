@@ -172,7 +172,7 @@ export const FAQ_ITEMS: { question: string; answer: string }[] = [
   {
     question: "How much do IV drips cost?",
     answer:
-      "Our IV drips start at $149 per session. Pricing varies by the blend you choose, and the full menu is listed on our services page.",
+      "Our IV drips start at $75 per session. Pricing varies by the blend you choose, and the full menu is listed on our services page.",
   },
   {
     question: "Who administers the treatments?",

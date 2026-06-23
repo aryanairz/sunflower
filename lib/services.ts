@@ -63,7 +63,7 @@ export const services: Service[] = [
     tags: ["HYDRATION", "FAVORITES"],
     cardDesc:
       "Our foundational hydration drip to replenish fluids, support energy, and help you feel refreshed.",
-    priceMain: "$149",
+    priceMain: "$75",
     priceSub: "PER SESSION",
     image: "/Images/raspberry.png",
     detailImage: "/Images/raspberry2.png",

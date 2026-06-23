@@ -41,7 +41,7 @@ const contactItems: ContactItem[] = [
     Icon: Clock,
     label: "HOURS",
     primary: "Mon – Sat: 9 AM – 6 PM",
-    secondary: "Sun: 12 – 5 PM",
+    secondary: "Sun: 12 PM – 5 PM",
     note: "By appointment only",
   },
 ];
@@ -177,7 +177,7 @@ export default function HomePage() {
                             {primary}
                           </p>
                           {secondary ? (
-                            <p className="text-ink-muted text-base leading-[1.35]">
+                            <p className="text-ink text-base leading-[1.35]">
                               {secondary}
                             </p>
                           ) : null}
