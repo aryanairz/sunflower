@@ -87,8 +87,8 @@ export default function AboutPage() {
             <div className="relative aspect-[16/9] overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/Images/palapaimage.jpg"
-                alt="The pool and covered palapa at Sunflower Ranch"
+                src="/Images/aboutpg.jpg"
+                alt="The grounds at Sunflower Ranch in Edinburg, Texas"
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover"
               />
