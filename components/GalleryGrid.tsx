@@ -8,8 +8,18 @@ import type { GalleryPhoto } from "@/lib/venue";
 export function GalleryGrid({ photos }: { photos: GalleryPhoto[] }) {
   const [index, setIndex] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
+  // Lightbox is desktop-only; phones just show the static grid.
+  const [canOpen, setCanOpen] = useState(false);
 
   useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setCanOpen(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   const close = useCallback(() => setIndex(null), []);
   const prev = useCallback(
@@ -42,23 +52,34 @@ export function GalleryGrid({ photos }: { photos: GalleryPhoto[] }) {
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-        {photos.map((photo, i) => (
-          <button
-            key={photo.src}
-            type="button"
-            onClick={() => setIndex(i)}
-            aria-label="View photo"
-            className="group relative aspect-[4/3] overflow-hidden bg-paper-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/40"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+        {photos.map((photo, i) => {
+          const tileClass =
+            "group relative aspect-[4/3] overflow-hidden bg-paper-3";
+          // eslint-disable-next-line @next/next/no-img-element
+          const img = (
             <img
               src={photo.src}
               alt={photo.alt}
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.04]"
             />
-          </button>
-        ))}
+          );
+          return canOpen ? (
+            <button
+              key={photo.src}
+              type="button"
+              onClick={() => setIndex(i)}
+              aria-label="View photo"
+              className={`${tileClass} focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/40`}
+            >
+              {img}
+            </button>
+          ) : (
+            <div key={photo.src} className={tileClass}>
+              {img}
+            </div>
+          );
+        })}
       </div>
 
       {mounted &&

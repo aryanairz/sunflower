@@ -21,7 +21,7 @@ export default function AboutPage() {
 
       {/* HEADER */}
       <section className="bg-paper">
-        <div className="max-w-shell mx-auto px-5 sm:px-8 pt-20 md:pt-28 pb-12 md:pb-16">
+        <div className="max-w-shell mx-auto px-5 sm:px-8 pt-10 md:pt-12 pb-6 md:pb-8">
           <Reveal className="max-w-md">
             <h1 className="font-serif text-4xl md:text-6xl leading-[1.08] tracking-[-0.01em] text-ink">
               About Us

@@ -46,16 +46,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* INTRO */}
-      <section className="bg-paper">
-        <div className="max-w-shell mx-auto px-5 sm:px-8 py-24 md:py-32">
-          <SectionHeader
-            title="Sunflower Ranch"
-            intro="A family-owned outdoor venue in Edinburg, Texas. The grounds are built around a sparkling pool and a large covered palapa, with room for guests, music, and the moments worth gathering for. Bring your people. We will set the scene."
-          />
-        </div>
-      </section>
-
       {/* ALTERNATING PHOTO + TEXT */}
       <section className="bg-paper-2 border-y border-line">
         <div className="max-w-shell mx-auto px-5 sm:px-8 py-24 md:py-32">

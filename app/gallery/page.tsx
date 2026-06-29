@@ -22,7 +22,7 @@ export default function GalleryPage() {
         <div className="max-w-shell mx-auto px-5 sm:px-8 pt-10 md:pt-14 pb-12 md:pb-16">
           <SectionHeader
             title="Gallery"
-            intro="A look at the pool, the palapa, and celebrations the grounds have held. Select any photo to view it larger."
+            intro="From poolside afternoons to parties under the palapa, here is a closer look at the space and the moments it has held."
           />
         </div>
       </section>
