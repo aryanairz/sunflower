@@ -7,7 +7,7 @@ import { PhotoTextBlock } from "@/components/PhotoTextBlock";
 import { SectionHeader } from "@/components/SectionHeader";
 import { JsonLd } from "@/components/JsonLd";
 import { photoBlocks, amenities, eventTypes } from "@/lib/venue";
-import { PHONE, PHONE_HREF } from "@/lib/site";
+import { PHONE_HREF } from "@/lib/site";
 import { localBusinessJsonLd } from "@/lib/seo";
 
 export default function HomePage() {
@@ -123,34 +123,22 @@ export default function HomePage() {
       {/* CLOSING CTA */}
       <section className="bg-paper">
         <div className="max-w-shell mx-auto px-5 sm:px-8 py-12 md:py-16 text-center">
-          <Reveal className="max-w-2xl mx-auto">
-            <h2 className="font-serif text-2xl md:text-5xl leading-[1.15] tracking-[-0.01em] text-ink">
+          <Reveal className="max-w-4xl mx-auto">
+            <h2 className="mx-auto max-w-2xl font-serif text-2xl md:text-5xl leading-[1.15] tracking-[-0.01em] text-ink">
               Plan your celebration at Sunflower Ranch.
             </h2>
-            <p className="mt-3 md:mt-4 text-ink-muted text-base md:text-lg leading-relaxed">
-              Booking is handled by phone. Call us to check your date and walk
+            <p className="mt-3 md:mt-4 text-ink-muted text-base md:text-lg leading-relaxed lg:whitespace-nowrap">
+              Booking is handled by phone. Call to check your date and walk
               through the details.
             </p>
-            <div className="mt-6 md:mt-7 flex flex-col sm:flex-row sm:justify-center items-center gap-4 sm:gap-6">
-              <a
-                href={PHONE_HREF}
+            <div className="mt-6 md:mt-7">
+              <Link
+                href="/contact"
                 className="inline-flex w-full sm:w-auto items-center justify-center bg-ink text-paper text-[12px] uppercase tracking-label px-9 py-3 rounded-[4px] transition-transform transition-colors hover:bg-ink/85 active:scale-[0.98]"
               >
-                Call to Book
-              </a>
-              <a
-                href={PHONE_HREF}
-                className="font-serif text-2xl md:text-3xl leading-none text-ink transition-colors hover:text-accent"
-              >
-                {PHONE}
-              </a>
-            </div>
-            <p className="mt-5 text-[13px] uppercase tracking-label text-ink-soft">
-              Prefer to write?{" "}
-              <Link href="/contact" className="text-ink border-b border-ink/40 pb-0.5 hover:border-ink">
-                Send a message
+                Book Now
               </Link>
-            </p>
+            </div>
           </Reveal>
         </div>
       </section>
