@@ -38,7 +38,7 @@ export default function AboutPage() {
               <div className="relative aspect-[4/5] overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/Images/sunflower.jpg"
+                  src="/Images/aboutaa.jpg"
                   alt="Sunflower Ranch in Edinburg, Texas"
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover"
@@ -87,8 +87,8 @@ export default function AboutPage() {
             <div className="relative aspect-[16/9] overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/Images/aboutpg.jpg"
-                alt="The grounds at Sunflower Ranch in Edinburg, Texas"
+                src="/Images/palapaimage.jpg"
+                alt="The pool and covered palapa at Sunflower Ranch"
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover"
               />
