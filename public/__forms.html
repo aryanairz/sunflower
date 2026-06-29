@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+  Netlify Forms detection file.
+
+  Netlify's build bot scans static HTML for forms to register. The real form is
+  a client-rendered React component the bot cannot parse, so this static mirror
+  declares the "contact" form and every field name. The React form
+  (components/ContactForm.tsx) POSTs url-encoded data to this path; keep the
+  field `name` attributes here in sync with it.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Sunflower Ranch Forms</title>
+  </head>
+  <body>
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <select name="event-type">
+        <option>Quinceañera</option>
+        <option>Gender Reveal</option>
+        <option>Birthday</option>
+        <option>Graduation</option>
+        <option>Baby Shower</option>
+        <option>Private Party</option>
+        <option>Other</option>
+      </select>
+      <input type="date" name="event-date" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

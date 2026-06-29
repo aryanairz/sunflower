@@ -1,25 +1,25 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Playfair_Display, Mulish } from "next/font/google";
 import "./globals.css";
-import { SITE_URL, pageMetadata } from "@/lib/seo";
-import { CookieConsent } from "@/components/CookieConsent";
+import { rootMetadata } from "@/lib/seo";
 
-const display = Outfit({
-  variable: "--font-display",
+// Editorial serif for headings (Playfair / Didot feel).
+const serif = Playfair_Display({
+  variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  ...pageMetadata({
-    title: "SereniDrip IV Hydration | IV Therapy in Edinburg, TX",
-    description:
-      "IV hydration and vitamin therapy in Edinburg, TX, administered by licensed professionals. Book your drip today.",
-    path: "/",
-  }),
-};
+// Clean, neutral sans for body and UI.
+const sans = Mulish({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+export const metadata: Metadata = rootMetadata();
 
 export default function RootLayout({
   children,
@@ -27,10 +27,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={display.variable}>
-      <body className="min-h-[100dvh] bg-bone text-ink antialiased">
+    <html
+      lang="en"
+      className={`${serif.variable} ${sans.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-[100dvh] bg-paper text-ink antialiased">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
         {children}
-        <CookieConsent />
       </body>
     </html>
   );

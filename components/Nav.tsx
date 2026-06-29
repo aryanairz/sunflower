@@ -4,60 +4,107 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
-import { AnimatePresence, motion } from "framer-motion";
 import { List, X } from "@phosphor-icons/react";
+import { PHONE_HREF } from "@/lib/site";
 
 const links = [
-  { href: "/", label: "HOME" },
-  { href: "/services", label: "SERVICES" },
-  { href: "/about", label: "ABOUT" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/contact", label: "Contact" },
 ];
 
 function isActive(pathname: string, href: string) {
-  if (href === "/services") return pathname.startsWith("/services");
-  return pathname === href;
+  if (href === "/") return pathname === "/";
+  return pathname.startsWith(href);
 }
 
 export function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!open) return;
-    const original = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = open ? "hidden" : "";
     return () => {
-      document.body.style.overflow = original;
+      document.body.style.overflow = "";
     };
   }, [open]);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 bg-bone/85 backdrop-blur-md border-b border-ink/10">
-      <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 h-[72px] md:h-[84px] relative flex items-center justify-between gap-4 md:gap-8">
-        {/* LEFT */}
-        <Link href="/" aria-label="SereniDrip · IV Hydration — home" className="block md:mt-2">
-          <Image
-            src="/Images/SereniLogoNew.png"
-            alt="SereniDrip · IV Hydration"
-            width={360}
-            height={84}
-            priority
-            className="logo-ink h-[48px] sm:h-[56px] md:h-[80px] w-auto object-contain"
-          />
-        </Link>
+    <header className="sticky top-0 z-40">
+      {/* Bar — the blur lives here only, so it can't trap the fixed menu below. */}
+      <div className="bg-paper/90 backdrop-blur-md border-b border-line">
+        <div className="max-w-shell mx-auto px-5 sm:px-8 h-[76px] md:h-[88px] flex items-center justify-between gap-4">
+          <Link href="/" aria-label="Sunflower Ranch, home" className="shrink-0">
+            <Image
+              src="/Images/Sunflower12-trans.png"
+              alt="Sunflower Ranch"
+              width={420}
+              height={140}
+              priority
+              className="h-[58px] sm:h-[66px] md:h-[74px] w-auto object-contain"
+            />
+          </Link>
 
-        {/* CENTER — absolutely centered in the row, independent of left/right widths */}
-        <nav className="hidden lg:flex items-center gap-12 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-9">
+            {links.map((l) => {
+              const active = isActive(pathname, l.href);
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className={[
+                    "text-[13px] uppercase tracking-label transition-colors",
+                    active ? "text-ink" : "text-ink-muted hover:text-ink",
+                  ].join(" ")}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Mobile toggle */}
+          <button
+            type="button"
+            aria-label="Open menu"
+            aria-expanded={open}
+            onClick={() => setOpen(true)}
+            className="md:hidden -mr-2 p-2 text-ink"
+          >
+            <List size={28} weight="regular" />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu — sibling of the blurred bar, so `inset-0` maps to the viewport. */}
+      <div
+        className={[
+          "fixed inset-0 z-50 bg-paper md:hidden transition-opacity duration-300",
+          open ? "opacity-100" : "pointer-events-none opacity-0",
+        ].join(" ")}
+      >
+        <div className="h-[76px] px-5 flex items-center justify-between border-b border-line">
+          <Image
+            src="/Images/Sunflower12-trans.png"
+            alt="Sunflower Ranch"
+            width={420}
+            height={140}
+            className="h-[50px] w-auto object-contain"
+          />
+          <button
+            type="button"
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+            className="-mr-2 p-2 text-ink"
+          >
+            <X size={28} weight="regular" />
+          </button>
+        </div>
+        <nav className="flex flex-col px-6 pt-8">
           {links.map((l) => {
             const active = isActive(pathname, l.href);
             return (
@@ -65,103 +112,22 @@ export function Nav() {
                 key={l.href}
                 href={l.href}
                 className={[
-                  "text-base md:text-lg uppercase tracking-[0.22em] transition-colors",
-                  active
-                    ? "text-sage underline underline-offset-[8px] decoration-sage/50"
-                    : "text-ink-muted hover:text-sage",
+                  "border-b border-line py-5 font-serif text-3xl",
+                  active ? "text-accent" : "text-ink",
                 ].join(" ")}
               >
                 {l.label}
               </Link>
             );
           })}
+          <a
+            href={PHONE_HREF}
+            className="mt-8 text-[13px] uppercase tracking-label text-ink border border-ink/25 px-5 py-4 text-center transition-colors hover:bg-ink hover:text-paper active:scale-[0.98]"
+          >
+            Call to Book
+          </a>
         </nav>
-
-        {/* MOBILE hamburger */}
-        <button
-          type="button"
-          aria-label="Open menu"
-          onClick={() => setOpen(true)}
-          className="lg:hidden text-ink p-2 -mr-2 transition-colors hover:text-sage"
-        >
-          <List size={28} weight="thin" />
-        </button>
       </div>
-
-      {/* MOBILE OVERLAY — portaled to <body> so it escapes the header's
-          sticky/backdrop-filter stacking + containing block and reliably
-          covers the viewport. */}
-      {mounted &&
-        createPortal(
-          <AnimatePresence>
-            {open && (
-              <motion.div
-                key="mobile-nav"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="fixed inset-0 z-50 bg-bone"
-              >
-            <div className="h-[72px] px-4 sm:px-6 flex items-center justify-between border-b border-ink/10">
-              <Link href="/" aria-label="SereniDrip" onClick={() => setOpen(false)}>
-                <Image
-                  src="/Images/SereniLogoNew.png"
-                  alt="SereniDrip"
-                  width={280}
-                  height={64}
-                  className="logo-ink h-[48px] sm:h-[56px] w-auto object-contain"
-                />
-              </Link>
-              <button
-                type="button"
-                aria-label="Close menu"
-                onClick={() => setOpen(false)}
-                className="text-ink p-2 -mr-2 transition-colors hover:text-sage"
-              >
-                <X size={28} weight="thin" />
-              </button>
-            </div>
-
-            <motion.nav
-              initial="hidden"
-              animate="show"
-              variants={{
-                hidden: {},
-                show: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
-              }}
-              className="px-6 pt-12 flex flex-col gap-8"
-            >
-              {links.map((l) => {
-                const active = isActive(pathname, l.href);
-                return (
-                  <motion.div
-                    key={l.href}
-                    variants={{
-                      hidden: { opacity: 0, y: 8 },
-                      show: { opacity: 1, y: 0 },
-                    }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                  >
-                    <Link
-                      href={l.href}
-                      className={[
-                        "block font-display text-4xl tracking-tight",
-                        active ? "text-sage" : "text-ink",
-                      ].join(" ")}
-                    >
-                      {l.label}
-                    </Link>
-                  </motion.div>
-                );
-              })}
-
-            </motion.nav>
-          </motion.div>
-            )}
-          </AnimatePresence>,
-          document.body,
-        )}
     </header>
   );
 }

@@ -1,313 +1,167 @@
+import Image from "next/image";
 import Link from "next/link";
-import {
-  Star,
-  MapPin,
-  Phone,
-  EnvelopeSimple,
-  Clock,
-} from "@phosphor-icons/react/dist/ssr";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { HeroZoom } from "@/components/HeroZoom";
 import { Reveal } from "@/components/Reveal";
-import { ServiceCard } from "@/components/ServiceCard";
-import { MapLink } from "@/components/MapLink";
+import { PhotoTextBlock } from "@/components/PhotoTextBlock";
+import { SectionHeader } from "@/components/SectionHeader";
 import { JsonLd } from "@/components/JsonLd";
-import { services } from "@/lib/services";
-import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF } from "@/lib/site";
+import { photoBlocks, amenities, eventTypes } from "@/lib/venue";
+import { PHONE, PHONE_HREF } from "@/lib/site";
 import { localBusinessJsonLd } from "@/lib/seo";
 
-type ContactItem = {
-  Icon: typeof MapPin;
-  label: string;
-  primary: string;
-  secondary?: string;
-  note?: string; // small qualifier shown below (e.g. "By appointment")
-  href?: string; // tel:/mailto: link for the value
-  map?: boolean; // render value as a native maps link
-};
-
-const contactItems: ContactItem[] = [
-  {
-    Icon: MapPin,
-    label: "LOCATION",
-    primary: "2001 W Trenton Rd, Spc 101 Unit 22",
-    secondary: "Edinburg, TX 78539",
-    map: true,
-  },
-  { Icon: Phone, label: "PHONE", primary: PHONE, href: PHONE_HREF },
-  { Icon: EnvelopeSimple, label: "EMAIL", primary: EMAIL, href: EMAIL_HREF },
-  {
-    Icon: Clock,
-    label: "HOURS",
-    primary: "Mon – Sat: 9 AM – 6 PM",
-    secondary: "Sun: 12 PM – 5 PM",
-    note: "By appointment only",
-  },
-];
-
-/* PLACEHOLDER testimonials — replace with real client reviews before publishing. */
-const testimonials = [
-  {
-    quote:
-      "Calm, clean, professional from the moment I walked in. I left feeling sharper and lighter than I have in months.",
-    name: "Raji Nair",
-  },
-  {
-    quote:
-      "The team talked through what I needed before we began. I walked out feeling calmer, lighter, and well cared for.",
-    name: "Bob Cruz",
-  },
-  {
-    quote:
-      "A quiet, beautifully kept space. I came in worn out from travel and left feeling genuinely restored and clear-headed.",
-    name: "Thomas Garcia",
-  },
-];
-
 export default function HomePage() {
-  const featuredFour = services.slice(0, 4);
-  const featuredService = services.find((s) => s.slug === "serenivital") ?? services[0];
-
   return (
     <main>
       <JsonLd data={localBusinessJsonLd()} />
       <Nav />
 
-      {/* HERO — bright split: text left, photo right */}
-      <section className="relative overflow-hidden border-b border-ink/10">
-        <div className="max-w-shell mx-auto grid lg:grid-cols-[1.05fr_1fr]">
-          {/* TEXT */}
-          <div className="order-2 lg:order-1 flex items-center px-5 sm:px-6 md:px-12 pt-9 pb-14 sm:py-20 lg:py-28">
-            <div className="max-w-[560px]">
-              <h1 className="font-display font-light text-[40px] sm:text-6xl md:text-7xl leading-[1] sm:leading-[0.98] tracking-[-0.02em] text-ink text-balance">
-                Where Hydration Meets <span className="italic text-sage pr-[0.06em]">Serenity</span>.
-              </h1>
-              <p className="mt-5 sm:mt-6 max-w-[46ch] text-[15px] sm:text-lg leading-relaxed text-ink-muted text-pretty">
-                Customized IV hydration therapies to boost energy, speed
-                recovery, and support immunity. Premium wellness from experienced
-                professionals, in a calm, relaxing space.
-              </p>
+      {/* HERO */}
+      <section className="relative isolate min-h-[100dvh] flex items-center justify-center text-center overflow-hidden">
+        <Image
+          src="/Images/hero1.jpg"
+          alt="Sunflower Ranch outdoor event venue in Edinburg, Texas"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-ink/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/20 to-ink/55" />
 
-              <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-x-7">
-                <Link
-                  href="/services"
-                  className="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-sage px-9 py-4 text-[11px] uppercase tracking-button text-bone-2 transition-colors hover:bg-sage-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
-                >
-                  Explore drips
-                </Link>
-              </div>
+        <div className="relative z-10 max-w-3xl px-6 py-28">
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-medium text-paper leading-[1.04] tracking-[-0.01em]">
+            Sunflower Ranch
+          </h1>
+          <p className="mt-6 mx-auto max-w-[42ch] text-paper/90 text-base sm:text-lg leading-relaxed">
+            A private outdoor venue set around a pool and shaded palapa, for the
+            celebrations worth gathering for.
+          </p>
+          <a
+            href={PHONE_HREF}
+            className="mt-9 inline-flex items-center justify-center border border-paper/70 text-paper text-[12px] uppercase tracking-label px-9 py-4 transition-colors hover:bg-paper hover:text-ink"
+          >
+            Call to Book
+          </a>
+        </div>
+      </section>
 
-            </div>
-          </div>
+      {/* INTRO */}
+      <section className="bg-paper">
+        <div className="max-w-shell mx-auto px-5 sm:px-8 py-24 md:py-32">
+          <SectionHeader
+            title="Sunflower Ranch"
+            intro="A family-owned outdoor venue in Edinburg, Texas. The grounds are built around a sparkling pool and a large covered palapa, with room for guests, music, and the moments worth gathering for. Bring your people. We will set the scene."
+          />
+        </div>
+      </section>
 
-          {/* PHOTO */}
-          <div className="order-1 lg:order-2 relative min-h-[42vh] sm:min-h-[52vh] lg:min-h-[88vh] overflow-hidden">
-            <HeroZoom
-              src="/Images/Alphonso.jpg"
-              alt="Inside the SereniDrip IV hydration studio"
-              priority
-            />
-            {/* desktop: fade into the left text panel */}
-            <div className="absolute inset-0 hidden lg:block bg-gradient-to-r from-bone via-transparent to-transparent" />
-            {/* mobile: soft fade into the bone panel below */}
-            <div className="absolute inset-x-0 bottom-0 h-20 lg:hidden bg-gradient-to-b from-transparent to-bone" />
+      {/* ALTERNATING PHOTO + TEXT */}
+      <section className="bg-paper-2 border-y border-line">
+        <div className="max-w-shell mx-auto px-5 sm:px-8 py-24 md:py-32">
+          <SectionHeader
+            title="A Closer Look"
+            intro="Three spaces that set the tone for the day, from the shaded palapa to the pool and the open lawn."
+          />
+          <div className="mt-16 md:mt-24 space-y-24 md:space-y-32">
+            {photoBlocks.map((block, i) => (
+              <PhotoTextBlock
+                key={block.title}
+                block={block}
+                reverse={i % 2 === 1}
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* IDENTITY */}
-      <section className="bg-bone">
-        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 pt-16 md:pt-24 pb-16 md:pb-28">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 lg:gap-20 items-start">
-            <Reveal className="md:col-span-7">
-              <h2 className="font-display font-light text-[32px] sm:text-4xl md:text-5xl text-ink leading-[1.05] tracking-[-0.015em] text-balance">
-                A studio for steady restoration.
-              </h2>
-              <div className="mt-8 md:mt-10 max-w-[60ch] space-y-5 text-ink-muted text-base md:text-lg leading-relaxed">
-                <p>
-                  SereniDrip is an IV hydration and vitamin therapy studio in
-                  Edinburg, serving the wider Rio Grande Valley. Our licensed team
-                  delivers vitamins, fluids, and recovery blends directly to your
-                  bloodstream, where they go to work right away.
+      {/* AMENITIES */}
+      <section className="bg-paper">
+        <div className="max-w-shell mx-auto px-5 sm:px-8 py-24 md:py-32">
+          <SectionHeader
+            title="Amenities"
+            intro="Everything you need on site, so you can focus on the celebration and not the logistics."
+          />
+
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-14">
+            {amenities.map((a, i) => (
+              <Reveal key={a.title} delay={(i % 4) * 0.08} className="text-center">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={a.image}
+                    alt={a.alt}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+                <h3 className="mt-6 font-serif text-2xl text-ink leading-snug">
+                  {a.title}
+                </h3>
+                <p className="mt-3 mx-auto max-w-[32ch] text-[15px] text-ink-muted leading-relaxed">
+                  {a.body}
                 </p>
-                <p>
-                  Every visit begins with a brief medical intake and ends with you feeling clearer, lighter, and more like yourself. By appointment, seven days a week.
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.15} className="md:col-span-5">
-              <div className="rounded-2xl border border-ink/[0.08] bg-bone-2 shadow-soft p-6 sm:p-8 space-y-6">
-                {contactItems.map(({ Icon, label, primary, secondary, note, href, map }) => (
-                  <div key={label} className="flex gap-4">
-                    <Icon
-                      size={22}
-                      weight="regular"
-                      className="text-sage shrink-0 mt-[2px]"
-                    />
-                    <div>
-                      <p className="text-[11px] uppercase tracking-[0.22em] text-sage">
-                        {label}
-                      </p>
-                      {map ? (
-                        <MapLink
-                          query={[primary, secondary].filter(Boolean).join(", ")}
-                          className="group mt-1 block"
-                        >
-                          <span className="block text-ink text-base leading-[1.35] transition-colors group-hover:text-sage">
-                            {primary}
-                          </span>
-                          {secondary ? (
-                            <span className="block text-ink-muted text-base leading-[1.35] transition-colors group-hover:text-sage">
-                              {secondary}
-                            </span>
-                          ) : null}
-                        </MapLink>
-                      ) : href ? (
-                        <a
-                          href={href}
-                          className="mt-1 block text-ink text-base leading-[1.35] transition-colors hover:text-sage"
-                        >
-                          {primary}
-                        </a>
-                      ) : (
-                        <>
-                          <p className="mt-1 text-ink text-base leading-[1.35]">
-                            {primary}
-                          </p>
-                          {secondary ? (
-                            <p className="text-ink text-base leading-[1.35]">
-                              {secondary}
-                            </p>
-                          ) : null}
-                          {note ? (
-                            <p className="mt-1.5 text-sm text-ink-muted/80">
-                              {note}
-                            </p>
-                          ) : null}
-                        </>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES PREVIEW */}
-      <section className="bg-bone-3">
-        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-24">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-end">
-            <Reveal className="md:col-span-7">
-              <h2 className="font-display font-light text-4xl sm:text-5xl md:text-6xl text-ink leading-[1] tracking-[-0.02em]">
-                Services at SereniDrip
-              </h2>
-            </Reveal>
-            <Reveal delay={0.1} className="md:col-span-5 md:text-right">
-              <Link
-                href="/services"
-                className="inline-block text-[11px] uppercase tracking-[0.22em] text-sage hover:text-sage-hover transition-colors"
-              >
-                See all services →
-              </Link>
-            </Reveal>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 md:mt-16">
-            {featuredFour.map((s, i) => (
-              <Reveal
-                key={s.slug}
-                delay={i * 0.05}
-                className={i >= 2 ? "hidden sm:block" : undefined}
-              >
-                <ServiceCard service={s} />
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FEATURED SERVICE */}
-      <section className="bg-bone">
-        <div className="grid grid-cols-1 md:grid-cols-2 items-stretch">
-          <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[460px]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/Images/myers2.png"
-              alt="SereniVital IV drip with B vitamins, vitamin C, and magnesium at SereniDrip IV Hydration, Edinburg TX"
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          </div>
-          <div className="flex items-center px-6 sm:px-8 md:px-20 py-14 md:py-20">
-            <Reveal className="max-w-[520px]">
-              <p className="text-[11px] uppercase tracking-eyebrow text-sage">
-                Featured service
-              </p>
-              <h3 className="mt-4 md:mt-6 font-display font-light text-4xl sm:text-5xl md:text-6xl text-ink leading-[1] tracking-[-0.02em]">
-                {featuredService.title}
-              </h3>
-              <p className="mt-4 md:mt-6 text-[11px] uppercase tracking-[0.22em] text-sage">
-                From {featuredService.priceMain}
-              </p>
-              <p className="mt-6 md:mt-8 max-w-[40ch] text-base md:text-lg leading-relaxed text-ink-muted">
-                A classic blend of magnesium, B-Complex, and Vitamin C — designed to support immune health, energy, and stress recovery. A 45-minute session.
-              </p>
-              <Link
-                href={`/services/${featuredService.slug}`}
-                className="mt-8 md:mt-10 inline-flex items-center justify-center rounded-full bg-sage px-9 py-4 text-[11px] uppercase tracking-button text-bone-2 transition-colors hover:bg-sage-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
-              >
-                Discover
-              </Link>
-            </Reveal>
+      {/* EVENTS WE HOST */}
+      <section className="bg-paper-2 border-y border-line">
+        <div className="max-w-shell mx-auto px-5 sm:px-8 py-24 md:py-32">
+          <SectionHeader
+            title="Events We Host"
+            intro="From milestone parties to quiet family gatherings, the grounds adapt to the day you have in mind."
+          />
+
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+            {eventTypes.map((e, i) => (
+              <Reveal key={e.title} delay={(i % 3) * 0.08}>
+                <div className="border-t border-line pt-6">
+                  <h3 className="font-serif text-2xl text-ink leading-snug">
+                    {e.title}
+                  </h3>
+                  <p className="mt-2 text-ink-muted leading-relaxed">{e.body}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="bg-bone-3">
-        <div className="max-w-shell mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-24">
-          <Reveal>
-            <h2 className="font-display font-light text-4xl sm:text-5xl md:text-6xl text-ink leading-[1] tracking-[-0.02em] max-w-[20ch]">
-              From those who return.
+      {/* CLOSING CTA */}
+      <section className="bg-paper">
+        <div className="max-w-shell mx-auto px-5 sm:px-8 py-24 md:py-32 text-center">
+          <Reveal className="max-w-2xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-5xl leading-[1.12] tracking-[-0.01em] text-ink">
+              Plan your celebration at Sunflower Ranch.
             </h2>
-          </Reveal>
-
-          {/* PLACEHOLDER testimonials — replace with real client reviews before publishing. */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-16 items-stretch">
-            {testimonials.map((t, i) => (
-              <Reveal
-                key={i}
-                delay={i * 0.08}
-                className="h-full"
+            <p className="mt-6 text-ink-muted text-lg leading-relaxed">
+              Booking is handled by phone. Call us to check your date and walk
+              through the details.
+            </p>
+            <div className="mt-9 flex flex-col sm:flex-row sm:justify-center items-center gap-5">
+              <a
+                href={PHONE_HREF}
+                className="inline-flex items-center justify-center bg-ink text-paper text-[12px] uppercase tracking-label px-10 py-4 rounded-[4px] transition-transform transition-colors hover:bg-ink/85 active:scale-[0.98]"
               >
-                <figure className="h-full flex flex-col rounded-2xl border border-ink/[0.08] bg-bone-2 shadow-soft px-6 py-6 md:px-7 md:py-7">
-                  <div className="flex gap-1">
-                    {[0, 1, 2, 3, 4].map((s) => (
-                      <Star
-                        key={s}
-                        size={13}
-                        weight="fill"
-                        className="text-sage"
-                      />
-                    ))}
-                  </div>
-                  <blockquote className="mt-4 font-display font-light text-lg md:text-xl text-ink leading-snug">
-                    &ldquo;{t.quote}&rdquo;
-                  </blockquote>
-                  <figcaption className="mt-auto pt-5">
-                    <div className="h-px w-12 bg-sage/40" />
-                    <p className="mt-4 text-[11px] uppercase tracking-[0.22em] text-ink-muted">
-                      {t.name}
-                    </p>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
+                Call to Book
+              </a>
+              <a
+                href={PHONE_HREF}
+                className="font-serif text-2xl md:text-3xl text-ink transition-colors hover:text-accent"
+              >
+                {PHONE}
+              </a>
+            </div>
+            <p className="mt-8 text-[13px] uppercase tracking-label text-ink-soft">
+              Prefer to write?{" "}
+              <Link href="/contact" className="text-ink border-b border-ink/40 pb-0.5 hover:border-ink">
+                Send a message
+              </Link>
+            </p>
+          </Reveal>
         </div>
       </section>
 

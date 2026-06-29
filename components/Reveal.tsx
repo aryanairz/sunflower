@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
@@ -9,16 +8,38 @@ type Props = {
   className?: string;
 };
 
+/**
+ * Scroll-in reveal as progressive enhancement. Content is server-rendered
+ * VISIBLE; the hidden pre-animation state is applied only when JS is present
+ * (the `.js` class on <html>, set before paint) and removed under reduced
+ * motion. So it stays visible with no JS, no flash, and for search engines.
+ */
 export function Reveal({ children, delay = 0, className }: Props) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("is-visible");
+          io.disconnect();
+        }
+      },
+      { threshold: 0.18 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8, ease: "easeOut", delay }}
+    <div
+      ref={ref}
+      className={`reveal ${className ?? ""}`}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

@@ -2,44 +2,109 @@
 // the single source of truth for JSON-LD and must match what's shown on-page.
 
 import type { Metadata } from "next";
-import type { Service } from "@/lib/services";
-import type { Shot } from "@/lib/shots";
+import { SOCIAL } from "@/lib/site";
 
-export const SITE_URL = "https://serenidripivhydration.com";
-export const SITE_NAME = "SereniDrip IV Hydration";
-export const OG_IMAGE = "/Images/SerenidripOD.png";
+export const SITE_URL = "https://sunflowerranchedinburg.com";
+export const SITE_NAME = "Sunflower Ranch";
+export const OG_IMAGE = "/Images/pool.jpg";
+
+export const DEFAULT_TITLE =
+  "Sunflower Ranch | Outdoor Event Venue in Edinburg, TX & the RGV";
+
+export const DEFAULT_DESCRIPTION =
+  "Sunflower Ranch is a family-owned outdoor event venue in Edinburg, Texas, serving the Rio Grande Valley (RGV). With a pool, shaded palapa, and spacious grounds, it's perfect for quinceañeras, gender reveals, birthdays, graduations, and private parties. Call (956) 331-4450 to book.";
 
 export const BUSINESS = {
   name: SITE_NAME,
-  streetAddress: "2001 W Trenton Rd, Spc 101 Unit 22",
+  streetAddress: "901 S Sunflower Rd",
   addressLocality: "Edinburg",
   addressRegion: "TX",
-  postalCode: "78539",
+  postalCode: "78542",
   addressCountry: "US",
-  telephone: "(956) 655-0055",
+  telephone: "(956) 331-4450",
+  email: "sunflowerranch901@gmail.com",
   priceRange: "$$",
-  areaServed: ["Edinburg, TX", "Rio Grande Valley"],
+  areaServed: ["Edinburg, TX", "McAllen, TX", "Rio Grande Valley (RGV)"],
+  // Confirmed public profiles.
+  sameAs: [SOCIAL.tiktok, SOCIAL.facebook, SOCIAL.instagram],
 } as const;
+
+// Reusable Open Graph image descriptor (golden-hour pool photo).
+const OG_IMAGES = [
+  {
+    url: OG_IMAGE,
+    width: 1200,
+    height: 630,
+    alt: "The pool at golden hour at Sunflower Ranch in Edinburg, TX",
+  },
+];
+
+/**
+ * Root (default) metadata applied site-wide via app/layout.tsx. Establishes the
+ * title template, default title/description, default Open Graph + Twitter card,
+ * indexing directives, and canonical base. Child pages override per-field.
+ */
+export function rootMetadata(): Metadata {
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: { default: DEFAULT_TITLE, template: `%s | ${SITE_NAME}` },
+    description: DEFAULT_DESCRIPTION,
+    applicationName: SITE_NAME,
+    alternates: { canonical: "/" },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    openGraph: {
+      type: "website",
+      siteName: SITE_NAME,
+      locale: "en_US",
+      url: SITE_URL,
+      title: DEFAULT_TITLE,
+      description: DEFAULT_DESCRIPTION,
+      images: OG_IMAGES,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: DEFAULT_TITLE,
+      description: DEFAULT_DESCRIPTION,
+      images: [OG_IMAGE],
+    },
+  };
+}
 
 /**
  * Build a page's Metadata: title, description, canonical, and complete
  * Open Graph + Twitter card. Because Next merges metadata shallowly (a child
  * `openGraph` overwrites the parent's), every page emits its own full block.
+ *
+ * Pass `absoluteTitle` when the title already contains the brand name, to skip
+ * the "%s | Sunflower Ranch" template and avoid a doubled brand.
  */
 export function pageMetadata({
   title,
   description,
   path = "/",
   image = OG_IMAGE,
+  absoluteTitle = false,
 }: {
   title: string;
   description: string;
   path?: string;
   image?: string;
+  absoluteTitle?: boolean;
 }): Metadata {
   const url = path === "/" ? SITE_URL : `${SITE_URL}${path}`;
+  // OG/Twitter titles can't use the document template, so brand them here.
+  const socialTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical: path },
     openGraph: {
@@ -47,7 +112,7 @@ export function pageMetadata({
       siteName: SITE_NAME,
       locale: "en_US",
       url,
-      title,
+      title: socialTitle,
       description,
       images: [
         { url: image, width: 1200, height: 630, alt: `${SITE_NAME} in Edinburg, TX` },
@@ -55,39 +120,26 @@ export function pageMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: socialTitle,
       description,
       images: [image],
     },
   };
 }
 
-// Open 7 days a week, by appointment: Mon–Sat 9:00–18:00, Sun 12:00–17:00.
-const OPENING_HOURS = [
-  {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Sunday"],
-    opens: "12:00",
-    closes: "17:00",
-  },
-] as const;
-
-/** LocalBusiness schema for the homepage. */
+/** LocalBusiness + EventVenue schema for the homepage and contact page. */
 export function localBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${SITE_URL}/#business`,
+    "@type": ["LocalBusiness", "EventVenue"],
+    "@id": `${SITE_URL}/#venue`,
     name: BUSINESS.name,
+    description:
+      "A family-owned outdoor event venue in Edinburg, TX serving the Rio Grande Valley (RGV). A spacious setting with a pool and shaded palapa for quinceañeras, gender reveals, birthdays, graduations, and private parties.",
     url: SITE_URL,
     image: `${SITE_URL}${OG_IMAGE}`,
     telephone: BUSINESS.telephone,
+    email: BUSINESS.email,
     priceRange: BUSINESS.priceRange,
     address: {
       "@type": "PostalAddress",
@@ -98,103 +150,11 @@ export function localBusinessJsonLd() {
       addressCountry: BUSINESS.addressCountry,
     },
     areaServed: BUSINESS.areaServed.map((name) => ({ "@type": "Place", name })),
-    openingHoursSpecification: OPENING_HOURS,
-  };
-}
-
-/** Service schema for a single drip's detail page. */
-export function serviceJsonLd(service: Service) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.title,
-    description: service.cardDesc,
-    url: `${SITE_URL}/services/${service.slug}`,
-    image: `${SITE_URL}${service.detailImage ?? service.image}`,
-    serviceType: "IV hydration therapy",
-    provider: {
-      "@type": "LocalBusiness",
-      "@id": `${SITE_URL}/#business`,
-      name: BUSINESS.name,
-      telephone: BUSINESS.telephone,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: BUSINESS.streetAddress,
-        addressLocality: BUSINESS.addressLocality,
-        addressRegion: BUSINESS.addressRegion,
-        postalCode: BUSINESS.postalCode,
-        addressCountry: BUSINESS.addressCountry,
-      },
-    },
-    areaServed: BUSINESS.areaServed.map((name) => ({ "@type": "Place", name })),
-  };
-}
-
-/** Service schema for a single SereniShot's detail page. */
-export function shotJsonLd(shot: Shot) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: `${shot.name} Booster Shot`,
-    description: shot.description,
-    url: `${SITE_URL}/shots/${shot.slug}`,
-    ...(shot.detailImage || shot.image
-      ? { image: `${SITE_URL}${shot.detailImage ?? shot.image}` }
-      : {}),
-    serviceType: "Vitamin and wellness booster injection",
-    provider: {
-      "@type": "LocalBusiness",
-      "@id": `${SITE_URL}/#business`,
-      name: BUSINESS.name,
-      telephone: BUSINESS.telephone,
-    },
-    areaServed: BUSINESS.areaServed.map((name) => ({ "@type": "Place", name })),
-  };
-}
-
-// Plain-language FAQ. No em dashes in any of this copy.
-export const FAQ_ITEMS: { question: string; answer: string }[] = [
-  {
-    question: "What is IV hydration therapy?",
-    answer:
-      "IV hydration therapy delivers fluids, vitamins, and minerals directly into your bloodstream through a small IV. Because it bypasses digestion, your body absorbs nearly all of the nutrients right away, so you feel rehydrated and replenished faster than with drinking water alone.",
-  },
-  {
-    question: "Where are you located?",
-    answer:
-      "We are at 2001 W Trenton Rd, Spc 101 Unit 22, Edinburg, TX 78539, near the Cinemark Bistro.",
-  },
-  {
-    question: "Do I need an appointment?",
-    answer:
-      "Yes. SereniDrip is by appointment, seven days a week: Monday through Saturday from 9 AM to 6 PM, and Sunday from 12 to 5 PM. Booking ahead lets us prepare your drip and keep your visit calm and unhurried.",
-  },
-  {
-    question: "How much do IV drips cost?",
-    answer:
-      "Our IV drips start at $75 per session. Pricing varies by the blend you choose, and the full menu is listed on our services page.",
-  },
-  {
-    question: "Who administers the treatments?",
-    answer:
-      "Every treatment is administered by licensed nurses. Each visit begins with a brief medical intake so your drip is a good fit for you.",
-  },
-  {
-    question: "What areas do you serve?",
-    answer:
-      "We serve Edinburg, TX and the surrounding Rio Grande Valley area, including nearby McAllen, Pharr, Mission, and Weslaco.",
-  },
-];
-
-/** FAQPage schema wrapping the FAQ. */
-export function faqJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_ITEMS.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
+    sameAs: BUSINESS.sameAs,
+    amenityFeature: [
+      { "@type": "LocationFeatureSpecification", name: "Swimming Pool", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Shaded Palapa", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Outdoor Grounds", value: true },
+    ],
   };
 }

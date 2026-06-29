@@ -1,6 +1,10 @@
-# SereniDrip · IV Hydration
+# Sunflower Ranch
 
-Marketing site for **SereniDrip**, a licensed IV hydration studio in Edinburg, Texas. Built with Next.js (App Router), Tailwind CSS, and Framer Motion.
+Marketing site for **Sunflower Ranch**, a family-owned outdoor event venue in Edinburg, Texas. Built with Next.js (App Router), Tailwind CSS, and Framer Motion, and deployed on **Netlify**.
+
+> A place to have fun and relax. 🌻
+
+Repo: [aryanairz/sunflower](https://github.com/aryanairz/sunflower)
 
 ## Getting started
 
@@ -19,25 +23,46 @@ Scripts:
 | `npm run build` | Production build |
 | `npm run start` | Serve the production build |
 
-## Booking
+## Pages
 
-Every **"Book now"** CTA links straight to the studio's **Vagaro** booking page (opens in a new tab).
+| Route | Description |
+| --- | --- |
+| `/` | Home — split hero, welcome, event types, amenities, gallery teaser, CTA |
+| `/about` | The venue's story plus amenities |
+| `/gallery` | Photo grid with a click-to-open lightbox |
+| `/contact` | Inquiry form (the booking flow) plus contact details |
 
-The booking URL is configured in [lib/site.ts](lib/site.ts) as `BOOKING_URL`:
+## Booking — inquiry form
 
+There is no calendar/slot system. Booking is a **quote/inquiry flow**: visitors send their event date and details and the owner reaches out to confirm.
+
+The form ([components/InquiryForm.tsx](components/InquiryForm.tsx)) submits through **Netlify Forms**, so submissions land in the **Netlify dashboard** (Site → Forms) with no backend.
+
+- The form is named `inquiry`. Netlify detects it from the static mirror in [public/__forms.html](public/__forms.html) at deploy time; keep the field `name` attributes in that file in sync with the React form.
+- **Email notifications:** to get an email per inquiry, add one in Netlify → Site settings → Forms → Form notifications (point it at `sunflowerranch901@gmail.com`).
+
+## Deploying on Netlify
+
+[netlify.toml](netlify.toml) configures the build and the official Next.js runtime:
+
+```toml
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 ```
-https://www.vagaro.com/Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVAiD4iDwBzH2Navn8m7MBH0JOwc5fiOAet3SVA66YW+Og3fmuJIh4iNf2O1azmtGlMLU6er31IXxT7euxIgKZyJTAxI2JWmUaf6xl6cDGXbj7Z+YW5amrlyvIbATyXyInAyDtRUeT6cv4DyaGZ85rLOD2gpvaZxy994gy37LKkOJt+poPcWS0OZXXFak65wWNOn9464gJO1RCPXnNhOchglClX4Fal+ns/aKyx43RNXS0lq/JUvNkz/io+ob65rIlxjveJKhLH79W00Qyi4mAhcd58PI4Ubq30kHwxxSaOhAHxasvLMvcL1gE+mSLDCY6+O6JiVrSS2ks1FvNQWYpHCrKj+/suV8MAvmThCknBjEOXtu6HuAiX8bn/iOxcO9X/K39DR+Ea5hb0Qn2lTSOlSrgn5yTTPigZ9qd24OhvZMc5fW/oOsY1mWvBdwjpy2HA==
-```
 
-To swap in a new Vagaro link, replace `BOOKING_URL` in `lib/site.ts`.
+`@netlify/plugin-nextjs` (in `devDependencies`) handles App Router SSR, image optimization, and routing. No Vercel-specific config is used.
 
 ## Editing site content
 
-- **Contact details** (address, phone, email, hours) — `contactItems` in [app/page.tsx](app/page.tsx).
-- **Phone constant** — `PHONE` / `PHONE_HREF` in [lib/site.ts](lib/site.ts).
-- **Services** — [lib/services.ts](lib/services.ts); each service has a detail page at `/services/[slug]`.
-- **Team** — [lib/team.ts](lib/team.ts); each member has a bio page at `/team/[slug]`.
-- **SEO metadata** — per-page `metadata` exports; site defaults in [app/layout.tsx](app/layout.tsx).
+- **Contact info** (phone, email, address, tagline, WhatsApp) — [lib/site.ts](lib/site.ts).
+- **Social links** — `SOCIAL` in [lib/site.ts](lib/site.ts) (live Facebook, Instagram, and TikTok profiles).
+- **Event types, amenities, and gallery photos** — [lib/venue.ts](lib/venue.ts).
+- **SEO + business schema** (name, address, phone, `EventVenue` JSON-LD) — [lib/seo.ts](lib/seo.ts); per-page `metadata` exports live in each page.
+- **Photos** — `public/Images/`. Referenced with the exact `Images` capitalization (Netlify's Linux build is case-sensitive). The logo `sunflowerlogo.png` also drives the favicon via [app/icon.png](app/icon.png) / [app/apple-icon.png](app/apple-icon.png).
 
 ## Tech
 
@@ -45,5 +70,6 @@ To swap in a new Vagaro link, replace `BOOKING_URL` in `lib/site.ts`.
 - [Tailwind CSS](https://tailwindcss.com)
 - [Framer Motion](https://www.framer.com/motion/) — reveal/transition animations
 - [Phosphor Icons](https://phosphoricons.com)
+- [Netlify](https://www.netlify.com) — hosting + Forms
 
 > Note: this project pins a customized build of Next.js. Check `node_modules/next/dist/docs/` before relying on conventions from upstream Next.js docs.

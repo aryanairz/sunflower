@@ -9,40 +9,37 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Warm off-white surfaces (page bg, cards, subtle alt sections)
-        bone: {
-          DEFAULT: "#F6F4EF",
-          soft: "#FBFAF8",
-          2: "#FFFFFF",
-          3: "#ECE7DD",
+        // Warm off-white canvas tones (never pure #fff for sections)
+        paper: {
+          DEFAULT: "#F7F6F2", // page canvas
+          2: "#FBFAF7", // lighter alt section
+          3: "#FFFFFF", // cards / inputs
         },
-        // Charcoal text
+        // Warm off-black text (never pure #000)
         ink: {
-          DEFAULT: "#23211D",
-          muted: "#6E685E",
+          DEFAULT: "#211E18",
+          muted: "#6A6359",
+          soft: "#938B7D",
         },
-        // Single calm accent
-        sage: {
-          DEFAULT: "#4F6F59",
-          hover: "#3F5B49",
-          soft: "#E7EDE7",
-        },
+        // Hairline structural borders
+        line: "#E6E2DA",
+        // Single restrained, desaturated gold accent (small labels only)
+        accent: "#9A7C3C",
       },
       fontFamily: {
-        display: ["var(--font-display)", "Outfit", "system-ui", "sans-serif"],
-        sans: ["Cabinet Grotesk", "system-ui", "sans-serif"],
-      },
-      boxShadow: {
-        // tinted, sage-hued elevation — not generic black
-        lift: "0 18px 40px -24px rgba(79, 111, 89, 0.45)",
-        soft: "0 1px 2px rgba(35, 33, 29, 0.04), 0 8px 24px -18px rgba(35, 33, 29, 0.25)",
-      },
-      maxWidth: {
-        shell: "1500px",
+        serif: ["var(--font-serif)", "Playfair Display", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       letterSpacing: {
-        eyebrow: "0.25em",
-        button: "0.2em",
+        label: "0.22em",
+      },
+      maxWidth: {
+        shell: "1240px",
+      },
+      boxShadow: {
+        // ultra-diffuse, low-opacity lift (minimalist)
+        card: "0 2px 10px rgba(33, 30, 24, 0.05)",
+        cardHover: "0 14px 34px -18px rgba(33, 30, 24, 0.22)",
       },
     },
   },

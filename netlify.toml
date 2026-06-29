@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Official Next.js runtime for Netlify — handles App Router SSR, image
+# optimization, and routing. Required for this site to build and run on Netlify.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
