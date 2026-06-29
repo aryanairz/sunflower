@@ -11,6 +11,15 @@ function encode(data: Record<string, string>) {
     .join("&");
 }
 
+// Format US digits as (XXX) XXX-XXXX, capped at 10 digits.
+function formatPhone(value: string) {
+  const digits = value.replace(/\D/g, "").slice(0, 10);
+  if (digits.length === 0) return "";
+  if (digits.length < 4) return `(${digits}`;
+  if (digits.length < 7) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+}
+
 const labelClass =
   "block text-[12px] uppercase tracking-label text-ink-muted mb-2.5";
 const fieldClass =
@@ -20,6 +29,7 @@ export function ContactForm() {
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
+  const [phone, setPhone] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -39,6 +49,7 @@ export function ContactForm() {
       if (!res.ok) throw new Error(String(res.status));
       setStatus("success");
       form.reset();
+      setPhone("");
     } catch {
       setStatus("error");
     }
@@ -97,7 +108,19 @@ export function ContactForm() {
         <label htmlFor="phone" className={labelClass}>
           Phone
         </label>
-        <input id="phone" name="phone" type="tel" required autoComplete="tel" placeholder="(956) 000-0000" className={fieldClass} />
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          required
+          inputMode="tel"
+          autoComplete="tel"
+          placeholder="(956) 000-0000"
+          value={phone}
+          onChange={(e) => setPhone(formatPhone(e.target.value))}
+          maxLength={14}
+          className={fieldClass}
+        />
       </div>
 
       <div>

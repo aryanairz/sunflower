@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
-import { PHONE, PHONE_HREF } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -99,30 +98,19 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="bg-paper-2 border-t border-line">
-        <div className="max-w-shell mx-auto px-5 sm:px-8 py-24 md:py-28 text-center">
+        <div className="max-w-shell mx-auto px-5 sm:px-8 py-10 md:py-12 text-center">
           <Reveal className="max-w-2xl mx-auto">
             <h2 className="font-serif text-3xl md:text-5xl leading-[1.12] tracking-[-0.01em] text-ink">
               Come see the grounds.
             </h2>
-            <div className="mt-9 flex flex-col sm:flex-row sm:justify-center items-center gap-5">
-              <a
-                href={PHONE_HREF}
-                className="inline-flex items-center justify-center bg-ink text-paper text-[12px] uppercase tracking-label px-10 py-4 rounded-[4px] transition-transform transition-colors hover:bg-ink/85 active:scale-[0.98]"
+            <div className="mt-6">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center bg-ink text-paper text-[12px] uppercase tracking-label px-9 py-3 rounded-[4px] transition-transform transition-colors hover:bg-ink/85 active:scale-[0.98]"
               >
-                Call to Book
-              </a>
-              <a
-                href={PHONE_HREF}
-                className="font-serif text-2xl md:text-3xl text-ink transition-colors hover:text-accent"
-              >
-                {PHONE}
-              </a>
-            </div>
-            <p className="mt-8 text-[13px] uppercase tracking-label text-ink-soft">
-              <Link href="/contact" className="text-ink border-b border-ink/40 pb-0.5 hover:border-ink">
-                Send a message
+                Book Now
               </Link>
-            </p>
+            </div>
           </Reveal>
         </div>
       </section>

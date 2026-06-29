@@ -45,7 +45,7 @@ export default function ContactPage() {
       <Nav />
 
       <section className="bg-paper">
-        <div className="max-w-shell mx-auto px-5 sm:px-8 pt-20 md:pt-28 pb-10 md:pb-14">
+        <div className="max-w-shell mx-auto px-5 sm:px-8 pt-10 md:pt-12 pb-6 md:pb-8">
           <Reveal className="max-w-3xl">
             <h1 className="font-serif text-4xl md:text-6xl leading-[1.08] tracking-[-0.01em] text-ink">
               Contact Us

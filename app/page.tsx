@@ -48,7 +48,7 @@ export default function HomePage() {
 
       {/* ALTERNATING PHOTO + TEXT */}
       <section className="bg-paper-2 border-y border-line">
-        <div className="max-w-shell mx-auto px-5 sm:px-8 py-24 md:py-32">
+        <div className="max-w-shell mx-auto px-5 sm:px-8 py-14 md:py-20">
           <SectionHeader
             title="A Closer Look"
             intro="Three spaces that set the tone for the day, from the shaded palapa to the pool and the open lawn."
@@ -67,7 +67,7 @@ export default function HomePage() {
 
       {/* AMENITIES */}
       <section className="bg-paper">
-        <div className="max-w-shell mx-auto px-5 sm:px-8 py-24 md:py-32">
+        <div className="max-w-shell mx-auto px-5 sm:px-8 py-14 md:py-20">
           <SectionHeader
             title="Amenities"
             intro="Everything you need on site, so you can focus on the celebration and not the logistics."
@@ -99,7 +99,7 @@ export default function HomePage() {
 
       {/* EVENTS WE HOST */}
       <section className="bg-paper-2 border-y border-line">
-        <div className="max-w-shell mx-auto px-5 sm:px-8 py-24 md:py-32">
+        <div className="max-w-shell mx-auto px-5 sm:px-8 py-14 md:py-20">
           <SectionHeader
             title="Events We Host"
             intro="From milestone parties to quiet family gatherings, the grounds adapt to the day you have in mind."
@@ -122,30 +122,30 @@ export default function HomePage() {
 
       {/* CLOSING CTA */}
       <section className="bg-paper">
-        <div className="max-w-shell mx-auto px-5 sm:px-8 py-24 md:py-32 text-center">
+        <div className="max-w-shell mx-auto px-5 sm:px-8 py-12 md:py-16 text-center">
           <Reveal className="max-w-2xl mx-auto">
-            <h2 className="font-serif text-3xl md:text-5xl leading-[1.12] tracking-[-0.01em] text-ink">
+            <h2 className="font-serif text-2xl md:text-5xl leading-[1.15] tracking-[-0.01em] text-ink">
               Plan your celebration at Sunflower Ranch.
             </h2>
-            <p className="mt-6 text-ink-muted text-lg leading-relaxed">
+            <p className="mt-3 md:mt-4 text-ink-muted text-base md:text-lg leading-relaxed">
               Booking is handled by phone. Call us to check your date and walk
               through the details.
             </p>
-            <div className="mt-9 flex flex-col sm:flex-row sm:justify-center items-center gap-5">
+            <div className="mt-6 md:mt-7 flex flex-col sm:flex-row sm:justify-center items-center gap-4 sm:gap-6">
               <a
                 href={PHONE_HREF}
-                className="inline-flex items-center justify-center bg-ink text-paper text-[12px] uppercase tracking-label px-10 py-4 rounded-[4px] transition-transform transition-colors hover:bg-ink/85 active:scale-[0.98]"
+                className="inline-flex w-full sm:w-auto items-center justify-center bg-ink text-paper text-[12px] uppercase tracking-label px-9 py-3 rounded-[4px] transition-transform transition-colors hover:bg-ink/85 active:scale-[0.98]"
               >
                 Call to Book
               </a>
               <a
                 href={PHONE_HREF}
-                className="font-serif text-2xl md:text-3xl text-ink transition-colors hover:text-accent"
+                className="font-serif text-2xl md:text-3xl leading-none text-ink transition-colors hover:text-accent"
               >
                 {PHONE}
               </a>
             </div>
-            <p className="mt-8 text-[13px] uppercase tracking-label text-ink-soft">
+            <p className="mt-5 text-[13px] uppercase tracking-label text-ink-soft">
               Prefer to write?{" "}
               <Link href="/contact" className="text-ink border-b border-ink/40 pb-0.5 hover:border-ink">
                 Send a message

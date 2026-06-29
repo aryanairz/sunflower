@@ -51,10 +51,10 @@ export const amenities: Amenity[] = [
     alt: "The shaded palapa at Sunflower Ranch",
   },
   {
-    title: "Spacious Grounds",
-    body: "Room for guests, music, and movement, with space to make the day your own.",
-    image: "/Images/marriage.jpg",
-    alt: "A celebration on the open grounds at Sunflower Ranch",
+    title: "Bedrooms",
+    body: "Furnished bedrooms on site to relax, get ready, or stay the night.",
+    image: "/Images/bedroom.jpg",
+    alt: "A furnished bedroom at Sunflower Ranch",
   },
   {
     title: "Tables & Chairs Included",
@@ -107,4 +107,8 @@ export const galleryPhotos: GalleryPhoto[] = [
   { src: "/Images/horse.jpg", alt: "A horse on the grounds at Sunflower Ranch" },
   { src: "/Images/fun.jpg", alt: "Guests having fun at a celebration at Sunflower Ranch" },
   { src: "/Images/fun12.jpg", alt: "Guests enjoying an event at Sunflower Ranch" },
+  { src: "/Images/party.jpg", alt: "A party in full swing at Sunflower Ranch" },
+  { src: "/Images/bedroom.jpg", alt: "A furnished bedroom at Sunflower Ranch" },
+  { src: "/Images/bedroom2.jpg", alt: "A second bedroom at Sunflower Ranch" },
+  { src: "/Images/bedroom3.jpg", alt: "A third bedroom at Sunflower Ranch" },
 ];
